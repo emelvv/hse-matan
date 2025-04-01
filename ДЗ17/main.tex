@@ -1,0 +1,401 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\newcommand{\p}{\partial}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 24.02 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]$f(x, y) = \case{
+        \f{-7x^3y+5xy^3}{x^2+y^2}, & \text{ при } (x, y) \neq 0\\
+        0, & \text{ при } (x, y) = 0
+    }$
+    $$\f{\p^2 f}{\p x \p y}(0, 0) = \f{\p}{\p x}\left(\f{\p f(x, y)}{\p y}\right)(0, 0)$$
+    Найдём $\f{\p f(x, y)}{\p y}$ при $(x, y) \neq 0$:
+    $$\f{\p f(x, y)}{\p y} = \dfrac{x\,\left(5\,{y}^{4}+22\,{x}^{2}\,{y}^{2}-7\,{x}^{4}\right)}{{y}^{4}+2\,{x}^{2}\,{y}^{2}+{x}^{4}}$$
+    Найдём $\f{\p f(x, y)}{\p y}$ при $(x, y) = 0$:
+    $$\lm{t \to 0}\f{f((0, 0) + (0, 1)t) - f(0, 0)}{t} = \f{f(0, t) - f(0, 0)}{t} = \f{f(0, t)}{t} =0$$
+    Найдём $\f{\p^2 f}{\p x \p y}(0, 0)$
+    $$\f{\p^2 f}{\p x \p y}(0, 0) =
+     \lm{t \to 0} \l \f{\f{\p f}{\p y} ((0, 0) + (1, 0)t) - \f{\p f}{\p y}(0, 0)}{t}\r = \lm{t \to 0} \l \f{\f{\p f}{\p y} (t, 0)}{t}\r = $$
+     $$=\lm{t \to 0} \l \dfrac{-7{t}^{5}}{{t}^{5}}\r = -7$$
+
+    Найдём $\f{\p^2 f}{\p y \p x}(0, 0)$
+    $$\f{\p^2 f}{\p y \p x}(0, 0) =\f{\p}{\p y}\l\f{\p f}{\p x}(x, y)\r(0, 0) $$
+    Найдём $\f{\p f(x, y)}{\p x}$ при $(x, y) \neq 0$:
+    \[
+    \frac{\partial f}{\partial x} = \frac{(-21x^2y + 5y^3)(x^2 + y^2) - (-7x^3y + 5xy^3)(2x)}{(x^2 + y^2)^2}=
+    \]
+    \[
+    =\frac{-7x^4y - 26x^2y^3 + 5y^5}{(x^2 + y^2)^2}
+    \]
+    Найдём $\f{\p f(x, y)}{\p x}$ при $(x, y) = 0$:
+    \[
+    \frac{\partial f}{\partial x}(0, 0) = \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = \lim_{t \to 0} \frac{0 - 0}{t} = 0
+    \]
+    Найдём $\f{\p^2 f}{\p y \p x}(0, 0)$
+    \[
+    \frac{\partial^2 f}{\partial y \partial x}(0, 0) = \lim_{k \to 0} \frac{\frac{\partial f}{\partial x}(0, k) - \frac{\partial f}{\partial x}(0, 0)}{k}=
+    \]
+    $$=\lim_{k \to 0} \frac{5k - 0}{k} = \lim_{k \to 0} 5 = 5$$
+    \textbf{Ответ:} $-7$ и $5$\\
+
+    \item[\textbf{№2}]$f(x, y) = \case{
+        \exp(-\f{x^2}{y^2}-\f{y^2}{x^2}), & \text{ при } xy \neq 0\\
+        0, & \text{ при } xy = 0
+    }$
+    \begin{enumerate}
+        \item[(a)]Найдём $\frac{\partial f}{\partial y}(0,0)$:
+        \[
+        \frac{\partial f}{\partial y}(0,0) = \lim_{t \to 0} \frac{f(0, t) - f(0, 0)}{t} = \lim_{t \to 0} \frac{0 - 0}{t} = 0
+        \]
+        Найдём $\frac{\partial^2 f}{\partial x \partial y}(0,0)$:
+        \[
+        \frac{\partial^2 f}{\partial x \partial y}(0,0) = \lim_{h \to 0} \frac{\frac{\partial f}{\partial y}(h, 0) - \frac{\partial f}{\partial y}(0, 0)}{h}
+        \]
+        Для \(h \neq 0\):
+        \[
+        \frac{\partial f}{\partial y}(h, 0) = \lim_{k \to 0} \frac{f(h, k) - f(h, 0)}{k} = \lim_{k \to 0} \frac{\exp\left(-\frac{h^2}{k^2} - \frac{k^2}{h^2}\right) - 0}{k} = 0
+        \]
+        Следовательно:
+        \[
+        \frac{\partial^2 f}{\partial x \partial y}(0,0) = \lim_{h \to 0} \frac{0 - 0}{h} = 0
+        \]
+        Найдём $\frac{\partial f}{\partial x}(0,0)$:
+        \[
+        \frac{\partial f}{\partial x}(0,0) = \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = \lim_{t \to 0} \frac{0 - 0}{t} = 0
+        \]
+        Найдём $\frac{\partial^2 f}{\partial y \partial x}(0,0)$:
+        \[
+        \frac{\partial^2 f}{\partial y \partial x}(0,0) = \lim_{k \to 0} \frac{\frac{\partial f}{\partial x}(0, k) - \frac{\partial f}{\partial x}(0, 0)}{k}
+        \]
+        Для \(k \neq 0\):
+        \[
+        \frac{\partial f}{\partial x}(0, k) = \lim_{h \to 0} \frac{f(h, k) - f(0, k)}{h} = \lim_{h \to 0} \frac{\exp\left(-\frac{h^2}{k^2} - \frac{k^2}{h^2}\right) - 0}{h} = 0
+        \]
+        Следовательно:
+        \[
+        \frac{\partial^2 f}{\partial y \partial x}(0,0) = \lim_{k \to 0} \frac{0 - 0}{k} = 0
+        \]
+        \textbf{Ответ: }$0$ и $0$\\
+
+        \item[(b)] Для доказательства разрыва функции $f$ в точке $(0,0)$ покажем, что предел $\lim_{(x,y) \to (0,0)} f(x,y)$ не существует или не равен $f(0,0) = 0$. Рассмотрим два различных пути приближения к $(0,0)$:
+        \begin{enumerate}
+            \item[1)] Пусть $y = kx$, где $k \neq 0$. Тогда при $x \neq 0$:
+                \[
+                f(x, kx) = \exp\left(-\frac{x^2}{(kx)^2} - \frac{(kx)^2}{x^2}\right) = \exp\left(-\frac{1}{k^2} - k^2\right).
+                \]
+                При $x \to 0$ получаем:
+                \[
+                \lim_{x \to 0} f(x, kx) = \exp\left(-\frac{1}{k^2} - k^2\right) \neq 0 \quad \text{для любого } k \neq 0.
+                \]
+
+            \item[2)] Пусть $y = x$. Тогда:
+                \[
+                f(x, x) = \exp\left(-\frac{x^2}{x^2} - \frac{x^2}{x^2}\right) = \exp(-1 - 1) = e^{-2} \neq 0.
+                \]
+                Следовательно:
+                \[
+                \lim_{x \to 0} f(x, x) = e^{-2} \neq 0.
+                \]
+        \end{enumerate}
+
+        Поскольку пределы вдоль различных путей не совпадают с $f(0,0) = 0$ и между собой, общий предел $\lim_{(x,y) \to (0,0)} f(x,y)$ не существует. Таким образом, функция $f$ разрывна в точке $(0,0)$.\\
+
+    \end{enumerate}
+    
+
+    \item[\textbf{№3}]
+    \begin{enumerate}
+        \item[(a)]Функция \( f(x, y) = 5 + x^2 y + x e^{3y^2}\)
+
+        Найдем вторые частные производные функции \( f \) в точке \((1, -1)\):
+        Первые производные:
+        \[
+        \frac{\partial f}{\partial x} = 2xy + e^{3y^2}, \quad \frac{\partial f}{\partial y} = x^2 + 6xy e^{3y^2}
+        \]
+        Вторые производные:
+        \[
+        \frac{\partial^2 f}{\partial x^2} = 2y, \quad \frac{\partial^2 f}{\partial x \partial y} = 2x + 6y e^{3y^2}, \quad \frac{\partial^2 f}{\partial y^2} = 6x e^{3y^2}(1 + 6y^2)
+        \]
+        Вычисление в точке \((1, -1)\):
+        \[
+        \frac{\partial^2 f}{\partial x^2}\bigg|_{(1, -1)} = -2, \quad \frac{\partial^2 f}{\partial x \partial y}\bigg|_{(1, -1)} = 2 - 6e^3, \quad \frac{\partial^2 f}{\partial y^2}\bigg|_{(1, -1)} = 42e^3
+        \]    
+        Матрица Гессе:
+        \[
+        H = \begin{bmatrix}
+        -2 & 2 - 6e^3 \\
+        2 - 6e^3 & 42e^3
+        \end{bmatrix}
+        \] 
+        Второй дифференциал:
+        \[
+        \mathrm{d}^2 f(\overline{a}, \overline{h}) = 
+        -2 h_1^2 + 2(2 - 6e^3) h_1 h_2 + 42e^3 h_2^2 = 
+        -2 h_1^2 + (4 - 12e^3) h_1 h_2 + 42e^3 h_2^2
+        \]
+
+        \item[(b)]Функция \( f(x, y, z) = x - 2xz + x^2z - z^2 \), точка \(\overline{a} = (-1, 2, 1)\)
+        Найдем вторые частные производные функции \( f \) в точке \((-1, 2, 1)\):
+        
+        Первые производные:
+        \[
+        \frac{\partial f}{\partial x} = 1 - 2z + 2xz, \quad \frac{\partial f}{\partial y} = 0, \quad \frac{\partial f}{\partial z} = -2x + x^2 - 2z
+        \]
+        Вторые производные:
+        \[
+        \frac{\partial^2 f}{\partial x^2} = 2z, \quad \frac{\partial^2 f}{\partial x \partial z} = -2 + 2x, \quad \frac{\partial^2 f}{\partial z^2} = -2
+        \]
+        Остальные вторые производные равны нулю.
+
+        Вычисление в точке \((-1, 2, 1)\):
+        \[
+        \frac{\partial^2 f}{\partial x^2}\bigg|_{(-1, 2, 1)} = 2, \quad \frac{\partial^2 f}{\partial x \partial z}\bigg|_{(-1, 2, 1)} = -4, \quad \frac{\partial^2 f}{\partial z^2}\bigg|_{(-1, 2, 1)} = -2
+        \]
+        Матрица Гессе:
+        \[
+        H = \begin{bmatrix}
+        2 & 0 & -4 \\
+        0 & 0 & 0 \\
+        -4 & 0 & -2
+        \end{bmatrix}
+        \]
+        Второй дифференциал:
+        \[
+        \mathrm{d}^2 f(\overline{a}, \overline{h}) = 2 h_1^2 - 8 h_1 h_3 - 2 h_3^2 =
+        2 h_1^2 - 8 h_1 h_3 - 2 h_3^2
+        \]
+         
+    \end{enumerate}
+    
+    \item[\textbf{№4}]
+    \begin{enumerate}
+        \item[(a)]
+        Первый дифференциал \( \mathrm{d}\varphi \)
+    
+        Функция \( \varphi = g \circ f \), где \( f(x, y) = (u, v, w) = (xy^3, x^2 + 5y^2, x^2y) \). По цепному правилу:
+        
+        \[
+        \mathrm{d}\varphi = g'_u \mathrm{d}u + g'_v \mathrm{d}v + g'_w \mathrm{d}w
+        \]
+        
+        Вычисляем дифференциалы \( \mathrm{d}u, \mathrm{d}v, \mathrm{d}w \):
+        \[
+        \begin{aligned}
+        \mathrm{d}u &= y^3 \mathrm{d}x + 3xy^2 \mathrm{d}y, \\
+        \mathrm{d}v &= 2x \mathrm{d}x + 10y \mathrm{d}y, \\
+        \mathrm{d}w &= 2xy \mathrm{d}x + x^2 \mathrm{d}y.
+        \end{aligned}
+        \]
+        Подставляя в выражение для \( \mathrm{d}\varphi \):
+        \[
+        \mathrm{d}\varphi = g'_u (y^3 \mathrm{d}x + 3xy^2 \mathrm{d}y) + g'_v (2x \mathrm{d}x + 10y \mathrm{d}y) + g'_w (2xy \mathrm{d}x + x^2 \mathrm{d}y).
+        \]
+        Группируя по \( \mathrm{d}x \) и \( \mathrm{d}y \):
+        \[
+        \mathrm{d}\varphi = \left( g'_u y^3 + g'_v 2x + g'_w 2xy \right) \mathrm{d}x + \left( g'_u 3xy^2 + g'_v 10y + g'_w x^2 \right) \mathrm{d}y.
+        \]
+        Ответ:
+        \[
+        \mathrm{d}\varphi = \left( y^3 g'_u + 2x g'_v + 2xy g'_w \right) \mathrm{d}x + \left( 3xy^2 g'_u + 10y g'_v + x^2 g'_w \right) \mathrm{d}y.
+        \]
+
+        \item[(b)]Второй дифференциал \( \mathrm{d}^2\varphi \)
+
+        Второй дифференциал вычисляется по формуле:
+        
+        \[
+        \mathrm{d}^2\varphi = \left( \frac{\partial^2 \varphi}{\partial x^2} \right) (\mathrm{d}x)^2 + 2 \left( \frac{\partial^2 \varphi}{\partial x \partial y} \right) \mathrm{d}x \mathrm{d}y + \left( \frac{\partial^2 \varphi}{\partial y^2} \right) (\mathrm{d}y)^2.
+        \]
+        
+        Используя цепное правило для вторых производных и учитывая симметричность смешанных производных, получаем:
+        
+        \[
+        \mathrm{d}^2\varphi = \mathrm{d}(\mathrm{d}\varphi) = \mathrm{d}\left( g'_u \mathrm{d}u + g'_v \mathrm{d}v + g'_w \mathrm{d}w \right).
+        \]
+        
+        Раскрывая дифференциал:
+        
+        \[
+        \mathrm{d}^2\varphi = \left( g''_{uu} (\mathrm{d}u)^2 + 2g''_{uv} \mathrm{d}u \mathrm{d}v + 2g''_{uw} \mathrm{d}u \mathrm{d}w + g''_{vv} (\mathrm{d}v)^2 + 2g''_{vw} \mathrm{d}v \mathrm{d}w + g''_{ww} (\mathrm{d}w)^2 \right)+\]
+        \[ + g'_u \mathrm{d}^2u + g'_v \mathrm{d}^2v + g'_w \mathrm{d}^2w 
+        \]
+        
+        Вычисляем вторые дифференциалы \( \mathrm{d}^2u, \mathrm{d}^2v, \mathrm{d}^2w \):
+        
+        \[
+        \begin{aligned}
+        \mathrm{d}^2u &= 6y^2 \mathrm{d}x \mathrm{d}y + 6xy (\mathrm{d}y)^2, \\
+        \mathrm{d}^2v &= 2 (\mathrm{d}x)^2 + 10 (\mathrm{d}y)^2, \\
+        \mathrm{d}^2w &= 2y (\mathrm{d}x)^2 + 4x \mathrm{d}x \mathrm{d}y.
+        \end{aligned}
+        \]
+        
+        Подставляя всё в выражение для \( \mathrm{d}^2\varphi \):
+        
+        \[
+        \mathrm{d}^2\varphi = \Big[ g''_{uu} (y^3 \mathrm{d}x + 3xy^2 \mathrm{d}y)^2 + \]
+        \[2g''_{uv} (y^3 \mathrm{d}x + 3xy^2 \mathrm{d}y)(2x \mathrm{d}x + 10y \mathrm{d}y) \]
+        \[+ 2g''_{uw} (y^3 \mathrm{d}x + 3xy^2 \mathrm{d}y)(2xy \mathrm{d}x + x^2 \mathrm{d}y) 
+        + g''_{vv} (2x \mathrm{d}x + 10y \mathrm{d}y)^2 + 2g''_{vw} (2x \mathrm{d}x + \]\[10y \mathrm{d}y)(2xy \mathrm{d}x + x^2 \mathrm{d}y) + \]
+        \[g''_{ww} (2xy \mathrm{d}x + x^2 \mathrm{d}y)^2 \Big] + g'_u (6y^2 \mathrm{d}x \mathrm{d}y + 6xy (\mathrm{d}y)^2) + g'_v (2 (\mathrm{d}x)^2 + 10 (\mathrm{d}y)^2) +\]\[ g'_w (2y (\mathrm{d}x)^2 + 4x \mathrm{d}x \mathrm{d}y).
+        \]
+        
+        Ответ:
+        
+        \[
+        \mathrm{d}^2\varphi = \left( \mathbf{h}^T \cdot H_g \cdot \mathbf{h} \right) + g'_u \mathrm{d}^2u + g'_v \mathrm{d}^2v + g'_w \mathrm{d}^2w,
+        \]
+        где \( \mathbf{h} = (\mathrm{d}u, \mathrm{d}v, \mathrm{d}w)^T \), \( H_g \) — матрица Гессе функции \( g \), а \( \mathrm{d}^2u, \mathrm{d}^2v, \mathrm{d}^2w \) заданы выше.\\
+    \end{enumerate}
+
+    \item[\textbf{№5}]\begin{enumerate}
+        \item[(a)]Формула Тейлора 3-го порядка для $f(x, y) = x^3 - 2y^3 + 3xy$ в точке $(1, 2)$
+        
+        Выполним замену переменных: $x = 1 + h$, $y = 2 + k$, где $h = x - 1$, $k = y - 2$. Подставим в функцию и разложим:
+
+        \[
+        \begin{aligned}
+        f(1 + h, 2 + k) &= (1 + h)^3 - 2(2 + k)^3 + 3(1 + h)(2 + k) \\
+        &= 1 + 3h + 3h^2 + h^3 - 2(8 + 12k + 6k^2 + k^3) + 3(2 + 2h + k + hk) \\
+        &= 1 + 3h + 3h^2 + h^3 - 16 - 24k - 12k^2 - 2k^3 + 6 + 6h + 3k + 3hk \\
+        &= -9 + 9h - 21k + 3h^2 + 3hk - 12k^2 + h^3 - 2k^3.
+        \end{aligned}
+        \]
+
+        Возвращаясь к исходным переменным, получаем формулу Тейлора 3-го порядка:
+
+        \[
+        f(x, y) = -9 + 9(x - 1) - 21(y - 2) + 3(x - 1)^2 + 3(x - 1)(y - 2) - 12(y - 2)^2\]
+        \[ + (x - 1)^3 - 2(y - 2)^3
+        \]
+
+        \item[(b)]Формула Тейлора 2-го порядка для $f(x, y) = \arctan\left(x^2 y - 2e^{x-1}\right)$ в точке $(1, 3)$
+                
+        Сначала вычислим значение функции и производных в точке $(1, 3)$:
+
+        \[
+        f(1, 3) = \arctan(1) = \frac{\pi}{4}
+        \]
+
+        Обозначим $u = x^2 y - 2e^{x-1}$. Вычислим производные $u$:
+
+        \[
+        \begin{aligned}
+        u(1, 3) &= 1, \\
+        u_x(1, 3) &= 4, \quad u_y(1, 3) = 1, \\
+        u_{xx}(1, 3) &= 4, \quad u_{xy}(1, 3) = 2, \quad u_{yy}(1, 3) = 0.
+        \end{aligned}
+        \]
+
+        Производные функции $f = \arctan(u)$:
+
+        \[
+        \begin{aligned}
+        f_x &= \frac{u_x}{1 + u^2} \bigg|_{(1,3)} = 2, \quad f_y = \frac{u_y}{1 + u^2} \bigg|_{(1,3)} = \frac{1}{2}, \\
+        f_{xx} &= \frac{u_{xx}(1 + u^2) - 2u u_x^2}{(1 + u^2)^2} \bigg|_{(1,3)} = -6, \\
+        f_{xy} &= \frac{u_{xy}(1 + u^2) - 2u u_x u_y}{(1 + u^2)^2} \bigg|_{(1,3)} = -1, \\
+        f_{yy} &= \frac{u_{yy}(1 + u^2) - 2u u_y^2}{(1 + u^2)^2} \bigg|_{(1,3)} = -0.5.
+        \end{aligned}
+        \]
+
+        Формула Тейлора 2-го порядка:
+
+        \[
+        \begin{aligned}
+        f(x, y) &= \frac{\pi}{4} + 2(x - 1) + \frac{1}{2}(y - 3) \\
+        &\quad + \frac{1}{2}\left[-6(x - 1)^2 - 2(x - 1)(y - 3) - 0.5(y - 3)^2\right] + o\left((x - 1)^2 + (y - 3)^2\right).
+        \end{aligned}
+        \]
+
+        Упрощая:
+
+        \[
+        f(x, y) = \frac{\pi}{4} + 2(x - 1) + \frac{1}{2}(y - 3) - \]
+        \[3(x - 1)^2 - (x - 1)(y - 3) - \frac{1}{4}(y - 3)^2 + o\left((x - 1)^2 + (y - 3)^2\right).
+        \]
+    \end{enumerate}
+    
+    \item[\textbf{№6}]Для нахождения функции \( f(x, y) \), удовлетворяющей заданным условиям, воспользуемся методом интегрирования частных производных.
+
+    Из условия \( f'_x(x, y) = 3x^2y - 4y^2 \) интегрируем по \( x \):
+    \[
+    \int (3x^2y - 4y^2) \, dx = x^3y - 4xy^2 + C(y),
+    \]
+    где \( C(y) \) — функция, зависящая только от \( y \).
+
+    Вычислим \( f'_y(x, y) \) из полученного выражения:
+    \[
+    f'_y(x, y) = \frac{\partial}{\partial y} \left( x^3y - 4xy^2 + C(y) \right) = x^3 - 8xy + C'(y).
+    \]
+    Сравнивая с условием \( f'_y(x, y) = x^3 - 8xy + 6y \), получаем:
+    \[
+    C'(y) = 6y \quad \Rightarrow \quad C(y) = \int 6y \, dy = 3y^2 + C,
+    \]
+    где \( C \) — константа.
+
+    Подстановка \( C(y) \) в \( f(x, y) \):
+    \[
+    f(x, y) = x^3y - 4xy^2 + 3y^2 + C.
+    \]
+    Используем условие \( f(1, 1) = 5 \):
+    \[
+    1^3 \cdot 1 - 4 \cdot 1 \cdot 1^2 + 3 \cdot 1^2 + C = 5 \quad \Rightarrow \quad 1 - 4 + 3 + C = 5 \quad \Rightarrow \quad C = 5.
+    \]
+
+    \textbf{Ответ: } $f(x, y) = x^3y - 4xy^2 + 3y^2 + 5$
+
+
+\end{enumerate}
+\end{document}

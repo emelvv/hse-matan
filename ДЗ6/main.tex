@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 22.10 (Математический анализ)}
+{\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{1.}]
+    \begin{enumerate}
+        \item[(a)]
+        $\s{k=1}{\infty}\frac{2+(-1)^k\mathrm{arctan}\,k}{\sqrt[3]{k^3+1}}$
+        $$\frac{2+(-1)^k\mathrm{arctan}\,k}{\sqrt[3]{k^3+1}} \geq \frac{2-(-1)^k\frac{\pi}{2}}{\sqrt[3]{k^3+k^3}} = \frac{2-(-1)^k\frac{\pi}{2}}{k\sqrt[3]{2}} \geq $$
+        $$\geq \f{2-\f{\pi}{2}}{k\sqrt[3]{2}} = \f{2-\f{\pi}{2}}{\sqrt[3]{2}}\cdot \f{1}{k} $$
+        $$C = \f{2-\f{\pi}{2}}{\sqrt[3]{2}} > 0$$
+        Так как $\s{k=1}{\infty} \f{C}{k} = C\s{k=1}{\infty} \f{1}{k}$ - расходится (гармонический ряд), то и $\s{k=1}{\infty}\frac{2+(-1)^k\mathrm{arctan}\,k}{\sqrt[3]{k^3+1}}$ тоже расходится по признаку сравнения, так как $$\frac{2+(-1)^k\mathrm{arctan}\,k}{\sqrt[3]{k^3+1}} \geq \f{C}{k}$$
+        \textbf{Ответ: } расходится \\
+
+        \item[(b)]
+        $\s{k=2}{\infty}\f{1}{(\ln{k})^{\ln{k}}}$
+        $$\ln{k}^{\ln{k}} = e^{\ln{((\ln{k})^{\ln{k}})}} = e^{\ln{k}\ln{(\ln{k})}}  = k^{\ln{(\ln{k})}}$$
+        Узнаем когда $k^2 <k^{\ln{(\ln{k})}} $:
+        $$2 < \ln{(\ln{k})} \r e^2< \ln{k} \r e^{e^2} < k \r $$
+        $\r $ при $k \to \infty$: $k^2 < k^{\ln{(\ln{k})}} $, следовательно:
+        $$\f{1}{(\ln{k})^{\ln{k}}} = \f{1}{k^{\ln{(\ln{k})}}} < \f{1}{k^2} \text{ при } k > e^{e^2} \r$$
+        $\r$ по признаку сравнения т.к. ряд $\s{k=2}{\infty}\f{1}{k^2}$ сходится, то и $\s{k=2}{\infty}\f{1}{(\ln{k})^{\ln{k}}}$ тоже сходится\\
+        \textbf{Ответ:} сходится\\
+        
+        \item[(c)]
+        $\s{k=2}{\infty} \f{1}{k\ln{k}}$\\
+        Рассмотрим ряд: 
+        $$\s{k=2}{\infty} \f{2^k}{2^k\ln{2^k}} = \s{k=2}{\infty} \f{1}{\ln{2^k}} = \s{k=2}{\infty} \f{1}{k\ln{2}} \text{ - расходится}$$
+        Так как $\s{k=2}{\infty} \f{1}{k\ln{2}} \text{ - расходится}$ (гармонический ряд), $\s{k=2}{\infty} \f{1}{k\ln{k}}$ - не возрастает, и $\f{1}{k\ln{k}} > 0$, то по признаку Лобачевского-Коши ряд $\s{k=2}{\infty} \f{1}{k\ln{k}}$ тоже расходится\\
+        \textbf{Ответ: } расходится\\
+
+        \item[(d)]
+        $\s{k=1}{\infty}\f{2^k}{\sqrt[k]{k}}\sin{\f{1}{3^k}}$
+        $$\f{1}{3^k} \to 0 \text{ при } k \to +\infty \r \lim_{k\to \infty}\f{2^k}{\sqrt[k]{k}}\sin{\f{1}{3^k}} = \lim_{k\to \infty}\f{2^k}{\sqrt[k]{k}} \cdot  \f{1}{3^k} \text{ т.к. } \sin{\f{1}{3^k}} \sim \f{1}{3^k}  $$
+        Пусть $a_k = \f{2^k}{3^k \sqrt[k]{k}}$, а $b_k = \f{2^k}{\sqrt[k]{k}} \r $
+        $$\r \f{a_k}{b_k} = \f{1}{3^k}\r 0 <\f{1}{3^k} \leq \f{1}{3} \r $$
+        $\r$ $\s{k=1}{\infty}a_k$ и  $\s{k=1}{\infty}b_k$ эквивалентны по сходимости по факту 2.\\
+        Следовательно, так как $\s{k=1}{\infty}\f{2^k}{\sqrt[k]{k}}$ - расходится ($2^k \to \infty$, $\sqrt[k]{k} \to 1$), то и $\s{k=1}{\infty}\f{2^k}{3^k \sqrt[k]{k}}$ тоже расходится,
+        следовательно, и  $\s{k=1}{\infty}\f{2^k}{\sqrt[k]{k}}\sin{\f{1}{3^k}}$ - расходится.\\
+        \textbf{Ответ: } расходится\\
+
+        \item[(e)]$\s{k=1}{\infty}\f{(k!)^2}{(2k)!}$\\
+        Пусть $a_k = \f{(k!)^2}{(2k)!}$, тогда рассмотрим:
+        $$\lim_{k \to \infty}\f{a_{k+1}}{a_k} = \lim_{k \to \infty}\f{((k+1)!)^2 (2k)!}{(k!)^2 (2k+2)!} = \lim_{k \to \infty}\f{(k+1)^2}{(2k+2)(2k+1)} = $$ 
+        $$= \lim_{k \to \infty}\f{k+1}{4k+2} = \lim_{k \to \infty}\f{1+\f{1}{k}}{4+\f{2}{k}} = \f{1}{4}$$
+        $$\lim_{k \to \infty}\f{a_{k+1}}{a_k} = \overline{\lim_{k \to \infty}}\f{a_{k+1}}{a_k} = \lim_{\overline{k \to \infty}}\f{a_{k+1}}{a_k} = \f{1}{4} \r$$
+        $\r $ по факту 4 ряд $\s{k=1}{\infty}\f{(k!)^2}{(2k)!}$ сходится\\
+        \textbf{Ответ: } сходится\\
+
+        \item[(f)]$\s{k=1}{\infty}k^a b^k, \ts a, b \in \RR, \ts b>0$\\
+        Пусть $c_k = k^a b^k$, рассмотрим при $b \neq 1$:
+        $$\lim_{k \to \infty} \sqrt[k]{c_k} = \lim_{k \to \infty} \sqrt[k]{ k^a b^k} = \lim_{k \to \infty} b \cdot \sqrt[k]{ k^a} =b$$
+        Следовательно, по факту 3 ряд $\s{k=1}{\infty}k^a b^k$ сходится при $b<1$ и расходится при $b>1$.\\
+        При $b=1$:
+        $$\s{k=1}{\infty}k^a b^k = \s{k=1}{\infty}k^a = \s{k=1}{\infty}\f{1}{k^{-a}} \r $$
+        $\r $ ряд сходится при $-a > 1 \r a < -1$ и расходится при $-a \leq 1 \r a \geq -1$\\
+        \textbf{Ответ: } $\case{
+            \text{при $b < 1, a \in R$ - сходится} \\
+            \text{при $b > 1, a \in R$ - расходится} \\
+            \text{при $b = 1, a < -1 $ - сходится} \\
+            \text{при $b = 1, a \geq -1 $ - сходится} \\
+        }$\\
+
+        \item[(g)]$\s{k=1}{\infty}\f{k^{42}(\sqrt{2}+(-1)^k)^k}{3^k}$\\
+        Пусть $a_k = \f{k^{42}(\sqrt{2}+(-1)^k)^k}{3^k}$, рассмотрим:
+        $$\lim_{k \to \infty} \sqrt[k]{a_k} = \lim_{k \to \infty} \sqrt[k]{\f{k^{42}(\sqrt{2}+(-1)^k)^k}{3^k}} = \lim_{k \to \infty} \f{\sqrt{2}+(-1)^k}{3}\sqrt[k]{k^{42}} \r $$
+        $$\r\case{
+            \suplm{k \to \infty} \f{\sqrt{2}+1}{3}\sqrt[k]{k^{42}} = \f{\sqrt{2}+1}{3} < 1\\
+            \inflm{k \to \infty} \f{\sqrt{2}-1}{3}\sqrt[k]{k^{42}} = \f{\sqrt{2}-1}{3} < 1
+        } \r $$
+        $\r$ по факту 3 ряд $\s{k=1}{\infty}\f{k^{42}(\sqrt{2}+(-1)^k)^k}{3^k}$ сходится\\
+        \textbf{Ответ: } сходится\\
+
+        \item[(h)]$\s{k=1}{\infty} \f{k!}{(a+1)(a+2)\dots(a+k)}, \ts a \in \RR, \ts a > 0$\\
+        Пусть $b_k = \f{k!}{(a+1)(a+2)\dots(a+k)}$, рассмотрим:
+        $$B = \lm{k \to \infty}\ln{k}(k(\f{b_k}{b_{k+1}} - 1) - 1)=$$
+        $$= \lm{k \to \infty}\ln{k}(k(\f{k!(a+1)(a+2)\dots(a+k+1)}{(a+1)(a+2)\dots(a+k)(k+1)!} - 1) - 1) = $$
+        $$ = \lm{k \to \infty}\ln{k}(k(\f{a+k+1}{k+1} - 1) - 1) = \lm{k \to \infty}\ln{k}(\f{ak}{k+1} - 1) = $$
+        $$ = \lm{k \to \infty}\ln{k}(\f{ak- k - 1}{k+1}) = \lm{k \to \infty}\f{(ak- k - 1)\ln{k}}{k+1} = $$
+        $$= \lm{k \to \infty}\f{(a- 1 - \f{1}{k})\ln{k}}{1+\f{1}{k}} = \lm{k \to \infty}(a- 1)\ln{k}$$
+        Получилось, что при $a = 1: B = 0$, а при $a \neq 1: B = +\infty$, следовательно, по факту 5, ряд сходится при $a \neq 1$ и расходится при $a = 1$.\\
+        \textbf{Ответ: } $\case{ a = 1: \text{ расходится} \\ a \neq 1: \text{ сходится}}$\\
+    \end{enumerate}
+    
+    \item[\textbf{2.}]Пусть $a_k = \f{(-1)^k}{\sqrt[3]{k}}$, тогда $b_k = \f{1}{\sqrt[3]{k}}$, рассмотрим:
+    $$\f{b_{k}}{b_{k+1}} = \f{\sqrt[3]{k+1}}{\sqrt[3]{k}} = \sqrt[3]{\f{k+1}{k}} = \sqrt[3]{1+\f{1}{k}} \geq 1 \r $$
+    $$\r k_{n} \geq b_{k+1} \r b_k \text{ - не возрастает}$$
+    Так как $b_k \to 0$ и $b_k$ не возрастает, то по признаку Лейбница ряд $\s{k=1}{\infty}a_k = \s{k=1}{\infty}\f{(-1)^k}{\sqrt[3]{k}}$ сходится\\
+    Рассмотрим ряд $\s{k=1}{\infty}(a_k)^3$:
+    $$\s{k=1}{\infty}(a_k)^3 = \s{k=1}{\infty}\f{(-1)^{3k}}{k} - \text{расходится (гармонический ряд)}$$
+\end{enumerate}
+\end{document}

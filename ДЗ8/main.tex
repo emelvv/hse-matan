@@ -1,0 +1,249 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz,amstext}
+
+\newlength{\tempheight}
+\newcommand{\Let}[0]{%
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);%
+}}}}
+
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 12.11 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{1.}]
+    \begin{enumerate}
+        \item[\textbf{(a)}]$f \in \oo(f)$, при $x \to a \r$
+        $$\r \exists \gamma : \case{f(x) = \gamma(x)f(x) \\ \gamma(x) \to 0} $$
+        Пусть $f(x) = 2^x \r \gamma(x) = \f{f(x)}{f(x)} = 1\text{ (т.к. } f(x) \neq 0 \text{) }\r$
+        $$\r \case{\gamma(x) = 1 \\ \gamma(x) \to 0} \varnothing$$
+        \textbf{Ответ:} неверно\\
+        
+        \item[\textbf{(b)}]$f \in \OO(f)$, при $x \to a$
+        $$\r \exists \gamma : \case{
+            f(x) =\gamma(x)f(x)\\
+            \gamma(x) \in \mathring{U}(a)
+        }$$
+        Пусть $f(x) = 2^x$ и $a = 1$
+        $$\Let \exists \gamma : \case{
+            2^x =\gamma(x)2^x \r \gamma(x) = 0\\
+            \gamma(x) \in \mathring{U}(0) \r \gamma(x) \neq 0
+        } \varnothing$$
+        \textbf{Ответ:} неверно\\
+
+        \item[\textbf{(c)}]$f \cdot \oo(g) = \oo(f \cdot g)$, при $x \to a$
+        $$h \in (f \cdot \oo(g)) \r \exists \gamma(x) : \case{
+            h(x) = f(x)\gamma(x) g(x) \\
+            \gamma(x) \to 0
+        }\r$$
+        $$\r \case{
+            h(x) = \gamma(x) f(x) g(x) \\
+            \gamma(x) \to 0
+        } \r h(x) \in \oo(f \cdot g) \text{ по опр.}$$
+        \textbf{Ответ:} верно\\
+
+        \item[\textbf{(d)}]$\OO(\oo(f)) = \OO(f)$, при $x \to a$
+        $$g(x) \in (\OO(\oo(f))) \r \exists h \exists \gamma_1 : \case{
+            h(x) \in \oo(f)\\
+            g(x) = \gamma_1(x)h(x) \\
+            \gamma_1(x) \in \mathring{U}(a)
+        }\r $$
+        $$\r \exists h, \gamma_1, \gamma_2 : \case{
+            h(x) = \gamma_2(x)f(x)\\
+            \gamma_2(x) \to 0 \\
+            g(x) = \gamma_1(x)h(x) \\
+            \gamma_1(x) \in \mathring{U}(a)
+        }\r \exists \gamma_1, \gamma_2 : \case{
+            g(x) = \gamma_1(x)\gamma_2(x)f(x) \\
+            \gamma_2(x) \to 0 \\
+            \gamma_1(x) \in \mathring{U}(a)
+        } \r$$
+        $$\r \exists \gamma_3 : \case{
+            g(x) = \gamma_3f(x) \\
+            \gamma_3 = \gamma_2(x)\gamma_1(x) \to 0 \\
+        } \r g(x) \in \oo \text{ по опр.}\r g(x) \in \OO$$
+        \textbf{Ответ:} верно \\
+
+        \item[\textbf{(e)}]$\oo(f) + \OO(f) = \oo(f)$, при $x \to a$
+        $$g(x) \in (\oo(f)+ \OO(f)) \r \exists h_1, h_2, \gamma_1, \gamma_2 : \case{
+            h_1(x) = \gamma_1(x)f(x)\\
+            \gamma_1(x) \to 0\\
+            h_2(x) = \gamma_2(x)f(x)\\
+            \gamma_2(x) \in \mathring{U}(a)\\
+            g(x) = h_1(x)+h_2(x)
+        }\r$$
+        $$\r \exists \gamma_1, \gamma_2 : \case{
+            \gamma_1(x) \to 0\\
+            \gamma_2(x) \in \mathring{U}(a)\\
+            g(x) = \gamma_1(x)f(x) + \gamma_2(x)f(x) 
+        }\r $$
+        $$ \r \exists \gamma_1, \gamma_2 : \case{
+            \gamma_1(x) \to 0\\
+            \gamma_2(x) \in \mathring{U}(a)\\
+            g(x) = (\gamma_1(x) + \gamma_2(x))f(x)
+        }\r$$
+        $$ \r \exists \gamma_3,\gamma_1, \gamma_2 : \case{
+            \gamma_3(x) = \gamma_1(x) + \gamma_2(x) \to \gamma_2(x) \in \mathring{U}(a)\\
+            \gamma_1(x) \to 0\\
+            \gamma_2(x) \in \mathring{U}(a)\\
+            g(x) = \gamma_3(x)f(x)
+        } \r$$
+        $$\r \exists \gamma_3 : \case{
+            \gamma_3(x) \in \mathring{U}(a)\\
+            g(x) = \gamma_3(x)f(x)
+        } \r g(x) \in \OO(f) \r \text{ не всегда } g(x) \notin \oo(f)$$
+        Пусть $f(x) = 2^x$, $g(x) = x$ $\r$ $g(x) \in \OO(f)$, так как $\f{x}{2^x} \in \mathring{U}(a)$, но $\lm{x \to a}\f{x}{2^x} \neq 0 \r g(x) \notin \oo(a)$\\
+        \textbf{Ответ: } неверно
+
+        \item[\textbf{(f)}]$\oo(f + \OO(f)) = \oo(f)$, при $x \to a$
+        $$g \in \oo(f + \OO(f)) \r \exists \gamma_1 : \case{
+            g = \gamma_1 \cdot (f + \OO(f))\\
+            \gamma_1 \to 0
+        }\r$$$$\r \exists \gamma_1 : \case{
+            g = \gamma_1\cdot f + \gamma_1 \cdot \OO(f)\\
+            \gamma_1 \to 0
+        }\r \exists \gamma_1, \gamma_2 : \case{
+            g = \gamma_1\cdot f + \gamma_1 \cdot \gamma_2 \cdot f\\
+            \gamma_2 \in \mathring{U}(a)\\
+            \gamma_1 \to 0
+        } \r$$
+        $$\r \exists \gamma_1, \gamma_2 : \case{
+            g = (\gamma_1  + \gamma_1 \cdot \gamma_2)f\\
+            \gamma_2 \in \mathring{U}(a)\\
+            \gamma_1 \to 0
+        } \r \exists \gamma_1, \gamma_2, \gamma_3 : \case{
+            g = \gamma_3 \cdot f\\
+            \gamma_3 = \gamma_1  + \gamma_1 \cdot \gamma_2 \to 0\\
+            \gamma_2 \in \mathring{U}(a)\\
+            \gamma_1 \to 0
+        } \r$$
+        $$\r g \in \oo(f)$$
+        \textbf{Ответ: } верно
+
+        \item[\textbf{(g)}]$ \oo(f) + \oo(g) = \oo(f + g)$ при $x \to a$
+        $$h \in \oo(f) + \oo(g) \r \exists \gamma_1, \gamma_2 : \case{
+            h = \gamma_1 \cdot f + \gamma_2 \cdot g\\
+            \gamma_1 \to 0\\
+            \gamma_2 \to 0
+        }\r$$$$\r \exists \gamma_1, \gamma_2 : \case{
+            h = \gamma_1 \cdot f + \gamma_2 \cdot g\\
+            \gamma_1 \to 0\\
+            \gamma_2 \to 0
+        }\r \exists \gamma_1, \gamma_2, \gamma_3 : \case{
+            h = \gamma_3 \cdot f + \gamma_3 \cdot g\\
+            \gamma_3 = \gamma_1 = \gamma_2 \to 0\\
+            \gamma_1 \to 0\\
+            \gamma_2 \to 0
+        }\r $$
+        $$\r \exists \gamma_3 : \case{
+            h = \gamma_3(f +  g)\\
+            \gamma_3 \to 0\\
+        } \r h \in \oo(f+g)$$
+        \textbf{Ответ: } верно \\
+
+        \item[\textbf{(g)}]$ (x + \oo(x))\cdot (7x^2 + \oo(x^2)) = 7x^3 + \oo(x^3)$ при $x \to 0$
+        $$g(x) \in (x + \oo(x))\cdot (7x^2 + \oo(x^2)) \r \exists \gamma_1, \gamma_2 : \case{
+            g(x) = (x + \gamma_1(x)\cdot x)(7x^2 + \gamma_2(x)x^2)\\
+            \gamma_1 \to 0 \\
+            \gamma_2 \to 0
+        } \r$$
+        $$\r \exists \gamma_1, \gamma_2 : \case{
+            g(x) = 7x^3 + 7x^3\gamma_1(x) + x^3\gamma_2(x) +x^3\gamma_1(x)\gamma_2(x) \\
+            \gamma_1 \to 0 \\
+            \gamma_2 \to 0
+        }\r$$
+        $$\r \exists \gamma_1, \gamma_2 : \case{
+            g(x) = 7x^3 + (7\gamma_1(x) + \gamma_2(x) +\gamma_1(x)\gamma_2(x))x^3\\
+            \gamma_1 \to 0 \\
+            \gamma_2 \to 0
+        }\r$$
+        $$\r \exists \gamma_1, \gamma_2, \gamma_3 : \case{
+            g(x) = 7x^3 + \gamma_3(x)x^3\\
+            \gamma_3 = 7\gamma_1(x) + \gamma_2(x) +\gamma_1(x)\gamma_2(x) \to 0\\
+            \gamma_1 \to 0 \\
+            \gamma_2 \to 0
+        } \r g \in 7x^3 + \oo(x^3)$$
+        \textbf{Ответ: } верно\\
+    \end{enumerate}
+    
+    \item[\textbf{2.}]
+    \begin{enumerate}
+        \item[\textbf{(a)}] $\lm{x\to 0}\f{\sqrt[5]{1+2x}-e^x}{\sqrt[4]{1+x}-\cos x}$
+        $$\lm{x\to 0}\f{\sqrt[5]{1+2x}-e^x}{\sqrt[4]{1+x}-\cos x} = \lm{x\to 0}\f{1+\f{2}{5}x+\oo(2x)-1-x-\oo(x)}{1+\f{1}{4}x+\oo(x)-1+\f{x^2}{2}+\oo(x^3)} = $$
+        $$ = \lm{x\to 0}\f{-\f{3}{5}x+\oo(x)-\oo(x)}{\f{x}{4}+\oo(x)+\f{x^2}{2}+\oo(x^3)} = \lm{x\to 0}\f{-\f{3}{5}x+\oo(x)}{\f{x}{4}+\f{x^2}{2}+\oo(x)} =\lm{x\to 0}\f{x(-\f{3}{5}+\oo(1))}{x(\f{1}{4}+\f{x}{2}+\oo(1))} =$$
+        $$ = \lm{x\to 0}\f{-\f{3}{5}+\oo(1)}{\f{1}{4}+\f{x}{2}+\oo(1)} = \f{-\f{3}{5}+0}{\f{1}{4}+0+0} = -\f{12}{5}$$
+        \textbf{Ответ: } $-\f{12}{5}$\\
+
+        \item[\textbf{(b)}] $\lm{x \to 0}x\left( \f{1}{1 - \sqrt{1+3x}}-\f{1}{\sin(x)}\right)$
+        $$\lm{x \to 0}x\left( \f{1}{1 - \sqrt{1+3x}}-\f{1}{\sin(x)}\right) = \lm{x \to 0}x\left( \f{1}{1 - 1-\f{3}{2}x - \oo(3x)}-\f{1}{x + \oo(x)}\right) = $$
+        $$= \lm{x \to 0}x\left( \f{1}{x(-\f{3}{2} - \oo(1))}-\f{1}{x(1 + \oo(1))}\right)= \lm{x \to 0}x\cdot \f{1}{x}\left( \f{1}{-\f{3}{2} - \oo(1)}-\f{1}{1 + \oo(1)}\right) = $$
+        $$\lm{x \to 0}\left( \f{1}{-\f{3}{2} - \oo(1)}-\f{1}{1 + \oo(1)}\right) = \f{1}{-\f{3}{2} - 0}-\f{1}{1 + 0}= -\f{2}{3}-1 = -\f{5}{3}$$
+        \textbf{Ответ: } $-\f{5}{3}$\\
+
+        \item[\textbf{(c)}]$\lm{x \to 0}\f{(1+3x)^{5x} - 1}{x^2}$
+        $$\lm{x \to 0}\f{(1+3x)^{5x} - 1}{x^2} = \lm{x \to 0}\f{e^{5x\ln(1+3x)} - 1}{x^2} = \lm{x \to 0}\f{e^{5x\ln(1+3x)} - 1}{x^2} = $$
+        $$=\lm{x \to 0}\f{1 + 5x\ln(1+3x) + \oo(5x\ln(1+3x)) - 1}{x^2} =$$
+        $$= \lm{x \to 0}\f{5\ln(1+3x) + \oo(5\ln(1+3x))}{x} = \lm{x \to 0}\f{\ln(1+3x)(5 + \oo(5))}{x} = $$
+        $$=\lm{x \to 0}\f{(3x + \oo(3x))(5 + \oo(5))}{x} = \lm{x \to 0}(3 + \oo(3))(5 + \oo(5)) = (3+0)(5+0) = 15$$
+        \textbf{Ответ: } $15$\\
+
+
+        \item[\textbf{(d)}]$\lm{x \to 0}\f{\arccos(1-x)}{\sqrt{x}}$
+        $$\lm{x \to 0}\f{\arccos(1-x)}{\sqrt{x}} = \mat{1-x = \cos{t} \\ 1-x \to 1 \\ \cos{t} \to 1 \\ t \to 0} = \lm{t \to 0}\f{\arccos(\cos{t})}{\sqrt{1-\cos{t}}} = \lm{t \to 0}\f{t}{\sqrt{1-\cos{t}}} = $$
+        $$= \lm{t \to 0}\f{t}{\sqrt{1-(1 - \f{t^2}{2} + \oo(t^3))}} = \lm{t \to 0}\f{t}{\sqrt{ \f{t^2}{2} - t^3\oo(1)}} =$$
+        $$= \lm{t \to 0}\f{1}{\sqrt{ \f{1}{2} - t\oo(1)}} = \f{1}{\sqrt{\f{1}{2} - 0}} = \sqrt{2}$$
+        \textbf{Ответ: } $\sqrt{2}$\\
+
+        \item[\textbf{(e)}]$\lm{x \to +\infty}\f{\ln(1+\sqrt[3]{x})}{\ln(2+\sqrt[5]{x})}$
+        $$\lm{x \to +\infty}\f{\ln(1+\sqrt[3]{x})}{\ln(2+\sqrt[5]{x})} = \mat{t^{15} = \f{1}{x} \\ x \to +\infty \\ t \to 0^+} = \lm{ t \to 0^+}\f{\ln(1+\sqrt[3]{\f{1}{t^{15}}})}{\ln(2+\sqrt[5]{\f{1}{t^{15}}})}=$$
+        $$ = \lm{ t \to 0^+}\f{\ln(1+\f{1}{t^5})}{\ln(2+\f{1}{t^{3}})} = \lm{ t \to 0^+}\f{\ln(\f{1+t^5}{t^5})}{\ln(\f{2t^3+1}{t^{3}})} =\lm{ t \to 0^+}\ln(\f{1+t^5}{t^5} - \f{2t^3+1}{t^{3}}) = $$
+        $$= \lm{ t \to 0^+}\ln(\f{1+t^5}{t^5} - \f{2t^3+1}{t^{3}}) = \lm{ t \to 0^+}(\ln(1 - \f{2t^3+1}{t^{3}}\cdot\f{t^5}{1+t^5}) + \ln{\f{1+t^5}{t^5}}) = $$
+        $$ = \lm{ t \to 0^+}(\ln(1 - \f{2t^3+1}{t^{3}}\cdot\f{t^5}{1+t^5}) + \ln(\f{t^5}{1+t^5}))$$
+    \end{enumerate}
+\end{enumerate}
+\end{document}

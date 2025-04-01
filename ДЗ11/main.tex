@@ -1,0 +1,350 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 15.12 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{1.}]Для нахождения производной $ y' $ в точке $ x = 0 $ для неявно заданной функции $ y = y(x) $, мы воспользуемся методом неявного дифференцирования.
+    $$
+    x^{2} + y^{2} - 6x + 5y - 14 = 0.
+    $$
+    $$
+    \frac{d}{dx}(x^{2}) + \frac{d}{dx}(y^{2}) - \frac{d}{dx}(6x) + \frac{d}{dx}(5y) - \frac{d}{dx}(14) = 0.
+    $$
+    $$
+    2x + 2y \frac{dy}{dx} - 6 + 5 \frac{dy}{dx} = 0.
+    $$
+    Перепишем уравнение, выделив $ \frac{dy}{dx} $:
+    $$
+    2y \frac{dy}{dx} + 5 \frac{dy}{dx} = 6 - 2x.
+    $$
+    $$
+    (2y + 5) \frac{dy}{dx} = 6 - 2x.
+    $$
+    Выразим $ \frac{dy}{dx} $:
+    $$
+    \frac{dy}{dx} = \frac{6 - 2x}{2y + 5}.
+    $$
+    Теперь подставим $ x = 0 $ в уравнение, чтобы найти $ y $:
+    $$
+    0^{2} + y^{2} - 6 \cdot 0 + 5y - 14 = 0 \implies y^{2} + 5y - 14 = 0.
+    $$
+    Решим квадратное уравнение:
+    $$
+    y = \frac{-5 \pm \sqrt{5^{2} + 4 \cdot 14}}{2} = \frac{-5 \pm \sqrt{25 + 56}}{2} = \frac{-5 \pm \sqrt{81}}{2} = \frac{-5 \pm 9}{2}.
+    $$
+    $$
+    y_{1} = \frac{4}{2} = 2, \quad y_{2} = \frac{-14}{2} = -7.
+    $$
+    $$
+    \frac{dy}{dx} \bigg|_{x=0} = \frac{6 - 2 \cdot 0}{2 \cdot 2 + 5} = \frac{6}{4 + 5} = \frac{6}{9} = \frac{2}{3}.
+    $$
+    \textbf{Ответ: }$\f{2}{3}$\\
+
+    \item[\textbf{2.}]Для нахождения производной функции $ y $ по $ x $ для параметрически заданных функций $ x(t) $ и $ y(t) $, мы используем формулу:
+    $$
+    \frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}.
+    $$
+    Найдем производные $ \frac{dx}{dt} $ и $ \frac{dy}{dt} $.\\
+    Для $ x(t) = e^{-t} $:
+    $$
+    \frac{dx}{dt} = -e^{-t}.
+    $$
+    Для $ y(t) = t^{3} $:
+    $$
+    \frac{dy}{dt} = 3t^{2}.
+    $$
+    Теперь подставим найденные производные в формулу для $ \frac{dy}{dx} $:
+    $$
+    \frac{dy}{dx} = \frac{3t^{2}}{-e^{-t}} = -\frac{3t^{2}}{e^{-t}}.
+    $$
+    Упростим выражение:
+    $$
+    \frac{dy}{dx} = -3t^{2} e^{t}.
+    $$
+    \textbf{Ответ: }$-3t^{2} e^{t}.$
+
+    \item[\textbf{3.}]Для нахождения производной функции, обратной к $ y(x) = e^{x} + x $ в точке $ y_0 = 1 $, мы воспользуемся формулой для производной обратной функции:
+    $$
+    \frac{dy^{-1}}{dy} = \frac{1}{\frac{dy}{dx}} \bigg|_{x = x_0},
+    $$
+    где $ x_0 $ — это значение $ x $, соответствующее $ y_0 $.
+    Найдем $ x_0 $ такое, что $ y(x_0) = 1 $:
+   $$
+   e^{x_0} + x_0 = 1.
+   $$
+   $$
+   e^{0} + 0 = 1 + 0 = 1.
+   $$
+   Таким образом, $ x_0 = 0 $, так как $e^x + x$ строго монотонна.\\
+   Теперь найдем производную $ \frac{dy}{dx} $:
+   $$
+   \frac{dy}{dx} = \frac{d}{dx}(e^{x} + x) = e^{x} + 1.
+   $$
+   Подставим $ x_0 = 0 $ в производную:
+   $$
+   \frac{dy}{dx} \bigg|_{x=0} = e^{0} + 1 = 1 + 1 = 2.
+   $$
+   Теперь найдем производную обратной функции:
+   $$
+   \frac{dy^{-1}}{dy} = \frac{1}{\frac{dy}{dx}} \bigg|_{x=0} = \frac{1}{2}.
+   $$
+   \textbf{Ответ: } $\f{1}{2}$\\
+
+   \item[\textbf{4.}]Для нахождения производной $ y'(x) $ функции, заданной в полярной системе координат $ r(\varphi) = e^{\varphi} $, сначала преобразуем полярные координаты в декартовы. В декартовых координатах $ x $ и $ y $ выражаются как:
+    $$
+    x = r(\varphi) \cos(\varphi), \quad y = r(\varphi) \sin(\varphi).
+    $$
+    Подставим $ r(\varphi) $:
+    $$
+    x = e^{\varphi} \cos(\varphi), \quad y = e^{\varphi} \sin(\varphi).
+    $$
+    Теперь найдем производные $ \frac{dx}{d\varphi} $ и $ \frac{dy}{d\varphi} $:\\
+    Для $ x $:
+    $$
+    \frac{dx}{d\varphi} = \frac{d}{d\varphi}(e^{\varphi} \cos(\varphi)) = e^{\varphi} \cos(\varphi) - e^{\varphi} \sin(\varphi) = e^{\varphi} (\cos(\varphi) - \sin(\varphi)).
+    $$
+    Для $ y $:
+    $$
+    \frac{dy}{d\varphi} = \frac{d}{d\varphi}(e^{\varphi} \sin(\varphi)) = e^{\varphi} \sin(\varphi) + e^{\varphi} \cos(\varphi) = e^{\varphi} (\sin(\varphi) + \cos(\varphi)).
+    $$
+    Теперь найдем производную $ \frac{dy}{dx} $ с использованием формулы:
+    $$
+    \frac{dy}{dx} = \frac{\frac{dy}{d\varphi}}{\frac{dx}{d\varphi}}.
+    $$
+    Подставим найденные производные:
+    $$
+    \frac{dy}{dx} = \frac{e^{\varphi} (\sin(\varphi) + \cos(\varphi))}{e^{\varphi} (\cos(\varphi) - \sin(\varphi))} = \frac{\sin(\varphi) + \cos(\varphi)}{\cos(\varphi) - \sin(\varphi)}.
+    $$
+    Теперь найдем значение $ \varphi $, при котором $ x = 1 $:
+    $$
+    1 = e^{\varphi} \cos(\varphi).
+    $$
+    Подставим $ \varphi = 0 $:
+    $$
+    1 = e^{0} \cos(0) = 1 \cdot 1 = 1.
+    $$
+    Таким образом, $ \varphi = 0 $.\\
+    Теперь подставим $ \varphi = 0 $ в выражение для $ \frac{dy}{dx} $:
+    $$
+    \frac{dy}{dx} \bigg|_{\varphi=0} = \frac{\sin(0) + \cos(0)}{\cos(0) - \sin(0)} = \frac{0 + 1}{1 - 0} = \frac{1}{1} = 1.
+    $$
+    \textbf{Ответ: } $1$
+
+    \item[\textbf{5.}]
+    \begin{enumerate}
+        \item[(a)]Вычислим предел:
+        $$
+        \lim_{x \rightarrow 0} \frac{e^{x^{2}} - \sqrt[3]{1 + 3x^{2}}}{\sin^{4} x},
+        $$
+        Разложим функцию $ e^{x^2} $ в ряд Маклорена:
+        $$
+        e^{x^2} = 1 + x^2 + \frac{x^4}{2} + \bar{o}(x^4).
+        $$
+        Разложим $ \sqrt[3]{1 + 3x^2} $\\
+        Используем формулу для разложения $ (1 + u)^{\alpha} $ при $ u \to 0 $:
+        $$
+        \sqrt[3]{1 + 3x^2} = (1 + 3x^2)^{1/3} = 1 + \frac{1}{3}(3x^2) - \frac{1}{9}(3x^2)^2 + \bar{o}(x^4) = 1 + x^2 - x^4 + \bar{o}(x^4).
+        $$
+        Теперь найдем разность $ e^{x^2} - \sqrt[3]{1 + 3x^2} $:
+        $$
+        e^{x^2} - \sqrt[3]{1 + 3x^2} = \left(1 + x^2 + \frac{x^4}{2} + \bar{o}(x^4)\right) - \left(1 + x^2 - x^4 + \bar{o}(x^4)\right).
+        $$
+        Упрощаем:
+        $$
+        e^{x^2} - \sqrt[3]{1 + 3x^2} = \left(x^2 - x^2\right) + \left(\frac{x^4}{2} + x^4\right) + \bar{o}(x^4) - \bar{o}(x^4).
+        $$
+        $$
+        e^{x^2} - \sqrt[3]{1 + 3x^2} = \left(\frac{1}{2} + 1\right)x^4 + \bar{o}(x^4) = \frac{3}{2}x^4 + \bar{o}(x^4).
+        $$  
+        Теперь найдем разложение для $ \sin^4 x $. Используем разложение для $ \sin x $:
+        $$
+        \sin x = x + \o(x) \implies \sin^4{x} = x^4 + \oo(x^4)
+        $$
+        $$
+        \lim_{x \rightarrow 0} \frac{e^{x^{2}} - \sqrt[3]{1 + 3x^{2}}}{\sin^{4} x} =  \lim_{x \rightarrow 0}\f{\frac{3}{2}x^4 + \bar{o}(x^4)}{x^4 + \oo(x^4)} = \lim_{x \rightarrow 0}\f{\frac{3}{2} + \bar{o}(1)}{1 + \oo(1)} = \lim_{x \rightarrow 0}\f{\frac{3}{2} + \bar{o}(1)}{1 + \oo(1)} = \f{3}{2}
+        $$
+        \textbf{Ответ: }$\f{3}{2}$\\
+
+        \item[(b)]Для вычисления предела 
+        $$
+        \lim_{x \rightarrow 0} \frac{\sqrt{\cos x} - \sqrt[4]{e^{-x^2}}}{x^4},
+        $$
+        Мы разложим функции $ \sqrt{\cos x} $ и $ \sqrt[4]{e^{-x^2}} $ в ряд Маклорена.\\
+        Разложим $ \cos x $ в ряд Маклорена:
+        $$
+        \cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + o(x^8)
+        $$
+        $$
+        \sqrt{\cos x} = \sqrt{1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + o(x^8)}.
+        $$
+        Разложим $ e^{-x^2}$ в ряд Маклорена:
+        $$
+        e^{-x^2} = 1 - x^2 + \frac{x^4}{2} - \frac{x^6}{6} + \frac{x^8}{24} - \frac{x^{10}}{120} + \frac{x^{12}}{720} - \frac{x^{14}}{5040} + \frac{x^{16}}{40320} + o(x^{16})
+        $$
+        $$
+        \sqrt[4]{e^{-x^2}} = \sqrt[4]{1 - x^2 + \frac{x^4}{2} - \frac{x^6}{6} + \frac{x^8}{24} - \frac{x^{10}}{120} + \frac{x^{12}}{720} - \frac{x^{14}}{5040} + \frac{x^{16}}{40320} + o(x^{16})}
+        $$
+        $$
+        \lim_{x \rightarrow 0} \frac{\sqrt{\cos x} - \sqrt[4]{e^{-x^2}}}{x^4}=
+        $$
+        \small
+        $$
+        =\lim_{x \rightarrow 0}\left\{ \f{\sqrt{1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \frac{x^8}{40320} + o(x^8)}}{x^4}\right.
+        $$
+        $$
+        \left.-\f{\sqrt[4]{1 - x^2 + \frac{x^4}{2} - \frac{x^6}{6} + \frac{x^8}{24} - \frac{x^{10}}{120} + \frac{x^{12}}{720} - \frac{x^{14}}{5040} + \frac{x^{16}}{40320} + o(x^{16})}}{x^4}\right\}=
+        $$
+        $$
+        =\sqrt{0 - 0 + 0 - 0 + \f{1}{40320} + 0} - \sqrt[4]{1 -0 + 0 -0 +\dots +0 - 0 + \f{1}{40320} + 0} =
+        $$
+        $$
+        =  \f{1}{\sqrt{40320}} - \f{1}{\sqrt[4]{40320}} = \f{1-40320^2}{\sqrt{40320}}
+        $$
+        \textbf{Ответ: }$\f{1-40320^2}{\sqrt{40320}}$\\
+
+        \item[(c)]Вычислим предел: 
+        $$
+        \lim_{x \rightarrow 0} \frac{\sin x - \ln\left(x + \sqrt{1+x^2}\right)}{x^2 \sin x - x^3 \cos x}= \lm{x\to0}\f{\sin{x}- \ln(x + \sqrt{1+x^2})}{x^2(x -\f{x^3}{6} + \oo(x^3)) - x^3(1-\f{1}{2}x^2+\oo(x^2))} = 
+        $$
+        $$
+        =\lm{x\to0}\f{\sin{x}- \ln(x + \sqrt{1+x^2})}{x^3 -\f{x^5}{6} + \oo(x^5) - (x^3-\f{1}{2}x^5+\oo(x^5))} = 
+        $$
+        $$
+        = \lm{x\to0}\f{x - \frac{x^3}{6} + \frac{x^5}{120} + o(x^5) - (x - \frac{x^3}{6} + \frac{3x^5}{40} + o(x^5))}{ -\f{x^5}{6} + \f{x^5}{2}+\oo(x^5)} =
+        $$
+        $$
+        =\lm{x\to0}\f{-\frac{8x^5}{120} + o(x^5)}{\f{x^5}{3}+\oo(x^5)} = \lm{x\to0}\f{-\frac{8}{120} + o(1)}{\f{1}{3}+\oo(1)} = -\f{8\cdot3}{120} = -\f{8}{40} = -\f{1}{5} 
+        $$
+        \textbf{Ответ:} $-\f{1}{5}$\\
+    \end{enumerate}
+
+    \item[\textbf{6.}]
+    \begin{enumerate}
+        \item[(a)]
+        Мы имеем:
+        $$
+        \lambda_1 = 1,
+        $$
+        $$
+        \lambda_2 = \sin(\lambda_1) = \sin(1) \approx 0.8415,
+        $$
+        $$
+        \lambda_3 = \sin(\lambda_2) = \sin(\sin(1)) \approx 0.7456.
+        $$
+        Заметим, что $\sin(x) < x$ для $x > 0$. Следовательно, для $n \geq 2$:
+        $$
+        \lambda_n = \sin(\lambda_{n-1}) < \lambda_{n-1}.
+        $$
+        Таким образом, последовательность $\{\lambda_n\}$ является строго убывающей и положительной, что означает, что она стремится к некоторому пределу $\lambda \geq 0$. \\
+        \\Кандидаты:
+        $$\lambda = \sin{\lambda} \implies \lambda = 0$$
+        Следовательно, по теореме Вейерштрасса:
+        $$\lambda_n \to 0$$
+        
+        \item[(b)]
+        Нам нужно найти:
+        $$
+        \lim_{x \to 0} \left(\frac{1}{\sin^2 x} - \frac{1}{x^2}\right).
+        $$
+        Приведем к общему знаменателю:
+        $$
+        = \lim_{x \to 0} \frac{x^2 - \sin^2 x}{x^2 \sin^2 x} 
+        $$
+        $$
+        x^2 - \sin^2 x = x^2 - \left(x^2 - \frac{x^4}{3} + o(x^4)\right) = \frac{x^4}{3} - o(x^4).
+        $$
+        $$
+        \lim_{x \to 0} \frac{x^2 - \sin^2 x}{x^2 \sin^2 x} = \lim_{x \to 0} \frac{\frac{x^4}{3} - o(x^4)}{x^2 \left(x^2 - \frac{x^4}{3} + o(x^4)\right)} = \lim_{x \to 0} \frac{\frac{x^4}{3}}{x^4} = \frac{1}{3}.
+        $$\\
+
+        \item[(c)]
+        Вычисление предела $\lm{n \to \infty} (a_{n+1} - a_n)$, где $a_n = \frac{1}{\lambda_n^2}$. Мы имеем:
+
+        $$
+        a_{n+1} - a_n = \frac{1}{\lambda_{n+1}^2} - \frac{1}{\lambda_n^2} = \frac{\lambda_n^2 - \lambda_{n+1}^2}{\lambda_{n+1}^2 \lambda_n^2}.
+        $$
+        мы получаем:
+        $$
+        \lambda_n^2 - \lambda_{n+1}^2 = (\lambda_n - \lambda_{n+1})(\lambda_n + \lambda_{n+1}) \approx \frac{\lambda_n^3}{6} \cdot (2\lambda_n) = \frac{\lambda_n^4}{3}.
+        $$
+        Таким образом,
+        $$
+        a_{n+1} - a_n \approx \frac{\frac{\lambda_n^4}{3}}{\lambda_{n+1}^2 \lambda_n^2}.
+        $$
+        Поскольку $\lambda_n \to 0$, $\lambda_{n+1} \to 0$, то $\lambda_{n+1}^2 \approx \lambda_n^2$, и мы можем записать:
+        $$
+        \lim_{n \to \infty} (a_{n+1} - a_n) \approx \lim_{n \to \infty} \frac{\frac{\lambda_n^4}{3}}{\lambda_n^4} = \frac{1}{3}.
+        $$
+
+        \item[(d)]Применение теоремы Штольца
+
+        По теореме Штольца:
+        
+        $$
+        \lim_{n \to \infty} \frac{a_n}{n} = \lim_{n \to \infty} \frac{a_{n+1} - a_n}{1} = \frac{1}{3}.
+        $$
+        
+        \item[(e)]Мы знаем, что:
+        $$ \lim_{n \to \infty}\frac{a_n}{n} = \frac{1}{3}$$
+        При этом:
+        $$a_n = \f{1}{\lambda^2_n} \implies \lim_{n \to \infty}\frac{a_n}{n} = \lim_{n \to \infty}\frac{1}{n\lambda^2_n} = \f{1}{3} \r$$
+        $$\r n\lambda^2_n \to 3 \implies \sqrt{n}\lambda_n \to \sqrt{3}$$
+        \textbf{Ответ: } $L = \sqrt{3}$
+
+
+    \end{enumerate}
+
+
+\end{enumerate}
+\end{document}

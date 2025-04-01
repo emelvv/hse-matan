@@ -1,0 +1,199 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\matsq}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+\newcommand{\Ker}[1]{\operatorname{Ker}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\Vol}{\text{Vol}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 03.04 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]$(x_1^\circ, x_2^\circ, u_1^\circ) = (1, 1, 2)$. Найдём производные $u_1 = f_1(x_1, x_2)$
+    $$F_1(x_1, x_2, u_1) = u_1^3-2u_1^2x_1+u_1x_1x_2 - 2 = 0$$
+    Проверим опеределитель:
+    $$\vmat{(F_1)_{u_1}'} (x_1^\circ, x_2^\circ, u_1^\circ) 
+    = 3\,{u_{1}}^{2}-4\,x_{1}\,u_{1}+x_{1}\,x_{2} = 5 \neq 0$$
+    Тогда:
+    $$\case{
+        u_1 = f_1(x_1, x_2), \quad u_1^\circ = f_1(x_1^\circ, x_2^\circ)
+    }$$
+    При этом существуют все частные производные $f_1$. Их значения выражаются как:
+    $$\matsq{(f_1)_{x_1}' & (f_1)_{x_2}'} =
+     - \matsq{(F_1)_{u_1}'}^{-1} \cdot \matsq{(F_1)_{x_1}' & (F_1)_{x_2}'}$$
+     То есть:
+     $$\case{
+        (f_1)_{x_1}' = -\f{(F_1)_{x_1}'}{(F_1)_{u_1}'} =
+        - \f{u_{1}\,x_{2}-2\,{u_{1}}^{2}}{3\,{u_{1}}^{2}-4\,x_{1}\,u_{1}+x_{1}\,x_{2}}
+        = \f{6}{5} \\
+
+        (f_1)_{x_2}' = -\f{(F_1)_{x_2}'}{(F_1)_{u_1}'} =
+        -\f{u_{1}\,x_{1}}{3\,{u_{1}}^{2}-4\,x_{1}\,u_{1}+x_{1}\,x_{2}} = -\f{2}{5}
+     }$$
+    Вторая производная:
+    $$(f_1)_{x_1x_2}'' = \dfrac{2\,{u_{1}}^{2}\,x_{1}-3\,{u_{1}}^{3}}{{x_{1}}^{2}\,{x_{2}}^{2}+\left(6\,{u_{1}}^{2}\,x_{1}-8\,u_{1}\,{x_{1}}^{2}\right)\,x_{2}+16\,{u_{1}}^{2}\,{x_{1}}^{2}-24\,{u_{1}}^{3}\,x_{1}+9\,{u_{1}}^{4}} = -\f{16}{25}$$
+
+    \textbf{Ответ: } $\f{6}{5}, -\f{2}{5}, -\f{16}{25}$
+
+    \item[\textbf{№2}]$(x_1^\circ, x_2^\circ, u_1^\circ, u_2^\circ) = (1, 0, 1, -2)$. 
+    Найдём производные $u_1 = f_1(x_1, x_2)$ и $u_2 = f_2(x_1, x_2)$
+    $$\case{
+        F_1(x_1, x_2, u_1, u_2) = x_1u_1+x_2u_2-u_1^3 = 0\\
+        F_2(x_1, x_2, u_1, u_2) = x_1 + x_2 + u_1 + u_2 = 0
+    }$$
+    Проверим опеределитель:
+    $$\vmat{(F_1)_{u_1}' & (F_1)_{u_2}' \\ (F_2)_{u_1}' & (F_2)_{u_2}'} 
+    (x_1^\circ, x_2^\circ, u_1^\circ, u_2^\circ) 
+    = -2 \neq 0$$
+    Тогда:
+    $$\case{
+        u_1 = f_1(x_1, x_2), \quad u_1^\circ = f_1(x_1^\circ, x_2^\circ)\\
+        u_2 = f_2(x_1, x_2), \quad u_2^\circ = f_2(x_1^\circ, x_2^\circ)
+    }$$
+    При этом существуют все частные производные $f_1$ и $f_2$. Их значения выражаются как:
+    $$\matsq{(f_1)_{x_1}' & (f_1)_{x_2}'\\ (f_2)_{x_1}' & (f_2)_{x_2}'} =
+     - \matsq{(F_1)_{u_1}' & (F_1)_{u_2}' \\ (F_2)_{u_1}' & (F_2)_{u_2}'}^{-1}
+      \cdot \matsq{(F_1)_{x_1}' & (F_1)_{x_2}'\\(F_2)_{x_1}' & (F_2)_{x_2}'}$$
+     То есть:
+    \[
+    \matsq{(f_1)_{x_1}' & (f_1)_{x_2}'\\ (f_2)_{x_1}' & (f_2)_{x_2}'} = -\begin{bmatrix} -\frac{1}{2} & 1 \\ \frac{3}{2} & 0 \end{bmatrix} = \begin{bmatrix} \frac{1}{2} & -1 \\ -\frac{3}{2} & 0 \end{bmatrix}
+    \]
+    \textbf{Ответ: } $\frac{1}{2}, -1, -\frac{3}{2}, 0$\\
+
+    \item[\textbf{№3}]$(x^\circ, y^\circ, u^\circ) = (3, -2, 2)$. 
+    Найдём производные $u = f(x, y)$
+    $$F(x, y, u) = u^3 - xu + y = 0$$
+    Проверим опеределитель:
+    $$\vmat{(F)_{u_1}'}  = 9\neq 0$$
+    Тогда:
+    $$u = f(x, y), \quad u^{\circ} = f(x^\circ, y^\circ)$$
+    При этом производные:
+    $$\matsq{f_x' & f_y'} = 
+    -\matsq{F_u'}^{-1}\cdot \matsq{F_x' & F_y'} = \matsq{\f{2}{9} & -\f{1}{9}}$$
+    Теперь найдём вторые производные:
+    $$f_{xy}'=\frac{5}{243},\qquad f_{xx}'=-\frac{4}{243},\qquad f_{yy}'=-\frac{4}{243}$$
+    Матрица Гессе:
+    $$\matsq{-\frac{4}{243} & \frac{5}{243} \\ \frac{5}{243} & -\frac{4}{243}}$$
+    Второй дифференциал:
+    $$d^2f_{(x^\circ, y^\circ)}(h)= -\frac{4}{243} \, h_1^2 + \frac{10}{243} \, h_1h_2 - \frac{4}{243} \, h_2^2$$
+
+    \textbf{Ответ: } $d^2f_{(x^\circ, y^\circ)}(h)= -\frac{4}{243} \, h_1^2 + \frac{10}{243} \, h_1h_2 - \frac{4}{243} \, h_2^2$\\
+
+    \item[\textbf{№4}]Найдём $u_x'$,в точке $(x^\circ, y^\circ, z^\circ) = (-5, -1, 2)$ если 
+    $$u(x, y, z) = xy^2z^3$$
+    при 
+    $$x^2+y^2+z^2=3yz$$
+    Мы знаем что:
+    $$u_x' = 2x{z}^{3}y(x, z)(y(x, z))_x'+{z}^{3}\,{y}^{2}$$
+    Найдём $(y(x, z))_x'$ в точке $(x^\circ, y^\circ, z^\circ)$:
+    $$F(x, z, y) = x^2+y^2+z^2-3yz = 0$$
+    Проверим опеределитель:
+    $$\vmat{(F)_{y}'}  = -8\neq 0$$
+    Тогда:
+    $$y(x, z) \text{ - существует}$$
+    При этом производные:
+    $$
+    \matsq{(y(x, z))_x' & (y(x, z))_z'} = 
+    -\matsq{F_y'}^{-1}\cdot \matsq{F_x' & F_z'} = \matsq{-\f{5}{4} & \f{7}{8}}$$
+    Следовательно:
+    $$(y(x, z))_x' = -\f{5}{4}$$
+    Значит:
+    $$u_x' = 2x{z}^{3}y(x, z)(y(x, z))_x'+{z}^{3}\,{y}^{2} = -92$$
+    \textbf{Ответ: } $-92$\\
+
+
+    \item[\textbf{№5}]Для начала найдём производные $z'_x$ и $z'_y$, в точке
+    $(x^\circ, y^\circ, u^\circ, v^\circ) = (x^\circ, y^\circ, 2, 2)$
+    если известно, что:
+    $$\case{
+        F_1(x, y, u, v, z) = x-u^4-v = 0\\
+        F_2(x, y, u, v, z) = y-u^3-v = 0\\
+        F_3(x, y, u, v, z) = z-\sin(2\pi (u+v)) = 0
+    }$$
+    Проверим опеределитель:
+    $$\vmat{
+        (F_1)_u' & (F_1)_v' & (F_1)_z' \\ 
+        (F_2)_u' & (F_2)_v' & (F_2)_z'\\
+        (F_3)_u' & (F_3)_v' & (F_3)_z'
+    } \neq 0$$
+    Тогда:
+    $$z(x, y) \text{- существует}$$
+    При этом производные:
+    $$\matsq{
+        (z(x, y))_x' & (z(x, y))_y' \\
+        (u(x, y))_x' & (u(x, y))_y' \\
+        (v(x, y))_x' & (v(x, y))_y'
+    } = 
+    -\matsq{
+        (F_1)_u' & (F_1)_v' & (F_1)_z' \\
+        (F_2)_u' & (F_2)_v' & (F_2)_z' \\
+        (F_3)_u' & (F_3)_v' & (F_3)_z' \\
+    }^{-1} \cdot
+    \matsq{
+        (F_1)_x' & (F_1)_y'\\
+        (F_2)_x' & (F_2)_y'\\
+        (F_3)_x' & (F_3)_y'\\
+    } =$$
+    $$= \begin{bmatrix}
+        \frac{1}{20} & -\frac{1}{20} \\
+        -\frac{3}{5} & \frac{8}{5} \\
+        -\frac{11\pi}{10} & \frac{31\pi}{10}
+        \end{bmatrix}$$
+    Следовательно,
+    $$(z(x, y))_x' = \frac{1}{20}, \quad (z(x, y))_y' = -\frac{1}{20}$$
+    Найдём дифференциал:
+    $$d_{(x^\circ, y^\circ)} z(\vec{h}) = \frac{1}{20} h_1 -\frac{1}{20} h_2 $$
+    \textbf{Ответ: } $d_{(x^\circ, y^\circ)} z(\vec{h}) = \frac{1}{20} h_1 -\frac{1}{20} h_2 $
+\end{enumerate}
+\end{document}

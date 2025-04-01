@@ -1,0 +1,283 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\matsq}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\newcommand{\p}{\partial}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 06.03 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]
+    \begin{enumerate}
+        \item[(a)]
+        $f(x, y) = x^3 + 3xy^2 - 39x - 36y + 26$
+        
+        Найдём стационарные точки:
+        $$\case{
+            f_x'(x, y) =3\,\left({x}^{2}+{y}^{2}-13\right) =0\\
+            f_y'(x, y) = 6\,\left(x\,y-6\right)=0\\
+        }\implies \begin{aligned}
+            A = (-3, -2), &\quad B= (-2, -3),\\
+            C = (2, 3), & \quad D = (3, 2) 
+        \end{aligned}$$
+        Найдём матрицу Гессе:
+        $$H_f = \mat{
+            f_{x^2}'' & f_{xy}''\\
+            f_{yx}'' & f_{y^2}''
+        } = \mat{
+            6x & 6y\\
+            6y& 6x
+        } \implies d^2f_{(x, y)}\left(\matsq{h_1\\h_2}\right) = 12xh_1^2+12yh_1h_2$$
+    
+        Найдём нормальный вид матрицы второго дифференциала для точек $A, B, C$ и $D$
+        \begin{enumerate}
+            \item[1)] $A = (-3, -2)$
+            $$H_f = \mat{
+            -18 & -12\\
+            -12 & -18}$$
+            $$\delta_1 = -18 < 0, \quad \delta_2  = 18^2-12^2 > 0$$
+            Следовательно, 
+            $$d^2f_{A}\left(\matsq{h_1\\h_2}\right) < 0$$
+            Значит $A$ - точка локального максимума
+    
+            \item[2)] $B = (-2, -3)$
+            $$H_f = \mat{
+            -12 & -18\\
+            -18 & -12}$$
+            $$\delta_1 = -12 < 0, \quad \delta_2  = 12^2-18^2=-180 < 0$$
+            Следовательно, 
+            $$d^2f_{B}\left(\matsq{h_1\\h_2}\right) = -12h_1^2+15h_2^2$$
+            $$\case{
+                d^2f_{B}\left(\matsq{1\\0}\right) = -12 < 0\\
+                d^2f_{B}\left(\matsq{0\\1}\right) = 15 > 0
+            } \implies B \text{ - не точка локального экстремума}$$
+    
+            \item[3)] $C = (2, 3)$
+            $$H_f = \mat{
+                12 & 18\\
+                18 & 12
+            }$$
+            $$\delta_1 = 12 > 0, \quad \delta_2  = 12^2-18^2 = -180< 0$$
+            Следовательно, 
+            $$d^2f_{B}\left(\matsq{h_1\\h_2}\right) = 12h_1^2-15h_2^2$$
+            $$\case{
+                d^2f_{B}\left(\matsq{1\\0}\right) = 12 > 0\\
+                d^2f_{B}\left(\matsq{0\\1}\right) = -15 < 0
+            } \implies C \text{ - не точка локального экстремума}$$
+    
+            \item[4)] $D = (3, 2)$
+            $$H_f = \mat{
+            18 & 12\\
+            12 & 18}$$
+            $$\delta_1 = 18 > 0, \quad \delta_2  = 18^2-12^2 > 0$$
+            Следовательно, 
+            $$d^2f_{D}\left(\matsq{h_1\\h_2}\right) > 0$$
+            Значит $D$ - точка локального минимума       
+            
+        \end{enumerate}
+        \textbf{Ответ: } $A$ - лок. мин., $D$ - лок. макс.\\
+
+        \item[(b)] $f(x, y) = x^4 + y^4 - 2x^2$
+        
+        Найдём стационарные точки:
+        $$\case{
+            f_x'(x, y) =4\,\left({x}^{3}-x\right) =0\\
+            f_y'(x, y) = 4\,{y}^{3}=0\\
+        }\implies \begin{aligned}
+            A = (0, 0), &\quad B= (-1, 0),\\
+            C = (1, 0) 
+        \end{aligned}$$
+        Найдём матрицу Гессе:
+        $$H_f = \mat{
+            f_{x^2}'' & f_{xy}''\\
+            f_{yx}'' & f_{y^2}''
+        } = \mat{
+            4\,\left(3\,{x}^{2}-1\right) & 0\\
+            0 & 12\,{y}^{2}
+        } $$
+        $$\implies d^2f_{(x, y)}\left(\matsq{h_1\\h_2}\right) = 4\,\left(3\,{x}^{2}-1\right)h_1^2+12y^2h_2^2$$
+        Подставим точки:
+        \begin{enumerate}
+            \item[1)]$A = (0, 0)$:
+            $$\implies d^2f_{A}\left(\matsq{h_1\\h_2}\right)
+             = -4h_1^2$$
+             $$\implies d^2f_{A}\left(\matsq{h_1\\h_2}\right)<0$$
+            Значит $A$ - точка локального максимума
+
+            \item[2)]$B= (-1, 0)$:
+            $$\implies d^2f_{B}\left(\matsq{h_1\\h_2}\right) =
+             8h_1^2 > 0$$
+             Значит $B$ - точка локального минимума
+
+            \item[3)]$C = (1, 0) $:
+            $$\implies d^2f_{С}\left(\matsq{h_1\\h_2}\right) =
+            8h_1^2 > 0$$
+            Значит $C$ - точка локального минимума
+        \end{enumerate}
+        \textbf{Ответ: } $B$ - лок. мин., $C$ - лок. мин.\\
+
+        \item[(c)]$f(x, y, z) = 3x^3 + y^2 + z^2 + 6xy - 2z + 1$
+        
+        Найдём стационарные точки:
+        $$\case{
+            f_x'(x, y, z) =3\,\left(3\,{x}^{2}+2\,y\right) =0\\
+            f_y'(x, y, z) = 2\,\left(y+3\,x\right)=0\\
+            f_z'(x, y, z) =2\,\left(z-1\right) =0
+        }\implies \begin{aligned}
+            A = (0, 0, 1), &\quad B= (2, -6, 1)
+        \end{aligned}$$
+        Найдём матрицу Гессе:
+        $$H_f = \mat{
+            f_{x^2}'' & f_{xy}'' & f_{xz}''\\
+            f_{yx}'' & f_{y^2}'' & f_{yz}''\\
+            f_{zx}'' & f_{zy}'' & f_{z^2}''
+        } = \mat{
+            18x & 6 & 0\\
+            6 & 2 & 0\\
+            0 & 0 & 2
+        } $$
+        Приведём квадратичную форму к нормальному виду симметричным методом Гауса:
+        $$\mat{
+            18x & 6 & 0\\
+            6 & 2 & 0\\
+            0 & 0 & 2
+        } \implies \mat{
+            2 & 0 & 0\\
+            0 & 18x-18 & 0\\
+            0 & 0 & 2
+        }$$
+        Следовательно:
+        $$d^2f_{(x, y, z)}\left(\matsq{h_1\\h_2\\h_3}\right) = 2h_1^2+(18x-18)h_2^2+2h_3^2$$
+        Подставим точки:
+        \begin{enumerate}
+            \item[1)]$A = (0, 0, 1)$:
+            $$d^2f_{A}\left(\matsq{h_1\\h_2\\h_3}\right) 
+            = 2h_1^2-18h_2^2+2h_3^2$$
+            $$\case{
+                d^2f_{A}\left(\matsq{1\\0\\0}\right) >0\\
+                d^2f_{A}\left(\matsq{0\\1\\0}\right) < 0 
+            } \implies A \text{ - не точка локального экстремума}$$
+
+            \item[2)]$B= (2, -6, 1)$:
+            $$d^2f_{B}\left(\matsq{h_1\\h_2\\h_3}\right) 
+            = 2h_1^2+18h_2^2+2h_3^2 >0 $$
+            Следовательно, $B$ - точка локального минимума
+            
+        \end{enumerate}
+        \textbf{Ответ: } $B$ - лок. мин.\\
+    \end{enumerate}
+
+    \item[\textbf{№2}]Если $(a, b)$ лежит на $x-y^2 = 6$, это значит, что:
+    $$a = 6+b^2$$
+    Если $(c, d)$ лежит на $-2x+y=0$ это значит, что:
+    $$d = 2c$$
+    Найдём расстояние между точками
+    $$(6+b^2, b) \text{ и } (c, 2c)$$
+    Подставим в формулу для нахождени расстояния в Евклидовом пространстве:
+    $$\sqrt{(6+b^2-c)^2 + (b-2c)^2}$$
+    Найдём точки минимума у функции:
+    $$f(b, c) = (6+b^2-c)^2 + (b-2c)^2$$
+    Найдём стационарные точки:
+    $$\case{
+        f_b' = 2\,\left(2\,{b}^{3}+\left(13-2\,c\right)\,b-2\,c\right)=0\\
+        f_c' = 2\,\left(5\,c-{b}^{2}-2\,b-6\right) = 0
+    } \implies (b, c) = \left(\f{1}{4}, \f{21}{16}\right)$$
+    Найдём матрицу Гессе:
+    $$H_f = \mat{
+        f_{b^2}'' & f_{bc}''\\
+        f_{cb}'' & f_{c^2}''
+    } = \mat{
+        2\,\left(6\,{b}^{2}-2\,c+13\right) & -4\,b-4\\
+        -4\,b-4 & 10
+    }$$
+    Подставим $(b, c) = \left(\f{1}{4}, \f{21}{16}\right)$:
+    $$\begin{bmatrix}
+        \frac{43}{2} & -5 \\
+        -5 & 10
+    \end{bmatrix}$$
+    Найдём угловые миноры:
+    $$\delta_1 = \f{43}{2}, \quad \delta_2 = 190$$
+    Следовательно, $(b, c) = \left(\f{1}{4}, \f{21}{16}\right)$ точка минимума функции. 
+    
+    Теперь найдём искомое минимальное расстояние между кривыми, подставив эту точку:
+    $$\sqrt{(6+b^2-c)^2 + (b-2c)^2} = \frac{19\sqrt{5}}{8}$$
+    \textbf{Ответ: } $\frac{19\sqrt{5}}{8}$\\
+
+    \item[\textbf{№3}]Псевдорешение и значение функции невязки для несовместной СЛУ:
+
+    \begin{enumerate}
+        \item[1)] Нормальное уравнение:  
+           \[
+           A^T A \theta = A^T \beta
+           \]  
+           Решение системы:  
+           \[
+           \theta = \begin{bmatrix}
+           -\dfrac{107}{30} \\
+           -\dfrac{17}{5} \\
+           0
+           \end{bmatrix} \quad (\text{при } z = 0)
+           \]
+        
+        \item[2)] Значение функции невязки:  
+            \[
+            \psi(\theta) = \sqrt{\dfrac{1}{30}} = \dfrac{\sqrt{30}}{30}
+            \]
+           
+    \end{enumerate}
+    \textbf{Ответ:}  
+    Псевдорешение: \(\begin{bmatrix} -\dfrac{107}{30} \\ -\dfrac{17}{5} \\ 0 \end{bmatrix}\), значение функции невязки: \(\dfrac{\sqrt{30}}{30}\).
+
+
+\end{enumerate}
+\end{document}

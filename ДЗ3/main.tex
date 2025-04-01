@@ -1,0 +1,195 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[14pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 1.10.2024 (Математический анализ)}
+{\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{1.}]
+    \begin{enumerate}
+        \item[(a)]
+        $a_{n+1}=\sqrt{15+2a_n}, a_1=1$\\
+        $$(a_{n+1})^2 = 15+2a_n, \text{\space} \lim_{n\to \infty} a_{n+1} = \lim_{n\to \infty} a_{n} = a$$
+        $$a^2 = 15+2a \r a^2-2a-15 = 0 \r a \in \{-3, 5\}$$
+        Кандитаты в предел:
+        $$\gath{
+            a = -3 \text{ - не может быть так как, } a_n > 0\\
+            a = 5\\
+        }$$
+        Докажем ограниченность: \\
+        $P_k: 1\leq a_k<5$\\
+        \underline{База:} $P_1: a_1 = 1 \r 1\leq 1 < 5$ - верно\\
+        \underline{Шаг:} $P_k \to P_{k+1}$ \\
+        $P_k: 1 \leq a_k < 5$\\
+        $P_{k+1}: a_{k+1} = \sqrt{15+2a_{k}}\r 1 \leq \sqrt{15+2a_{k}}< \sqrt{15+10} = 5 \r \forall k\in \NN : 1 \leq a_k < 5$\\
+
+        Докажем монотонность:
+        $$a_{n+1}-a_n = \sqrt{15+2a_n} - a_n = \f{15+2a_n - a_n^2}{\sqrt{15+2a_n} + a_n} = $$
+        $$=\f{(5-a_n)(a_n+3)}{\sqrt{15+2a_n} + a_n} \geq 0 \text{ т.к.: }$$
+        $\case{
+        (5-a_n)>0 \\
+        (a_n+3)>0 \\
+        \sqrt{15+2a_n} + a_n > 0
+        }$ т.к. $a_n \in [1, 5)$
+        $$\r \forall n\in \NN : a_{n+1}\geq a_n$$
+        Следовательно, по т. Вейерштрасса последовательность сходиться к своему супремуму - это 5\\
+        \textbf{Ответ: } $5$
+
+        \item[(b)]
+        $a_{n+1}=\sqrt{15+2a_n}, a_1=7$\\
+        $$(a_{n+1})^2 = 15+2a_n, \text{\space} \lim_{n\to \infty} a_{n+1} = \lim_{n\to \infty} a_{n} = a$$
+        $$a^2 = 15+2a \r a^2-2a-15 = 0 \r a \in \{-3, 5\}$$
+        Кандитаты в предел:
+        $$\gath{
+            a = -3 \text{ - не может быть так как, } a_n > 0\\
+            a = 5\\
+        }$$
+        Докажем ограниченность: \\
+        $P_k: a_k>5$\\
+        \underline{База:} $P_1: a_1 = 7 > 5$ - верно\\
+        \underline{Шаг:} $P_k \to P_{k+1}$ \\
+        $P_k: a_k > 5$\\
+        $P_{k+1}: a_{k+1} = \sqrt{15+2a_{k}}> \sqrt{15+10} = 5 \r \forall k\in \NN : a_k > 5$.\\
+        
+        Докажем монотонность:
+        $$a_{n+1}-a_n = \sqrt{15+2a_n} - a_n = \f{15+2a_n - a_n^2}{\sqrt{15+2a_n} + a_n} = $$
+        $$=\f{(5-a_n)(a_n+3)}{\sqrt{15+2a_n} + a_n} \leq 0 \text{ т.к.: }$$
+        $\case{
+        (5-a_n)<0 \\
+        (a_n+3)>0 \\
+        \sqrt{15+2a_n} + a_n > 0
+        }$ т.к. $a_n > 5$
+        $$\r \forall n\in \NN : a_{n+1}\leq a_n$$
+        Следовательно, по т. Вейерштрасса последовательность сходиться к своему инфинуму - это 5\\
+        \textbf{Ответ: } $5$
+
+        \item[(c)]
+        $a_{n+1} = \sqrt{2a_n}$, $a_1 = \sqrt{2}$\\
+        Найдём кандитаты в предел:
+        $$a_{n+1}^2 = 2a_n, \text{\space} \lim_{n \to \infty}a_{n+1} = \lim_{n \to \infty}a_n = a$$
+        $$a^2=2a \r a(a-2)=0 \r $$
+        $$\r \gath{
+            a = 0\\
+            a = 2
+        }$$
+        Докажем ограниченность:\\
+        $P_k: a_k < 2$\\
+        \underline{База:} $P_1: a_1 = \sqrt{2} < 2$ - верно\\
+        \underline{Шаг:} $P_k \to P_{k+1}$ \\
+        $P_k: a_k < 2$\\
+        $P_{k+1}: a_{k+1} = \sqrt{2a_k} < \sqrt{2\cdot 2} = 2 \r \forall k \in \NN : a_k < 2$\\
+
+        Докажем монотонность:\\
+        $$a_{n+1} - a_n = \sqrt{2a_n} - a_n = \f{2a_n - a_n^2}{\sqrt{2a_n} + a_n} = \f{a_n(2 - a_n)}{\sqrt{2a_n} + a_n} \geq 0 \text{ т.к.:}$$
+        $$\case{
+            a_n \geq 0 \text{\space по О.Д.З.}\\
+            (2 - a_n) \geq 0 \text{ т.к. }a_n < 2\\
+            (\sqrt{2a_n} + a_n) \geq 0
+        }$$
+        $$\r \forall n \in \NN : a_{n+1} \geq a_n \r \text{ последовательность не убывает}$$ 
+        Следовательно, т.к. последовательность ограничена и она не убывает, то по т. Вейерштрасса она сходиться к своему супремуму, т.е. к 2\\
+        \textbf{Ответ: } $2$
+
+        \item[(d)]
+        $a_{n+1} = \f{2}{3}a_n + \f{1}{a_{n}^2}, \text{\space} a_1 = 3$\\
+        Найдём кандитаты в предел:
+        $$\lim_{n \to \infty} a_{n+1} = \lim_{n \to \infty}a_n = a$$
+        $$a=\f{2}{3}a + \f{1}{a^2}\r \f{a}{3}=\f{1}{a^2} \r a^3 = 3 \r a = \sqrt[3]{3}$$
+
+        Докажем ограниченность:
+        $$P_k: a_k > \sqrt[3]{3}$$
+        \underline{База:}
+        $$P_1: a_1 = 3 > \sqrt[3]{3} \text{ - верно}$$
+        \underline{Шаг:}
+        $$P_k \to P_{k+1}$$
+        $$P_k: a_k > \sqrt[3]{3}$$
+        $$P_{k+1}: a_{k+1} = \f{2}{3}a_k + \f{1}{a_{k}^2} = \f{2a_k^3+3}{3a_k^2} > \f{6+3}{3\cdot3^{\f{2}{3}}} = \f{3}{\sqrt[3]{9}} = $$    
+        $$= \sqrt[3]{\f{27}{9}} = \sqrt[3]{3} \r a_{k+1} > \sqrt[3]{3} \r \forall k \in \NN : a_k > \sqrt[3]{3}$$
+
+        Докажем монотонность: \\
+        $$\f{a_n}{a_{n+1}} = a_n\f{3a_{n}^2}{2a_{n}^3+3} = \f{3a_{n}^3}{2a_{n}^3+3} = \f{3}{2} - \f{\f{9}{2}}{2a_n^3 + 3} = $$
+        $$=\f{3}{2} - \f{9}{4a_n^3+6}$$
+        $$a_n > \sqrt[3]{3} \r a_n^3 > 3 \r \f{9}{4a_n^3+6} < \f{9}{12+6} = \f{1}{2} \r$$
+        $$\r \f{3}{2} - \f{9}{4a_n^3+6} > \f{3}{2}-\f{1}{2} = 1 \r \f{a_n}{a_{n+1}} > 1 \r $$
+        $\r$ последовательность убывает\\
+        Следовательно, т.к. последовательность ограничена снизу и она убывает, то по т. Вейерштрасса она сходиться к своему инфинуму, т.е. к $\sqrt[3]{3}$\\
+        \textbf{Ответ: } $\sqrt[3]{3}$
+
+        \item[(e)]
+        $a_{n+1} = 1 + \f{1}{1+a_n}, \text{\space} a_1 = 1$\\
+        Найдём кандитаты в предел:
+        $$\lim_{n \to \infty} a_{n+1} = \lim_{n \to \infty} a_{n} = a$$
+        $$a = 1+ \f{1}{1+a} = \f{2+a}{1+a} \r a+a^2 = 2+a \r a^2 = 2 \r $$
+        $$\r \case{
+            a= \sqrt{2} \\
+            a = -\sqrt{2}
+        }$$
+    \end{enumerate}
+    
+    \item[\textbf{2.}]
+    $\lim_{n \to \infty}\f{a_n}{a_1a_2a_3\dots a_{n-1}}$\\
+    $a_{n+1} = a_n^2-2, \text{\space} a_1 = 3$\\
+    Докажем:\\
+    $$P_k : a_k^2-4 = a_1^2a_2^2\dots a_{k-1}^2(a_1^2-4) \text{ при } k \geq 2$$
+    \underline{База:}
+    $$P_2: a_2^2-4 = a_1^2(a_1^2-4)$$
+    $$a_2 = a_1^2-2 = 9-2 = 7$$
+    $$7^2-4 = 9\cdot (9-4) \r 45 = 9 \cdot 5 \r 45 = 45 \text{ - верно}$$
+    \underline{Шаг:}
+    $$P_k \to P_{k+1}$$
+    $$P_k: a_k^2-4 = a_1^2a_2^2\dots a_{k-1}^2(a_1^2-4)$$
+    $$P_{k+1}: a_1^2a_2^2\dots a_{k-1}^2a_{k}^2(a_1^2-4) = (a_k^2-4)a_k^2 = a_k^4-4a_k^2$$
+    $$a_k^2 = a_{k+1}+2 \r a_k^4-4a_k^2 = (a_{k+1}+2)^2-4a_{k+1}-8 = $$
+    $$=a_{k+1}^2+4a_{k+1}+4 - 4a_{k+1} - 8 = a_{k+1}^2 - 4\r$$
+    $$\r a_1^2a_2^2\dots a_{k-1}^2a_{k}^2(a_1^2-4) = a_{k+1}^2 - 4 \r $$
+    $$\r \forall k \in \NN : a_k^2-4 = a_1^2a_2^2\dots a_{k-1}^2(a_1^2-4)$$
+
+    $$a_n^2-4 = a_1^2a_2^2\dots a_{n-1}^2(a_1^2-4) \r a_1^2a_2^2\dots a_{n-1}^2 = \f{a_n^2-4}{a_1^2-4} \r$$
+    $$\r a_1a_2\dots a_{n-1}= \sqrt{\f{a_n^2-4}{a_1^2-4}}\r$$
+    $$\r \lim_{n \to \infty}\f{a_n}{a_1a_2a_3\dots a_{n-1}} = \lim_{n \to \infty}a_n\sqrt{\f{a_1^2-4}{a_n^2-4}} = \lim_{n \to \infty}a_n\sqrt{\f{5}{a_n^2-4}} =$$ 
+    $$= \lim_{n \to \infty}\sqrt{\f{5a_n^2}{a_n^2-4}} = \lim_{n \to \infty}\sqrt{\f{5}{1-\f{4}{a_n^2}}}$$
+    $$\lim_{n \to \infty}a_n = +\infty \r \lim_{n \to \infty}\sqrt{\f{5}{1-\f{4}{a_n^2}}} = \sqrt{\f{5}{1-0}} = \sqrt{5}$$
+    \textbf{Ответ:} $\sqrt{5}$
+
+\end{enumerate}
+
+\end{document}

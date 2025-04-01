@@ -1,0 +1,256 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 24.02 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]
+    \begin{enumerate}
+        \item[(a)]Для функции \( f: \mathbb{R}^2 \rightarrow \mathbb{R}^3 \), заданной как \( f\left(\begin{bmatrix} x \\ y \end{bmatrix}\right) = \begin{bmatrix} x^2 - 7y^3 \\ xy^2 - 2x \\ x + y \end{bmatrix} \) в точке \( \bar{a} = (-1, 3) \):
+
+        Матрица Якоби:
+        \[
+        J_{f, \bar{a}} = \begin{bmatrix}
+        -2 & -189 \\
+        7 & -6 \\
+        1 & 1
+        \end{bmatrix}
+        \]
+        
+        Дифференциал:
+        \[
+        L_{f, \bar{a}}[\bar{h}] = \begin{bmatrix} -2h_1 - 189h_2 \\ 7h_1 - 6h_2 \\ h_1 + h_2 \end{bmatrix}
+        \]
+        
+        \item[(b)] Для функции \( f: \mathbb{R}^3 \rightarrow \mathbb{R}^2 \), заданной как \( f\left(\begin{bmatrix} x \\ y \\ z \end{bmatrix}\right) = \begin{bmatrix} \sin(xy^2) + z \\ e^{2y + z} - 7x \end{bmatrix} \) в точке \( \bar{a} = (1, 2, -1) \):
+        
+        Матрица Якоби:
+        \[
+        J_{f, \bar{a}} = \begin{bmatrix}
+        4\cos(4) & 4\cos(4) & 1 \\
+        -7 & 2e^3 & e^3
+        \end{bmatrix}
+        \]
+        
+        Дифференциал:
+        \[
+        L_{f, \bar{a}}[\bar{h}] = \begin{bmatrix} 4\cos(4)h_1 + 4\cos(4)h_2 + h_3 \\ -7h_1 + 2e^3h_2 + e^3h_3 \end{bmatrix}
+        \]
+
+        \item[(c)] Для функции \( f: \mathbb{R}^3 \rightarrow \mathbb{R} \), заданной как \( f(x, y, z) = \frac{z}{x^2 + y^2 + 1} \) в точке \( \bar{a} = (1, -1, 2) \):
+
+        Матрица Якоби:
+        \[
+        J_{f, \bar{a}} = \begin{bmatrix} -\frac{4}{9} & \frac{4}{9} & \frac{1}{3} \end{bmatrix}
+        \]
+
+        Дифференциал:
+        \[
+        L_{f, \bar{a}}[\bar{h}] = -\frac{4}{9}h_1 + \frac{4}{9}h_2 + \frac{1}{3}h_3
+        \]
+
+        \item[(d)] Для функции \( f: \mathbb{R} \rightarrow \mathbb{R}^3 \), заданной как \( f(x) = \begin{bmatrix} x^3 \\ 2^x \\ \cos x \end{bmatrix} \) в точке \( \bar{a} = \frac{\pi}{6} \):
+
+        Матрица Якоби:
+        \[
+        J_{f, \bar{a}} = \begin{bmatrix}
+        \frac{\pi^2}{12} \\
+        2^{\pi/6}\ln 2 \\
+        -\frac{1}{2}
+        \end{bmatrix}
+        \]
+
+        Дифференциал:
+        \[
+        L_{f, \bar{a}}[h] = \begin{bmatrix} \frac{\pi^2}{12}h \\ 2^{\pi/6}\ln 2 \cdot h \\ -\frac{1}{2}h \end{bmatrix}
+        \]
+
+        \item[(e)] Для функции \( f: \mathbb{R} \rightarrow \mathbb{R} \), заданной как \( f(x) = \arctan(x^2) \) в точке \( \bar{a} = -1 \):
+
+        Матрица Якоби:
+        \[
+        J_{f, \bar{a}} = \begin{bmatrix} -1 \end{bmatrix}
+        \]
+
+        Дифференциал:
+        \[
+        L_{f, \bar{a}}[h] = -h
+        \]
+        
+    \end{enumerate}
+
+    \item[\textbf{№2}]Для проверки справедливости формулы (3) вычислим матрицы Якоби отображений \( f \) и \( g \), их произведение и сравним с матрицей Якоби композиции \( g \circ f \).
+
+    Матрица Якоби \( J_{f, \bar{a}} \):
+    \[
+    J_{f, \bar{a}} = 
+    \begin{bmatrix}
+    3 & 2b & 0 \\
+    2a & 0 & 1
+    \end{bmatrix}
+    \]
+    Матрица Якоби \( J_{g, f(\bar{a})} \):
+    \[
+    J_{g, f(\bar{a})} = 
+    \begin{bmatrix}
+    a^2 + c & 3a + b^2 \\
+    -2 & 1 \\
+    1 & 2(a^2 + c)
+    \end{bmatrix}
+    \]
+    Произведение матриц \( J_{g, f(\bar{a})} \cdot J_{f, \bar{a}} \):
+
+    \[
+    \begin{bmatrix}
+    3(a^2 + c) + 2a(3a + b^2) & 2b(a^2 + c) & 3a + b^2 \\
+    -6 + 2a & -4b & 1 \\
+    3 + 4a(a^2 + c) & 2b & 2(a^2 + c)
+    \end{bmatrix}
+    \]
+    Матрица Якоби композиции \( J_{g \circ f, \bar{a}} \):
+    \[
+    J_{g \circ f, \bar{a}} = 
+    \begin{bmatrix}
+    9a^2 + 2ab^2 + 3c & 2b(a^2 + c) & 3a + b^2 \\
+    -6 + 2a & -4b & 1 \\
+    3 + 4a(a^2 + c) & 2b & 2(a^2 + c)
+    \end{bmatrix}
+    \]
+    Матрицы \( J_{g, f(\bar{a})} \cdot J_{f, \bar{a}} \) и \( J_{g \circ f, \bar{a}} \) совпадают. Следовательно, формула (3) справедлива.
+
+    \item[\textbf{№3}]Проверим равенство \( J_{fg,\bar{a}} = J_{f,\bar{a}} \cdot g(\bar{a}) + f(\bar{a}) \cdot J_{g,\bar{a}} \)
+
+    Вычислим функции и их матрицы Якоби:
+
+    \( f(x,y) = e^{xy} + 3y \):
+    \[ \frac{\partial f}{\partial x} = y e^{xy} \]
+    \[ \frac{\partial f}{\partial y} = x e^{xy} + 3 \]
+    Матрица Якоби: \[ J_f = \begin{bmatrix} y e^{xy} & x e^{xy} + 3 \end{bmatrix} \]
+
+    \( g(x,y) = x^2 - xy \):
+    \[ \frac{\partial g}{\partial x} = 2x - y \]
+    \[ \frac{\partial g}{\partial y} = -x \]
+    Матрица Якоби: \[ J_g = \begin{bmatrix} 2x - y & -x \end{bmatrix} \]
+
+    Найдем \( f \cdot g \) и его матрицу Якоби:
+    \[ h(x,y) = f \cdot g = (e^{xy} + 3y)(x^2 - xy) \]
+    Производные:
+    \[ \frac{\partial h}{\partial x} = y e^{xy}(x^2 - xy) + (e^{xy} + 3y)(2x - y) \]
+    \[ \frac{\partial h}{\partial y} = (x e^{xy} + 3)(x^2 - xy) + (e^{xy} + 3y)(-x) \]
+    Матрица якоби:
+    \[ J_g = \begin{bmatrix} y e^{xy}(x^2 - xy) + (e^{xy} + 3y)(2x - y)&
+        (x e^{xy} + 3)(x^2 - xy) + (e^{xy} + 3y)(-x) \end{bmatrix} \]
+    
+    Вычислим правую часть равенства:
+    \[ J_f \cdot g(\bar{a}) = \begin{bmatrix} b e^{ab}(a^2 - ab) & (a e^{ab} + 3)(a^2 - ab) \end{bmatrix} \]
+    \[ f(\bar{a}) \cdot J_g = (e^{ab} + 3b) \begin{bmatrix} 2a - b & -a \end{bmatrix} \]
+    Сумма:
+    
+    По \( x \): \[ b e^{ab}(a^2 - ab) + (e^{ab} + 3b)(2a - b) \]
+    По \( y \): \[ (a e^{ab} + 3)(a^2 - ab) + (e^{ab} + 3b)(-a) \]
+
+    Подставляя \( x = a \), \( y = b \) в \( \frac{\partial h}{\partial x} \) и \( \frac{\partial h}{\partial y} \), получаем выражения, совпадающие с компонентами суммы \( J_f \cdot g(\bar{a}) + f(\bar{a}) \cdot J_g \).
+
+    Следовательно, равенство \[ J_{fg,\bar{a}} = J_{f,\bar{a}} \cdot g(\bar{a}) + f(\bar{a}) \cdot J_{g,\bar{a}} \] справедливо
+
+    \item[\textbf{№4}]\begin{enumerate}
+        \item[(a)]Частные производные функции \( f(x, y) = \sqrt[3]{xy} \) в точке \((0, 0)\):  
+        \[
+        \frac{\partial f}{\partial x}(0, 0) = 0, \quad \frac{\partial f}{\partial y}(0, 0) = 0.
+        \]  
+        Вычисление по определению:  
+        \[
+        \frac{\partial f}{\partial x}(0, 0) = \lim_{h \to 0} \frac{f(h, 0) - f(0, 0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0,
+        \]  
+        \[
+        \frac{\partial f}{\partial y}(0, 0) = \lim_{h \to 0} \frac{f(0, h) - f(0, 0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0.
+        \]  
+        \textbf{Ответ: } $0$ и $0$\\
+         
+        \item[(b)]
+        Для исследования дифференцируемости функции 
+        \[ f(x, y) = \sqrt[3]{xy} \] в точке \( (0, 0) \) используем определение дифференцируемости. Предположим, что функция дифференцируема, тогда её приращение должно иметь вид:
+        
+        \[
+        f(h_1, h_2) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0) \cdot h_1 + \frac{\partial f}{\partial y}(0, 0) \cdot h_2 + \alpha \cdot \sqrt{h_1^2 + h_2^2},
+        \]
+        
+        где \( \alpha \rightarrow 0 \) при \( (h_1, h_2) \rightarrow (0, 0) \). Из пункта (a) частные производные в \( (0, 0) \) равны нулю:
+        
+        \[
+        \frac{\partial f}{\partial x}(0, 0) = \frac{\partial f}{\partial y}(0, 0) = 0.
+        \]
+        
+        Подставляя \( f(0, 0) = 0 \), получаем:
+        
+        \[
+        \sqrt[3]{h_1 h_2} = \alpha \cdot \sqrt{h_1^2 + h_2^2}.
+        \]
+        
+        Выразим \( \alpha \):
+        
+        \[
+        \alpha = \frac{\sqrt[3]{h_1 h_2}}{\sqrt{h_1^2 + h_2^2}}.
+        \]
+        
+        Исследуем предел \( \alpha \) при \( (h_1, h_2) \rightarrow (0, 0) \). Рассмотрим путь \( h_2 = k h_1 \), где \( k \) — константа:
+        
+        \[
+        \alpha = \frac{\sqrt[3]{k} \cdot h_1^{2/3}}{h_1 \sqrt{1 + k^2}} = \frac{\sqrt[3]{k}}{h_1^{1/3} \sqrt{1 + k^2}}.
+        \]
+        
+        При \( h_1 \rightarrow 0 \) знаменатель стремится к нулю, а числитель остаётся конечным, поэтому \( \alpha \rightarrow \infty \). Это означает, что \( \alpha \) не стремится к нулю, и условие дифференцируемости не выполняется.
+        
+    \end{enumerate}
+\end{enumerate}
+\end{document}

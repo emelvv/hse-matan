@@ -1,0 +1,317 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\matsq}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\newcommand{\p}{\partial}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 19.03 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]Найдём все условные локальные экстремумы функции:
+    $$f(x, y, z) = xyz$$
+    относительно:
+    $$\phi_1(x, y, z) = x+y+z-6 = 0$$
+    $$\phi_2(x, y, z) = x+2y+3z-6=0$$
+    Для начала решим систему:
+    $$\case{
+        x+y+z-6 = 0\\
+        x+2y+3z-6=0
+    }\implies \case{x = 6+z\\y=-2z}$$
+    Найдём локальные экстремумы у функции:
+    $$h(z) = -2z^2(6+z) = -12z^2 - 2z^3$$
+    Получаем:
+    $$\text{Локальный минимум: } z = -4$$
+    $$\text{Локальный максимум: } z = 0$$
+    Следовательно, в исходной функции:
+    $$\text{Локальный минимум: } (6, 0, 0)$$
+    $$\text{Локальный максимум: } (2, 8, -4)$$
+
+    \item[\textbf{№2}]Найдём условные локальные экстремумы функций
+    \begin{enumerate}
+        \item[(a)]$$f(x, y) = 6-5x - 4y$$
+        относительно
+        $$\phi(x, y) = x^2-y^2-9=0$$
+
+        Найдём функцию Лагранжа:
+        $$L_\lambda(x, y) = 6-5x - 4y-\lambda(x^2-y^2-9) =$$
+        $$= 6-5x-4y-\lambda x^2+\lambda y^2+9\lambda$$
+        Найдём решения системы:
+        $$\case{
+            \f{\p L_\lambda(x, y)}{\p x} = 0\\
+            \f{\p L_\lambda(x, y)}{\p y} = 0\\
+            \phi(x, y)=0
+        } \lr \case{
+            -5-2\lambda x = 0\\
+            -4+2\lambda y= 0\\
+            x^2-y^2-9=0
+        }\lr (x, y, \lambda) = (-5, 4, -\f{1}{2}), (5, -4, \f{1}{2})$$
+
+        Проверим ранг и решим ОСЛУ для каждой точки:
+        $$\matsq{\phi_x' & \phi_y'}(x, y) \lr \matsq{2x & -2y}(x, y)$$
+
+        Для точки $(-5, 4, -\f{1}{2})$:
+        $$\matsq{-10 & -8 & | & 0} \implies h = \matsq{-\f{4}{5}h_2 \\ h_2}$$
+        $$rk = 1$$
+        Для точки $(5, -4, \f{1}{2})$:
+        $$\matsq{10 & 8 & | & 0} \implies h = \matsq{-\f{4}{5}h_2 \\ h_2}$$
+        $$rk = 1$$
+        Найдём матрицу второго дифференциала функции лагранжа, для этого посчитаем вторые производные:
+        $$\f{\p L_\lambda(x, y)}{\p x^2} = -2\lambda$$
+        $$\f{\p L_\lambda(x, y)}{\p xy} = 0$$
+        $$\f{\p L_\lambda(x, y)}{\p y^2} = 2\lambda$$
+        Матрица:
+        $$\matsq{-2\lambda & 0 \\ 0 & 2\lambda}(x, y, \lambda)$$
+
+        \begin{itemize}
+            \item
+            Для точки $(-5, 4, -\f{1}{2})$:
+            $$d^2_{(-5, 4, -\f{1}{2})}(h) = 
+            \matsq{-\f{4}{5}h_2 \\ h_2}^T
+            \matsq{1 & 0 \\ 0 & -1}
+            \matsq{-\f{4}{5}h_2 \\ h_2} = \matsq{-\f{4}{5}h_2 &-h_2}\matsq{-\f{4}{5}h_2 \\ h_2} 
+            =$$
+            $$= \f{16}{25}h_2^2-h_2^2=-\f{9}{25}h_2^2 < 0$$
+            Следовательно:
+            $$(-5, 4) \text{ --- условная точка локального максимума}$$
+
+            \item
+            Для точки $(5, -4, \f{1}{2})$:
+            $$d^2_{(-5, 4, -\f{1}{2})}(h) = 
+            \matsq{-\f{4}{5}h_2 \\ h_2}^T
+            \matsq{-1 & 0 \\ 0 & 1}
+            \matsq{-\f{4}{5}h_2 \\ h_2} = \matsq{\f{4}{5}h_2 &h_2}
+            \matsq{-\f{4}{5}h_2 \\ h_2} 
+            =$$
+            $$= -\f{16}{25}h_2^2+h_2^2=\f{9}{25}h_2^2 > 0$$
+            Следовательно:
+            $$(5, -4) \text{ --- условная точка локального минимума}$$
+        \end{itemize}
+        \textbf{Ответ: } $(-5, 4)$ -лок. макс., $(5, -4)$ -лок. мин.\\
+
+        \item[(b)]$$f(x, y, z) = xy+yz$$
+        относительно
+        $$\phi_1(x, y, z) = x^2+y^2-2=0 \quad \text{ и } \quad \phi_2(x, y, z) = y+z-2=0$$
+        Пусть:
+        $$h(x, y) = f(x, y, 2-y) = xy+y(2-y) = xy+2y-y^2$$
+        Функция Лагранжа:
+        $$L_{\lambda}(x, y) =xy+2y-y^2 -\lambda(x^2+y^2-2)$$
+        Решим систему:
+        $$\case{
+            (L_{\lambda}(x, y))_x' = y-2\lambda x=0\\
+            (L_{\lambda}(x, y))_y' = x+2-2y-2\lambda y=0\\
+            x^2+y^2-2=0\\
+        }$$
+        Четыре решения:
+        \begin{itemize}
+            \item \( x = -1 \), \( y = 1 \), \( \lambda = -\frac{1}{2} \)
+            \item \( x = 1 \), \( y = 1 \), \( \lambda = \frac{1}{2} \)
+            \item \( x = \frac{-1 + \sqrt{3}}{2} \), \( y = \frac{-1 - \sqrt{3}}{2} \),  
+            \( \lambda = -\f{2+\sqrt{3}}{4}\)
+            \item \( x = \frac{-1 - \sqrt{3}}{2} \), \( y = \frac{-1 + \sqrt{3}}{2} \),  
+            \( \lambda = \f{\sqrt{3}-2}{4}\)
+        \end{itemize}
+        Проверим ранг матрицы, решим ослу для каждой точки и найдём на множестве векторов $h$ второй дифференциал:
+        $$\matsq{(\phi_1)_x' & (\phi_1)_y'}(x,y) = \matsq{2x & 2y}(x, y)$$
+        $$d_{\bar{h}}^2L_{\lambda}(x, y) = \matsq{h_1 & h_2} 
+        \matsq{
+            L_{\lambda}(x,y)_{xx}' & L_{\lambda}(x,y)_{xy}'\\
+            L_{\lambda}(x,y)_{yx}' & L_{\lambda}(x,y)_{yy}'
+        }
+        \matsq{h_1 \\ h_2} 
+        $$
+        $$=\matsq{h_1 & h_2} 
+        \matsq{
+            -2\lambda & 1\\
+            1 & -2-2\lambda
+        }
+        \matsq{h_1 \\ h_2} $$
+        \begin{enumerate}
+            \item[1)] \( x = -1 \), \( y = 1 \), \( \lambda = -\frac{1}{2} \)\\
+            $$\matsq{-2 & 2 & | & 0} \implies -2h_1 = -2h_2 \implies h_1 = h_2 
+            \implies h=\matsq{h_2\\h_2}  $$
+            $$rk = 1$$
+            $$d_{\bar{h}}^2L_{\lambda}(x, y) = \matsq{h_2 & h_2} 
+            \matsq{
+                -2\lambda & 1\\
+                1 & -2-2\lambda
+            }
+            \matsq{h_2 \\ h_2} = -4h_2^2\lambda = 2h_2^2 > 0$$
+            $$(-1, 1, 1) \text{ --- точка минимума}$$
+
+
+            \item[2)] \( x = 1 \), \( y = 1 \), \( \lambda = \frac{1}{2} \)\\
+            $$\matsq{2 & 2 & | & 0} \implies 2h_1 = -2h_2 \implies h_1 = -h_2 
+            \implies h=\matsq{-h_2\\h_2}  $$
+            $$rk = 1$$
+            $$d_{\bar{h}}^2L_{\lambda}(x, y) = \matsq{-h_2 & h_2} 
+            \matsq{
+                -2\lambda & 1\\
+                1 & -2-2\lambda
+            }
+            \matsq{-h_2 \\ h_2} =$$
+            $$= -4h_2^2\lambda-4h_2^2=-2h_2^2-4h_2^2 = -6h_2^2 < 0$$
+            $$(1, 1, 1) \text{ --- точка максимума}$$
+
+            \item[3)]
+            \( x = \frac{-1 + \sqrt{3}}{2} \), \( y = \frac{-1 - \sqrt{3}}{2} \),  
+            \( \lambda = -\f{2+\sqrt{3}}{4}\)\\
+            $$\matsq{-1 + \sqrt{3} & -1 - \sqrt{3} & | & 0} 
+            \implies h_1 =\f{1+\sqrt{3}}{-1+\sqrt{3}}h_2 =\sqrt{3}h_2 + 2h_2$$
+            $$\implies h=\matsq{\sqrt{3}h_2 + 2h_2\\h_2}  $$
+            $$rk = 1$$
+            $$d_{\bar{h}}^2L_{\lambda}(x, y) = \matsq{\sqrt{3}h_2 + 2h_2& h_2} 
+            \matsq{
+                -2\lambda & 1\\
+                1 & -2-2\lambda
+            }
+            \matsq{\sqrt{3}h_2 + 2h_2 \\ h_2} =$$
+            $$= 2(8 + 5\sqrt{3}) h_2^2 > 0$$
+            $$(\frac{-1 + \sqrt{3}}{2}, \frac{-1 - \sqrt{3}}{2}, \frac{5 + \sqrt{3}}{2}) 
+            \text{ --- точка минимума}$$
+
+            \item[4)]\( x = \frac{-1 - \sqrt{3}}{2} \), \( y = \frac{-1 + \sqrt{3}}{2} \),  
+            \( \lambda = \f{\sqrt{3}-2}{4}\)\\
+            $$\matsq{-1 -\sqrt{3} & -1 + \sqrt{3} & | & 0} 
+            \implies h_1 =\f{1-\sqrt{3}}{-1-\sqrt{3}}h_2$$
+            $$\implies h=\matsq{\f{1-\sqrt{3}}{-1-\sqrt{3}}h_2\\h_2}  $$
+            $$rk = 1$$
+            $$d_{\bar{h}}^2L_{\lambda}(x, y) = \matsq{\f{1-\sqrt{3}}{-1-\sqrt{3}}h_2& h_2} 
+            \matsq{
+                -2\lambda & 1\\
+                1 & -2-2\lambda
+            }
+            \matsq{\f{1-\sqrt{3}}{-1-\sqrt{3}}h_2\\ h_2} =$$
+            $$= \frac{-4(-1 + 2\sqrt{3})}{(1 + \sqrt{3})^2} h_2^2 < 0$$
+            $$(\frac{-1 - \sqrt{3}}{2}, \frac{-1 + \sqrt{3}}{2}, \frac{5 -\sqrt{3}}{2}) 
+            \text{ --- точка минимума}$$
+        \end{enumerate}
+
+        \textbf{Ответ: } $(-1, 1, 1)$ - мин, $(1, 1, 1)$ - макс, 
+        $(\frac{-1 + \sqrt{3}}{2}, \frac{-1 - \sqrt{3}}{2}, \frac{5 + \sqrt{3}}{2})$ - мин,
+         $(\frac{-1 - \sqrt{3}}{2}, \frac{-1 + \sqrt{3}}{2}, \frac{5 -\sqrt{3}}{2}) $ - макс\\
+    \end{enumerate}
+
+    \item[\textbf{№3}]
+    Для решения задачи найдём минимальное расстояние от точки $(0, 3, 3)$ до точки $(x, y, z)$,
+    удовлетворяющей данной системе:
+    $$\case{
+        x^2 + y^2 + z^2 = 1\\
+        x+y+z = 1
+    } \lr \case{
+        (1-y-z)^2+y^2+z^2=1 \\
+        x = 1-y-z
+    }\lr$$
+    $$\lr \case{
+        2y^2+2z^2-2y-2z-2yz = 0\\
+        x =1-y-z
+    }$$
+    Для этого минимизируем функцию:
+    $$\rho(x, y, z) = \sqrt{x^2+(y-3)^2+(z-3)^2 }= \sqrt{(1-y-z)^2+(y-3)^2+(z-3)^2 }$$
+    $$ = \sqrt{19+2y^2+2z^2-8y-8z+2yz}$$
+    Для этого найдём условные локальные экстремумы функции:
+    $$h(y, z) = 19+2y^2+2z^2-8y-8z+2yz$$
+    относительно
+    $$\phi(y, z) =2y^2+2z^2-2y-2z-2yz = 0 $$
+    Функция Лагранжа:
+    $$L_\lambda(y, z) =19+2y^2+2z^2-8y-8z+2yz -\lambda(2y^2+2z^2-2y-2z-2yz)$$
+    Решим систему:
+    $$\case{
+        (L_\lambda(y, z))_y' =0\\
+        (L_\lambda(y, z))_z' = 0\\
+        \phi(y, z) = 0
+    } \lr$$
+    $$\lr \case{
+        -8 + 4y + 2z - (-2 + 4y - 2z)\lambda = 0\\
+        -8 + 2y + 4z - (-2 - 2y + 4z)\lambda = 0\\
+        2y^2+2z^2-2y-2z-2yz = 0
+    }$$
+    Получаем 2 решения:
+    \begin{itemize}
+        \item  \( y = 0, z = 0, \lambda = 4 \)
+        \item  \( y = 2, z = 2, \lambda = 2 \)
+    \end{itemize}
+    Это экстремумы, так как выполняются все необходимые условия. Подставим их в $h$ и определим в какой из них достигается наименьшее значение:
+    \begin{itemize}
+        \item В точке \( (y = 0, z = 0) \): \( h = 19 \)
+        \item В точке \( (y = 2, z = 2) \): \( h = 11 \)
+    \end{itemize}
+    Следовательно минимальное расстояние от точки $(0, 3, 3)$ до точки $(x, y, z)$:
+    $$\sqrt{h(2, 2)} = \sqrt{11}$$
+
+    \textbf{Ответ:} $\sqrt{11}$\\
+
+    \item[\textbf{№4}]Найдём условные локальные экстремумы функции:
+    $$V = V(r, h) = \f{1}{3}\pi r^2 h$$
+    относительно (формула площади боковой поверхности):
+    $$\phi(r, h) = \pi r \sqrt{r^2+h^2} - S =0$$
+    Функция Лагранжа:
+    $$L_\lambda(r, h) = \f{1}{3}\pi r^2 h - \lambda(\pi r \sqrt{r^2+h^2} - S)$$
+    Решим систему:
+    $$\case{
+        (L_\lambda(r, h))_r' = 0\\
+        (L_\lambda(r, h))_h' = 0\\
+        \phi(r, h) = 0
+    } \lr \case{
+        \frac{2}{3} \pi r h - \lambda \left( 2\pi r \sqrt{r^2 + h^2} + \pi \frac{h^2 + r^2}{\sqrt{r^2 + h^2}} \right) = 0\\
+        \frac{1}{3} \pi r^2 - 2\lambda \pi h r \frac{1}{\sqrt{r^2 + h^2}}=0\\
+        \pi r \sqrt{r^2+h^2} - S =0
+    }$$
+    Получаем решение:
+    $$(r, h, \lambda) = \left( \sqrt{\dfrac{S}{2\pi}},\ \sqrt{\dfrac{3S}{2\pi}},\ \dfrac{\sqrt{S}}{3\sqrt{6\pi}} \right)$$
+    Посчитав второй дифференциал функции Лагранжа можно убедиться, что это условный локальный минимум. 
+    А значит минимальный объём:
+    $$V = \f{1}{3}\pi r^2 h =  \f{1}{3}\pi \l{ \sqrt{\dfrac{S}{2\pi}}}\r^2 \cdot \sqrt{\dfrac{3S}{2\pi}} =
+      \frac{S^{3/2}}{2\sqrt{6\pi}}$$
+    \textbf{Ответ:} $\frac{S^{3/2}}{2\sqrt{6\pi}}$
+\end{enumerate}
+\end{document}

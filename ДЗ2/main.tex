@@ -1,0 +1,148 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[14pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % Модуль \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 24.09.2024 (Математический анализ)}
+{\large Емельянов Владимир, ПМИ гр №247}\\\\
+\
+\begin{enumerate}
+    \item[\textbf{1.}]
+    \begin{enumerate}
+        \item[(a)]
+        $$\lim_{n \to \infty} \f{n^2+6}{n^2-10n+26} = 
+        \lim_{n \to \infty} \f{1+\f{6}{n^2}}{1-\f{10}{n}+\f{26}{n^2}}$$
+        $$\f{6}{n^2} \rr 0, \f{10}{n} \rr 0, \f{26}{n^2} \rr 0 \r$$
+        $$\lim_{n \to \infty} \f{1+\f{6}{n^2}}{1-\f{10}{n}+\f{26}{n^2}} = \f{1+0}{1-0+0} = 1$$
+        Докажем, что:
+        $$\forall \varepsilon > 0, N = \sq{\f{10}{\varepsilon}+9}, \forall n \in \NN, \sq{n\geq N : \abs{a_n-a}<\varepsilon}$$
+        $$\abs{\f{n^2+6}{n^2-10n+26} - 1} = \abs{\f{10n-20}{n^2-10n+26}} \leq $$
+        $$\f{10n-10}{n^2-10n+9} = 10\f{n-1}{(n-1)(n-9)} = \f{10}{n-9} \leq \f{10}{N-9} < \varepsilon \r$$
+        $$\r N > \f{10}{\varepsilon}+9 \r N = \sq{\f{10}{\varepsilon}+9}$$
+        $$$$
+        \textbf{Ответ:} 1, $N = \sq{\f{10}{\varepsilon}+9}$
+
+        \item[(b)]
+        $$\lim_{n\to \infty}(\f{1}{n^2} + \f{2}{n^2}+ \dots + \f{n-1}{n^2})$$
+        $$\f{1}{n^2} + \f{2}{n^2}+ \dots + \f{n-1}{n^2} = \s{k=1}{n-1}\f{k}{n^2} = \f{1}{n^2}\cdot \s{k=1}{n-1}k =  $$
+        $$=\f{1}{n^2}\cdot \f{1+(n-1)}{2}{(n-1)}= \f{1}{n^2}\cdot \f{n}{2}(n-1) = \f{n-1}{2n}$$
+        $$\lim_{n\to \infty}(\f{1}{n^2} + \f{2}{n^2}+ \dots + \f{n-1}{n^2}) = \lim_{n\to \infty}(\f{n-1}{2n}) =$$
+        $$=\lim_{n\to \infty}(\f{1-\f{1}{n}}{2}) = \f{1}{2}$$
+        Докажем, что:
+        $$\forall \varepsilon > 0, N = \sq{\f{1}{2\varepsilon}}, \forall n \in \NN, \sq{n\geq N : \abs{a_n-a}<\varepsilon}$$
+        $$\abs{\f{n-1}{2n} - \f{1}{2}} = \abs{-\f{1}{2n}} \leq \f{1}{2n} \leq \f{1}{2N} < \varepsilon \r$$
+        $$\r N > \f{1}{2\varepsilon} \r N = \sq{\f{1}{2\varepsilon}}$$
+        
+        \textbf{Ответ: } $\f{1}{2}$, $N = \sq{\f{1}{2\varepsilon}}$
+    \end{enumerate}
+
+    \item[\textbf{2}]
+    \begin{enumerate}
+        \item[(a)]
+        $$\lim_{n\to \infty} \f{5^n + n3^n+n^{10}}{3^{n+7}+n^{100}+5^{n+1}} = \lim_{n\to \infty} \f{1 + \f{n3^n}{5^n}+\f{n^{10}}{5^n}}{\f{3^{n+7}}{5^n}+\f{n^{100}}{5^n}+5}= \f{1 + 0+0}{0+0+5} = \f{1}{5}$$ 
+        \textbf{Ответ:} $\f{1}{5}$
+
+        \item[(b)]
+        $$\lim_{n \to \infty}{\f{2n-\sqrt{4n^2-1}}{\sqrt{n^2+3}-n}} = \lim_{n \to \infty}{\f{\sqrt{4n^2}-\sqrt{4n^2-1}}{\sqrt{n^2+3}-\sqrt{n^2}}} = $$
+        $$=\lim_{n \to \infty}{\f{(\sqrt{4n^2}-\sqrt{4n^2-1})(\sqrt{n^2+3}+\sqrt{n^2})}{n^2+3-n^2}} = $$
+        $$=\lim_{n \to \infty}{\f{(4n^2-4n^2+1)(n+\sqrt{n^2+3})}{3(\sqrt{4n^2}+\sqrt{4n^2-1})}}=\lim_{n \to \infty}{\f{n+\sqrt{n^2+3}}{3(2n+\sqrt{4n^2-1})}} = $$
+        $$=\lim_{n \to \infty}{\f{n+\sqrt{n^2+3}}{6n+3\sqrt{4n^2-1}}} = \lim_{n \to \infty}{\f{1+\sqrt{1+\f{3}{n^2}}}{6+3\sqrt{4-\f{1}{n^2}}}} = \f{1+\sqrt{1+0}}{6+3\sqrt{4-0}} =$$
+        $$=\f{2}{6+3\cdot 2}=\f{2}{12}=\f{1}{6}$$
+        \textbf{Ответ:} $\f{1}{6}$
+
+        \item[(c)]
+        $$\lim_{n\to \infty}sin(\f{n2^n}{n!+1})$$
+        $$\f{n2^n}{n!+1}>0 \r sin(\f{n2^n}{n!+1}) \leq \f{n2^n}{n!+1}$$
+        $$0 \leq sin(\f{n2^n}{n!+1}) \leq \f{n2^n}{n!+1}$$
+        По теореме о зажатой последовательности:
+        $$\begin{cases}
+            \lim_{n \to \infty} \f{n2^n}{n!+1} = \lim_{n \to \infty} \f{n\f{2^n}{n!}}{1+\f{1}{n!}} = \f{0}{1+0}  = 0\\
+            \lim_{n \to \infty} 0 = 0
+        \end{cases}\r \lim_{n\to \infty}sin(\f{n2^n}{n!+1}) = 0 $$
+        \textbf{Ответ:} $0$
+
+        \item[(d)]
+        $$\lim_{n \to \infty}\sqrt[n]{\f{n^2+4^n}{n+5^n}}$$
+        $$\sqrt[n]{\f{n^2+4^n}{n+5^n}} \leq \sqrt[n]{\f{4^n+4^n}{5^n}} = \sqrt[n]{\f{2\cdot 4^n}{5^n}} = \f{4}{5}\sqrt[n]{2}$$
+        $$\sqrt[n]{\f{n^2+4^n}{n+5^n}} \geq \sqrt[n]{\f{4^n}{5^n+5^n}} = \sqrt[n]{\f{4^n}{2\cdot 5^n}} = \f{4}{5}\sqrt[n]{\f{1}{2}}$$
+        $$\f{4}{5}\sqrt[n]{\f{1}{2}} \leq \sqrt[n]{\f{n^2+4^n}{n+5^n}} \leq \f{4}{5}\sqrt[n]{2} \r $$
+        $\r$ По теореме о зажатой последовательности:
+        $$\begin{cases}
+            \lim_{n \to \infty}\f{4}{5}\sqrt[n]{2} = \f{4}{5}\\
+            \lim_{n \to \infty}\f{4}{5}\sqrt[n]{\f{1}{2}} = \f{4}{5}
+        \end{cases} \r \lim_{n \to \infty}\sqrt[n]{\f{n^2+4^n}{n+5^n}} = \f{4}{5}$$
+        \textbf{Ответ: } $\f{4}{5}$
+
+        \item[(e)]
+        $$\lim_{n \to \infty}\f{1! + 2! + 3! + \dots + n!}{n!}$$
+        $$\f{1! + 2! + 3! + \dots + n!}{n!} \leq \f{(n-2)\cdot (n-2)! + (n-1)! + n!}{n!} = $$
+        $$=\f{n-2}{n(n-1)}+\f{1}{n}+1 = \f{n-2+n-1+n^2-n}{n^2-n} = \f{n^2+n-3}{n^2-n} = $$
+        $$=\f{1+\f{1}{n}-\f{3}{n^2}}{1-\f{1}{n}}$$
+        $$1\leq \f{1! + 2! + 3! + \dots + n!}{n!} \leq \f{1+\f{1}{n}-\f{3}{n^2}}{1-\f{1}{n}}\r$$
+        $\r$ По теореме о зажатой последовательности:
+        $$\begin{cases}
+            \lim_{n \to \infty}1 = 1 \\
+            \lim_{n \to \infty}\f{1+\f{1}{n}-\f{3}{n^2}}{1-\f{1}{n}} = \f{1+0+0}{1-0} = 1
+        \end{cases}\r \lim_{n \to \infty}\f{1! + 2! + 3! + \dots + n!}{n!} = 1$$
+        \textbf{Ответ: }$1$
+
+        \item[(f)]
+        $$\lim_{n \to \infty}\f{n! \cdot n^n}{(3n)!}$$
+        $$\f{n! \cdot n^n}{(3n)!} = \f{n! \cdot n^n}{n!\cdot (n+1)\dots(2n) \cdot (2n+1)\dots (3n)} = $$
+        $$=\f{n^n}{(n+1)\dots(n+n) \cdot (2n+1)\dots (2n+n)} \leq \f{n^n}{n^n\cdot (2n)^n} = \f{1}{2^nn^n}$$
+        $$0 \leq \f{n! \cdot n^n}{(3n)!} \leq \f{1}{2^nn^n} \r $$
+        $\r$ По теореме о зажатой последовательности:
+        $$\begin{cases}
+            \lim_{n \to \infty}0 = 0 \\
+            \lim_{n \to \infty}\f{1}{2^nn^n} = 0
+        \end{cases}\r \lim_{n \to \infty}\f{n! \cdot n^n}{(3n)!} = 0$$
+        \textbf{Ответ:} $0$
+
+        \item[(g)]
+        $$\lim_{n \to \infty} sin(\pi \sqrt[3]{n^3+1})$$
+        $$sin(\pi \sqrt[3]{n^3+1}) = (-1)^n sin(\pi \sqrt[3]{n^3+1} - \pi n) = $$
+        $$= (-1)^n sin(\pi (\sqrt[3]{n^3+1} - n)) = (-1)^n sin(\pi (\sqrt[3]{n^3+1} - \sqrt[3]{n^3})) = $$
+        $$= (-1)^n sin(\pi \f{n^3+1 - n^3}{\sqrt[3]{n^3+1}^2+\sqrt[3]{(n^3+1)n^3}+\sqrt[3]{n^3}^2}) = $$
+        $$=(-1)^n sin(\pi \f{1}{\sqrt[3]{n^3+1}^2+n\sqrt[3]{(n^3+1)}+n^2})$$
+        $$\lim_{n \to \infty}\pi \f{1}{\sqrt[3]{n^3+1}^2+n\sqrt[3]{(n^3+1)}+n^2} = 0 \r$$
+        $$\r \lim_{n \to \infty}sin(\pi \f{1}{\sqrt[3]{n^3+1}^2+n\sqrt[3]{(n^3+1)}+n^2}) = 0 \r$$
+        $$\r \lim_{n \to \infty} (-1)^n sin(\pi \f{1}{\sqrt[3]{n^3+1}^2+n\sqrt[3]{(n^3+1)}+n^2}) = 0 =$$
+        $$= \lim_{n \to \infty} sin(\pi \sqrt[3]{n^3+1})$$
+        \textbf{Ответ:} $0$
+    \end{enumerate}
+\end{enumerate}
+\end{document}

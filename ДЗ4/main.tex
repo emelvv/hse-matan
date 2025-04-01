@@ -1,0 +1,142 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[14pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашняя работа №4 (Математический анализ)}
+{\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{1.}]
+    \begin{enumerate}
+        \item[(a)]
+        $$\lim_{n \to \infty}(1- \f{3}{n^2-7})^{n^2+1}$$
+        $$e = \lim_{n \to \infty}(1 - \f{3}{n^2-7})^{-\f{n^2-7}{3}}\r$$
+        $$\r e^{-\f{3}{n^2-7}} = \lim_{n \to \infty}(1 - \f{3}{n^2-7}) \r $$
+        $$\r e^{-3} = \lim_{n \to \infty}(1 - \f{3}{n^2-7})^{n^2-7}=$$
+        $$=\lim_{n \to \infty}(1 - \f{3}{n^2-7})^{n^2+1}\cdot \lim_{n \to \infty}(1 - \f{3}{n^2-7})^{-8} = $$
+        $$= \lim_{n \to \infty}(1 - \f{3}{n^2-7})^{n^2+1}\cdot 1 \r$$
+        $$\r \lim_{n \to \infty}(1- \f{3}{n^2-7})^{n^2+1} = e^{-3}$$
+        \textbf{Ответ: } $e^{-3}$
+
+        \item[(b)]
+        $$\lim_{n \to \infty} ( \f{1}{2n + 1} + \f{1}{2n + 2} + \f{1}{2n + 3} + \dots + \f{1}{3n}) = $$
+        $$= \lim_{n \to \infty}(H_{3n} - H_{2n}) = \lim_{n \to \infty}(ln(3n) + \gamma + \varepsilon_{3n} - ln(2n) - \gamma - \varepsilon_{2n}) = $$
+        $$= \lim_{n \to \infty}(ln(\f{3}{2}) + \varepsilon_{3n}-\varepsilon_{2n}) = ln(\f{3}{2})$$
+        \textbf{Ответ: } $ln(\f{3}{2})$
+    \end{enumerate}
+
+    \item[\textbf{2.}]
+    \begin{enumerate}
+        \item[(a)]
+        $$a_n = 2 + (-1)^n$$
+        $$[C]\lim_{n \to \infty} a_n = \lim_{n \to \infty} \f{a_1 + a_2 + \dots + a_n}{n} = $$
+        $$=\case{
+            \lim_{n \to \infty}\f{2n}{n} = 2 \text{ при n - чётном} \\
+            \lim_{n \to \infty}\f{2n-1}{n} \text{ при n - нечётном} = \lim_{n \to \infty}(2-\f{1}{n}) = 2
+        }$$
+        \textbf{Ответ: } $2$
+
+        \item[(b)]
+        $$a_n = (1+\f{1}{n})^n$$
+        $$[C]\lim_{n \to \infty} a_n  = \lim_{n \to \infty} \f{a_1 + a_2 + \dots + a_n}{n}$$
+        $$x_n = a_1 + a_2 + \dots + a_n,\ts y_n = n \r [C]\lim_{n \to \infty} a_n = \f{x_n}{y_n}$$
+        $$\f{x_{n+1} - x_n}{y_{n+1}-y_n} = \f{a_{n+1}}{1} = a_{n+1}$$
+        Так как $y_n>0$, $y_{n+1}>y_n$ и $\lim_{n \to \infty}y_n = +\infty$, то по теореме Штольца, если предел $\f{x_{n+1}-x_{n}}{y_{n+1} - y_{n}}$ существует, то он равен пределу $\f{x_n}{y_n}$. Найдём этот передел:
+        $$\lim_{n \to \infty}\f{x_{n+1} - x_n}{y_{n+1}-y_n} = \lim_{n \to \infty} a_{n+1} = \lim_{n \to \infty} (1+\f{1}{n+1})^{n+1} = e \r $$
+        $$\r [C]\lim_{n \to \infty} a_n = e $$
+        \textbf{Ответ: } $e$
+        
+        \item[(c)]
+        $$a_n = \sin(n)$$
+        $$S_n = \sin(1) + \sin(2) + \dots + \sin(n)$$
+        $$2\sin(\f{1}{2})S_n = \cos(\f{1}{2}) - \cos(\f{3}{2})+\cos(\f{3}{2})-\cos(\f{5}{2}) + \dots +$$
+        $$+ \cos(\f{1}{2} - n) - \cos(\f{1}{2} + n) = \cos(\f{1}{2}) - \cos(\f{1}{2} + n) = $$
+        $$= 2\sin{\f{1+n}{2}}\sin(-\f{n}{2}) \r S_n = -\f{\sin{\f{1+n}{2}}\sin(\f{n}{2})}{\sin{\f{1}{2}}}\r$$
+        $$\r [C]\lim_{n \to \infty} a_n = \lim_{n \to \infty} -\f{\sin{\f{1+n}{2}}\sin(\f{n}{2})}{n\sin{\f{1}{2}}} = $$
+        $$= \lim_{n \to \infty} -\f{\sin{\f{1+n}{2}}\sin(\f{n}{2})}{n\sin{\f{1}{2}}} = 0, \text{ т.к. $\sin{x} \in [-1;1]$}$$
+        \textbf{Ответ: } $0$
+
+    \end{enumerate}
+    
+    \item[\textbf{3.}]
+    \begin{enumerate}
+        \item[(a)]
+        $$a_{n} = 1 + \f{1}{\sqrt{2}} + \dots + \f{1}{\sqrt{n}}, \ts \ts b_{n} = \sqrt{n}$$
+        $$\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}} = \f{\f{1}{\sqrt{n+1}}}{\sqrt{n+1}-\sqrt{n}}=\f{1}{\sqrt{n+1}(\sqrt{n+1} - \sqrt{n})} = $$
+        $$= \f{1}{n+1 - \sqrt{n^2+n}} = \f{n+1 + \sqrt{n^2+n}}{n^2+2n+1 - n^2-n}=\f{n+1 + \sqrt{n^2+n}}{n+1}$$
+        Так как $b_n>0$, $b_{n+1}>b_n$ и $\lim_{n \to \infty}b_n = +\infty$, то по теореме Штольца, если предел $\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}}$ существует, то он равен пределу $\f{a_n}{b_n}$. Найдём этот передел:
+        $$\lim_{n \to \infty}\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}} = \lim_{n \to \infty}\f{n+1 + \sqrt{n^2+n}}{n+1} = \lim_{n \to \infty}\f{1+\f{1}{n} + \sqrt{1+\f{1}{n}}}{1+\f{1}{n}} = $$
+        $$= \f{1 + 0 + \sqrt{1 + 0}}{1 + 0} = 2 \r $$
+        $$\r \lim_{n \to \infty}\f{a_n}{b_n} = \lim_{n \to \infty}\f{1}{\sqrt{n}}(1 + \f{1}{\sqrt{2}} + \dots + \f{1}{\sqrt{n}})= 2 $$
+        \textbf{Ответ: } $2$
+
+        \item[(b)]
+        $$\lim_{n \to \infty} \f{1^k + 2^k + \dots + n^k}{n^{k+1}}$$
+        $$a_n = 1^k + 2^k + \dots + n^k, \ts \ts b_n = n^{k+1}$$
+        $$\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}} = \f{(n+1)^k}{(n+1)^{k+1} - n^{k+1}}$$
+        Так как $b_n>0$, $b_{n+1}>b_n$ и $\lim_{n \to \infty}b_n = +\infty$, то по теореме Штольца, если предел $\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}}$ существует, то он равен пределу $\f{a_n}{b_n}$. Найдём этот передел:
+        $$\lim_{n \to \infty}\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}} = \lim_{n \to \infty}\f{(n+1)^k}{(n+1)^{k+1} - n^{k+1}} = $$
+        $$= \lim_{n \to \infty}\f{\f{(n+1)^k}{(n+1)^{k+1}}}{1 - \f{n^{k+1}}{(n+1)^{k+1}}} = \lim_{n \to \infty}\f{\f{1}{n+1}}{1 - (\f{n}{n+1})^{k+1}} = $$
+        $$= \lim_{n \to \infty}\f{\f{1}{n+1}}{1 - (\f{n+1}{n})^{-k-1}} = \lim_{n \to \infty}\f{\f{1}{n+1}}{1 - (1 + \f{1}{n})^{-k-1}} = $$
+        $$= \f{0}{1 - (1+0)^{-k-1}} = 0 \r$$
+        $$\r \lim_{n \to \infty}\f{a_n}{b_n} = \lim_{n \to \infty} \f{1^k + 2^k + \dots + n^k}{n^{k+1}} = 0$$
+        \textbf{Ответ:} $0$
+
+        \item[(c)]
+        $$\lim_{n \to \infty} \f{\sqrt[n]{n!}}{n}$$
+        $$\ln{\f{\sqrt[n]{n!}}{n}} = \ln((\f{n!}{n^n})^{\f{1}{n}}) = \f{1}{n}\ln(\f{n!}{n^n}) = \f{1}{n}(\ln{n!}-\ln{n^n}) = $$
+        $$=\f{1}{n}(\ln{1}+\ln{2}+\dots+\ln{n}-n\ln{n})$$
+        $$a_n = \ln{1}+\ln{2}+\dots+\ln{n}-n\ln{n}, \ts b_n =  n$$
+        $$\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}} = \f{\ln(n+1)-(n+1)\ln(n+1)+n\ln(n)}{n+1 - n} = $$
+        $$= \ln(n+1)(1-n-1)+n\ln(n) = -n\ln(n+1)+n\ln(n) = $$
+        $$= n(\ln(n) - \ln(n+1)) = -n\ln(\f{n+1}{n}) = -\ln(1+\f{1}{n})^n$$
+        Так как $b_n>0$, $b_{n+1}>b_n$ и $\lim_{n \to \infty}b_n = +\infty$, то по теореме Штольца, если предел $\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}}$ существует, то он равен пределу $\f{a_n}{b_n}$. Найдём этот передел:
+        $$\lim_{n \to \infty}\f{a_{n+1}-a_{n}}{b_{n+1} - b_{n}} = \lim_{n \to \infty} (-\ln(1+\f{1}{n})^n) = -ln(e) = -1 \r $$
+        $$\r \lim_{n \to \infty}\f{a_n}{b_n} = \lim_{n \to \infty}\ln{\f{\sqrt[n]{n!}}{n}} = -1 \r$$
+        $$\r \lim_{n \to \infty} \f{\sqrt[n]{n!}}{n} = \lim_{n \to \infty} e^{\ln(\f{\sqrt[n]{n!}}{n})} = e^{-1}$$
+        \textbf{Ответ: } $e^{-1}$
+    \end{enumerate}
+
+    
+\end{enumerate}
+
+\end{document}

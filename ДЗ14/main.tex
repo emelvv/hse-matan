@@ -1,0 +1,170 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 06.02 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]Найдём предел вдоль прямой $\left\{\mat{0\\0}+\mat{a\\b}t \quad | \;t \in \RR, \; (a, b) \neq 0\right\}$:
+    $$\lim_{t \to 0}\left\{f\left(\mat{0\\0}+\mat{a\\b}t\right) = f\left(\mat{at\\bt}\right) = \f{bt-2a^2t^2}{bt-a^2t^2}\right\}$$
+    Если $b=0$:
+    $$\lim_{t \to 0}\f{bt-2a^2t^2}{bt-a^2t^2} = \lim_{t \to 0}\f{-2a^2t^2}{-a^2t^2} = 2$$
+    Если $b \neq 0$:
+    $$\lim_{t \to 0}\f{bt-2a^2t^2}{bt-a^2t^2}=\lim_{t \to 0}\f{b-2a^2t}{b-a^2t} = 1$$
+    При этом, если $bt = a^2t^2$, то функция не определна, то есть при:
+    $$bt = a^2t^2 \lr b = a^2t \lr \f{b}{a^2} = t$$
+    \textbf{Ответ:}при $b = 0$: $2$, при $b \neq 0$: $1$\\
+
+    \item[\textbf{№2}]\begin{enumerate}
+        \item[(a)]
+        $
+        \lm{(x, y) \rightarrow(0,0)} x^{2} \ln \left(x^{2}+y^{2}\right)
+        $
+
+        Перейдем к полярным координатам, где $ x = r \cos \varphi $ и $ y = r \sin \varphi $     
+        $$
+        \lim_{r \to 0} (r \cos \varphi)^{2} \ln(r^{2}) = \lim_{r \to 0} r^{2} \cos^{2} \varphi \ln(r^{2}) = \lim_{r \to 0} \f{\cos^{2} \varphi \ln(r^{2})}{\f{1}{r^{2}}} = \lim_{r \to 0} \f{\cos^{2} \varphi \ln(r^{2})}{\f{1}{r^{2}}}=
+        $$
+        $$=\lim_{r \to 0} \f{\dfrac{2\,\cos^{2}\left(\varphi\right)}{r}}{-\dfrac{2}{{r}^{3}}} =\lim_{r \to 0} -{r}^{2}\cos^{2}\left(\varphi\right) = 0$$
+        \textbf{Ответ:} $0$
+
+        \item[(b)]$
+        \lim _{(x, y) \rightarrow(0,0)} \frac{x^{2}+y}{\sqrt{x^{2}+y^{2}}}
+        $
+        Рассмотрим предел вдоль прямой $$\mat{0\\0}+\mat{a\\ak}t$$
+        Получаем:
+        $$
+        \lim _{t \to 0} \frac{a^{2}t^2+akt}{\sqrt{a^{2}t^2+a^{2}k^2t^2}} = \lim _{t \to 0} \frac{at+k}{\sqrt{1+k^2}} = \frac{k}{\sqrt{1+k^2}} 
+        $$
+        Следовательно, предел зависит от коэффицента наклона, а значит пределы вдоль разных прямых разные, поэтому предела не существует.\\
+
+        \item[(c)]$
+        \lm{(x, y) \rightarrow(+\infty,+\infty)} \frac{x^{2}+y^{2}}{x^{4}+y^{4}}
+        $
+
+        Перейдём к полярным координатам:
+        $$\lm{r \to +\infty} \frac{(r\cos\varphi)^{2}+(r\sin\varphi)^{2}}{(r\cos\varphi)^{4}+(r\sin\varphi)^{4}} = \lm{r \to +\infty} \frac{\cos^{2}\varphi+\sin^{2}\varphi}{r^{2}(\cos^{4}\varphi+\sin^{4}\varphi)} = $$
+        $$=\lm{r \to +\infty} \frac{1}{r^{2}(\cos^{4}\varphi+\sin^{4}\varphi)} = 0$$
+        \textbf{Ответ: } $0$\\
+
+        \item[(d)]$
+        \lm{(x, y) \rightarrow(0, \lambda)} \frac{\sin (x y)}{x}
+        $
+        $$
+        \lm{(x, y) \rightarrow(0, \lambda)} \frac{\sin (x y)}{x} = \lm{(x, y) \rightarrow(0, \lambda)} \frac{\sin (x y)}{xy}y = \lm{(x, y) \rightarrow(0, \lambda)} y = \lambda
+        $$
+        \textbf{Ответ: }$\lambda$
+
+        \item[(e)]$
+        \lm{(x, y) \rightarrow(+\infty, \lambda)}\left(1+\frac{1}{x}\right)^{\frac{x^{2}}{x+y}}
+        $
+        $$
+        \lm{(x, y) \rightarrow(+\infty, \lambda)}\left(1+\frac{1}{x}\right)^{\frac{x^{2}}{x+y}} = \lm{(x, y) \rightarrow(+\infty, \lambda)}e^{\frac{x^{2}}{x+y}\ln\left(1+\frac{1}{x}\right)}
+        $$
+        Найдём:
+        $$\lm{(x, y) \rightarrow(+\infty, \lambda)}\frac{x^{2}}{x+y}\ln\left(1+\frac{1}{x}\right)$$
+        \[
+        f(z) = \ln(1+z), \quad z = \frac{1}{x}.
+        \]
+
+        \[
+        \ln(1+z) = z + \oo(z) \text{ при $z \to 0$}
+        \]
+        $$\lm{(x, y) \rightarrow(+\infty, \lambda)}\frac{x^{2}}{x+y}\ln\left(1+\frac{1}{x}\right) = \lm{(x, y) \rightarrow(+\infty, \lambda)}\frac{x^{2}}{x+y}\left(\frac{1}{x} + \oo\left(\frac{1}{x}\right)\right) = $$
+        $$=\lm{(x, y) \rightarrow(+\infty, \lambda)}\left(\frac{x}{x+y} + \oo\left(\frac{x}{x+y}\right)\right) = 1$$
+        \textbf{Ответ: } $1$\\
+
+    \end{enumerate}
+
+    \item[\textbf{№3}]\begin{enumerate}
+        \item[(a)]$$ f(x, y) = \begin{cases} y + x \sin \frac{1}{y}, & y \neq 0, \\ 0, & y = 0 \end{cases} $$
+        $$
+        \lim_{(x, y) \to (0, 0)} f(x, y) = \lim_{(x, y) \to (0, 0)} \left( y + x \sin \frac{1}{y} \right) =0
+        $$
+        $$\lim _{x \rightarrow 0} \lim _{y \rightarrow 0} f(x, y) = \lim _{x \rightarrow 0} \lim _{y \rightarrow 0} \left( y + x \sin \frac{1}{y} \right) = \text{не существует}$$
+        $$\lim _{y \rightarrow 0} \lim _{x \rightarrow 0} f(x, y) = \lim _{y \rightarrow 0} \lim _{x \rightarrow 0} \left( y + x \sin \frac{1}{y} \right) = \lim _{y \rightarrow 0} y = 0$$\\
+
+        \item[(b)]$$ f(x, y) = \begin{cases} y \sin \frac{1}{x} + x \sin \frac{1}{y}, & xy \neq 0, \\ 0, & xy = 0 \end{cases} $$
+        $$\lim_{(x, y) \to (0, 0)} f(x, y) = \lim_{(x, y) \to (0, 0)} y \sin \frac{1}{x} + x \sin \frac{1}{y} = 0$$
+        $$\lim _{x \rightarrow 0} \lim _{y \rightarrow 0} f(x, y) = \lim _{x \rightarrow 0} \lim _{y \rightarrow 0} y \sin \frac{1}{x} + x \sin \frac{1}{y} = \text{не существует}$$
+        $$\lim _{y \rightarrow 0} \lim _{x \rightarrow 0} f(x, y) = \lim _{y \rightarrow 0} \lim _{x \rightarrow 0} y \sin \frac{1}{x} + x \sin \frac{1}{y} = \text{не существует}$$
+    
+        \item[(c)]$$
+        f(x, y) = \begin{cases}
+        \frac{xy}{x^2 + y^2} + y \sin \frac{1}{x}, & x \neq 0, \\
+        0, & x = 0.
+        \end{cases}
+        $$
+        $$\lim_{(x, y) \to (0, 0)} f(x, y) = \lim_{(x, y) \to (0, 0)}\frac{xy}{x^2 + y^2} + y \sin \frac{1}{x} = \lim_{(x, y) \to (0, 0)}\frac{xy}{x^2 + y^2} =$$
+        $$= \lim_{(x, y) \to (0, 0)}\frac{r^2\cos \varphi sin \varphi}{r^2} = \lim_{(x, y) \to (0, 0)}\cos \varphi sin \varphi = \text{не существует}$$
+    
+        $$\lim _{x \rightarrow 0} \lim _{y \rightarrow 0} f(x, y) = \lim _{x \rightarrow 0} \lim _{y \rightarrow 0} \frac{xy}{x^2 + y^2} + y \sin \frac{1}{x} = \lim _{x \rightarrow 0} \lim _{y \rightarrow 0} \frac{xy}{x^2 + y^2} = $$
+        $$=\lim _{x \rightarrow 0} 0 = 0$$
+        
+        $$\lim _{y \rightarrow 0} \lim _{x \rightarrow 0} f(x, y) = \lim _{y \rightarrow 0} \lim _{x \rightarrow 0} \frac{xy}{x^2 + y^2} + y \sin \frac{1}{x} = \text{не существует}$$
+    
+        \item[(d)]
+        $$
+        f(x, y) = \begin{cases}
+        \frac{x^2 - y^2}{x^2 + y^2}, & x^2 + y^2 \neq 0, \\
+        0, & x = 0, y = 0.
+        \end{cases}
+        $$
+        $$\lim_{(x, y) \to (0, 0)} f(x, y) = \lim_{(x, y) \to (0, 0)} \frac{x^2 - y^2}{x^2 + y^2} = \lim_{(x, y) \to (0, 0)} \frac{r^2\cos^2 \varphi - r^2\sin^2 \varphi}{r^2\cos^2 \varphi + r^2\sin^2 \varphi} = $$
+        $$= \lim_{(x, y) \to (0, 0)} \cos^2 \varphi - \sin^2 \varphi = \text{ не существует }$$
+        
+        $$\lim _{x \rightarrow 0} \lim _{y \rightarrow 0} f(x, y) = \lim _{x \rightarrow 0} \lim _{y \rightarrow 0} \frac{x^2 - y^2}{x^2 + y^2} = \lim _{x \rightarrow 0} 1 = 1$$
+        
+        $$\lim _{y \rightarrow 0} \lim _{x \rightarrow 0} f(x, y) = \lim _{y \rightarrow 0} \lim _{x \rightarrow 0} \frac{x^2 - y^2}{x^2 + y^2} = \lim _{y \rightarrow 0} -1 = -1$$
+    \end{enumerate}
+\end{enumerate}
+\end{document}

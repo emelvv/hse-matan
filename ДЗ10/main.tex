@@ -1,0 +1,383 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\det}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\r}{\Rightarrow}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 01.12 (Математичский анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]
+    \begin{enumerate}
+        \item[(a)] $ f = \operatorname{arctg} \frac{u}{v} $\\
+        \item[] 
+        1. Найдем производную $ f $ через производные $u$ и $v$:
+        $$
+        f' = \frac{d}{dx} \left( \operatorname{arctg} \frac{u}{v} \right) = \frac{1}{1 + \left( \frac{u}{v} \right)^2} \cdot \frac{d}{dx} \left( \frac{u}{v} \right) =
+        $$
+        $$=\frac{v \frac{du}{dx} - u \frac{dv}{dx}}{v^2 + u^2}$$
+
+        2. Теперь выразим дифференциал $ \mathrm{d}f $:
+        $$
+        \mathrm{d}f = f' \mathrm{d}x = \frac{v \mathrm{d}u - u \mathrm{d}v}{u^2 + v^2}
+        $$
+
+        \item[(b)]  $ f = \frac{1}{\sqrt{u^2 + v^2}} $ \\
+    
+        1. Сначала найдем производную $ f $:
+        $$
+        f' = -\frac{1}{2} (u^2 + v^2)^{-1/2} \cdot \frac{d}{dx}(u^2 + v^2)
+        $$
+        $$
+        f' = -\frac{u \frac{du}{dx} + v \frac{dv}{dx}}{(u^2 + v^2)^{3/2}}
+        $$
+
+        
+        2. Теперь выразим дифференциал $ \mathrm{d}f $:
+        $$
+        \mathrm{d}f = f' \mathrm{d}x = -\frac{u \mathrm{d}u + v \mathrm{d}v}{(u^2 + v^2)^{3/2}}
+        $$\\
+
+    \end{enumerate}
+
+    \item[\textbf{№2}]
+    \begin{enumerate}
+        \item[(a)]Доказательство: $(\cos (a x+b))^{(n)}=a^{n} \cos (a x+b+\pi / 2 \cdot n)$
+        \begin{enumerate}
+            \item[1)]
+            \underbar{База индукции} ($n=1$):
+            $$
+            (\cos (a x + b))' = -a \sin (a x + b) = a^1 \cos (a x + b + \pi/2)
+            $$
+            База индукции верна.
+
+            \item[2)]
+            \underbar{Шаг индукции:} \\
+            Предположим, что утверждение верно для $n=k$:
+            $$
+            (\cos (a x + b))^{(k)} = a^k \cos (a x + b + \pi/2 \cdot k)
+            $$
+            
+            Теперь докажем для $n=k+1$:
+            $$
+            (\cos (a x + b))^{(k+1)} = ((\cos (a x + b))^{(k)})' = 
+            $$
+            $$=(a^k \cos (a x + b + \pi/2 \cdot k))' = $$
+            $$={a}^{k}\cdot \left(-\sin\left(a\,x+\frac{\pi\,k}{2}+b\right)\right)\cdot \left(a\,x+\dfrac{\pi\,k}{2}+b\right)' = $$
+            $$=-{a}^{k+1}\,\sin\left(a\,x+\frac{\pi\,k}{2}+b\right) = a^{k+1} \cos (a x + b + \pi/2 \cdot (k+1))$$
+            Таким образом, утверждение верно для $n=k+1$.
+        \end{enumerate}
+
+        По принципу математической индукции, утверждение верно для всех $n \in \mathbb{N}$.
+
+        \item[(b)]Доказательство: $(\ln (a x+b))^{(n)}=\frac{(-1)^{n-1}(n-1)!a^{n}}{(a x+b)^{n}}$
+        \begin{enumerate}
+            \item[1)]
+            \underbar{База индукции} ($n=1$):
+            $$
+            (\ln (a x + b))' = \frac{a}{a x + b}
+            $$
+            Это соответствует:
+            $$
+            \frac{(-1)^{1-1}(1-1)!a^{1}}{(a x + b)^{1}} = \frac{1 \cdot a}{(a x + b)} = \frac{a}{a x + b}
+            $$
+            База индукции верна.
+
+            \item[2)]
+            \underbar{Шаг индукции:} \\
+            Предположим, что утверждение верно для $n=k$:
+            $$
+            (\ln (a x + b))^{(k)} = \frac{(-1)^{k-1}(k-1)!a^{k}}{(a x + b)^{k}}
+            $$
+            
+            Теперь докажем для $n=k+1$:
+            $$
+            (\ln (a x + b))^{(k+1)} = ((\ln (a x + b))^{(k)})' = \left(\frac{(-1)^{k-1}(k-1)!a^{k}}{(a x + b)^{k}}\right)' =
+            $$
+            $$
+            = (k-1)!\,\left({-1}\right)^{k-1}\,{a}^{k}\cdot \left(\dfrac{1}{\left({a\,x+b}\right)^{k}}\right)'
+            $$
+            $$
+            = (k-1)!\,\left({-1}\right)^{k-1}\,{a}^{k}\cdot\left(-\frac{\left(\left({a\,x+b}\right)^{k}\right)'}{\left({a\,x+b}\right)^{2\,k}}\right)
+            $$
+            $$
+            = (k-1)!\,\left({-1}\right)^{k-1}\,{a}^{k}\cdot\left(-\frac{ak\left({a\,x+b}\right)^{k-1}}{\left({a\,x+b}\right)^{2\,k}}\right) = \frac{(-1)^{k}k!a^{k+1}}{(a x + b)^{k+1}}
+            $$
+            Утверждение верно для $n=k+1$.
+        \end{enumerate}
+    
+    По принципу математической индукции, утверждение верно для всех $n \in \mathbb{N}$. \\
+    \end{enumerate}
+
+
+    \item[\textbf{№3}]
+    \begin{enumerate}
+        \item[(a)]Найдём $ n $-ю производную функции $ f(x) = \frac{x-13}{x^{2}-x-6} $
+
+        Сначала упростим функцию $ f(x) $ с помощью разложения на простейшие дроби. 
+        \\Найдем корни знаменателя:
+        $$
+        x^2 - x - 6 = (x - 3)(x + 2)
+        $$
+        Таким образом, $ f(x) $ можно записать как:
+        $$
+        f(x) = \frac{x - 13}{(x - 3)(x + 2)}
+        $$
+        Разложим на простейшие дроби:
+        $$
+        f(x) = \frac{A}{x + 2} + \frac{B}{x - 3}
+        $$
+        $$
+        x - 13 = A(x - 3) + B(x + 2)
+        $$
+        $$
+        x - 13 = Ax - 3A + Bx + 2B = (A + B)x + (-3A + 2B)
+        $$
+        Сравним коэффициенты:
+        $$
+        \case{
+        A + B = 1 \quad \text{(коэффициент при } x\text{)}\\
+        -3A + 2B = -13 \quad \text{(свободный член)}
+        }
+        $$
+        $$
+        -3A + 2(1 - A) = -13
+        $$
+        $$
+        -3A + 2 - 2A = -13 \implies -5A = -15 \implies A = 3
+        $$
+        $$
+        3 + B = 1 \implies B = -2
+        $$
+        Таким образом, разложение:
+        $$
+        f(x) = \frac{3}{x + 2} - \frac{2}{x - 3}
+        $$
+        Теперь найдем $ n $-ю производную:
+        $$
+        f^{(n)}(x) = 3 \cdot \frac{(-1)^n n!}{(x + 2)^{n + 1}} - 2 \cdot \frac{(-1)^n n!}{(x - 3)^{n + 1}}
+        $$\\
+
+        \item[(b)]Найдём $ n $-ю производную функции $ h(x) = (x^2 + x + 1)e^{-3x} $
+
+        Мы знаем, что:
+        $$
+        (fg)^{(n)} = \sum_{k=0}^{n} \binom{n}{k} f^{(k)} g^{(n-k)}\;\;\;\; (*)
+        $$
+        где $ f(x) = x^2 + x + 1 $ и $ g(x) = e^{-3x} $.
+
+        Найдем производную $ g^{(n)}(x) $:
+        $$
+        g^{(n)}(x) = (-3)^n e^{-3x}
+        $$
+
+        Найдем производную $ f^{(n)}(x) $:\\
+        $$f^{(n)}(x) = (x^2 + x + 1 )^{(n)} = (x^2)^{(n)} + (x)^{(n)} + (1)^{(n)} = $$
+        $$= (x^2)^{(n)} + (x)^{(n)}=$$
+        При $n=1$:
+        $$f^{(n)}(x)=2x + 1$$
+        При $n=2$:
+        $$f^{(n)}(x)=2$$
+        При $n>2$:
+        $$f^{(n)}(x) = 0$$
+
+        Следовательно:
+        $$
+        h^{(n)}(x) = \sum_{k=0}^{n} \binom{n}{k} f^{(k)}(-3)^{n-k} e^{-3x}
+        $$\\
+
+        \item[(c)] Найдём $ n $-ю производную функции $ f(x) = \sin(3x) \cdot \cos^2(5x) $
+        
+        Используем формулу двойного угла:
+        $$
+        \cos^2(5x) = \frac{1 + \cos(10x)}{2}
+        $$
+        Таким образом:
+        $$
+        f(x) = \sin(3x) \cdot \frac{1 + \cos(10x)}{2} = \frac{1}{2} \sin(3x) + \frac{1}{2} \sin(3x) \cos(10x)
+        $$
+        Теперь преобразуем второе слагаемое в сумму:
+        $$
+        \frac{1}{2} \sin(3x) \cos(10x) = \frac{1}{4} \left( \sin(13x) - \sin(7x) \right)
+        $$
+        Получилось:
+        $$
+        f(x) = \frac{1}{2} \sin(3x) + \frac{1}{4} \sin(13x) - \frac{1}{4} \sin(7x)
+        $$
+        Найдём $f^{(n)}(x)$:
+        
+        $$f^{(n)}(x) = \left(\frac{1}{2} \sin(3x) + \frac{1}{4} \sin(13x) - \frac{1}{4} \sin(7x)\right)^{(n)} $$
+        Воспользуемся тем, что:
+        $$(\cos (a x+b))^{(n)}=a^{n} \cos (a x+b+\pi / 2 \cdot n) = $$
+        $$=(-1)^na^n\sin{(ax+b)}$$
+        Получим:
+        $$f^{(n)}(x) = \frac{1}{2} (-1)^n3^n\sin{(3x)}+ \frac{1}{4} (-1)^n13^n\sin{(13x)} - \frac{1}{4} (-1)^n7^n\sin{(7x+b)}$$
+
+    \end{enumerate}
+
+    \item[\textbf{№4}]
+    \begin{enumerate}
+        \item[(a)]$\lim _{x \rightarrow 0} \frac{\arcsin (2 x)-2 \cdot \arcsin x}{x^{3}}$
+        - При $x \to 0$:\\
+        - $f(0) = \arcsin(0) - 2\arcsin(0) = 0 - 0 = 0$.\\
+        - $g(0) = 0^3 = 0$.\\
+        - Оба предела равны нулю, следовательно, неопределённость $\frac{0}{0}$.\\
+        -Функции $f(x)$ и $g(x)$ являются составными и элементарными функциями, которые дифференцируемы в окрестности точки $x = 0$.\\
+        Применим правило Лопиталя:
+        $$
+        \lim_{x \to 0} \frac{f'(x)}{g'(x)}.
+        $$
+        $$
+        f'(x) = \frac{2}{\sqrt{1-(2x)^2}} - \frac{2}{\sqrt{1-x^2}}, \quad g'(x) = 3x^2
+        $$
+        $$
+        \lim_{x \to 0} \frac{f'(x)}{g'(x)} = \lim_{x \to 0} \frac{\frac{2}{\sqrt{1-(2x)^2}} - \frac{2}{\sqrt{1-x^2}}}{3x^2}
+        $$
+        Применяем правило Лопиталя снова:
+        $$
+        f''(x) = \frac{8x}{(1-(2x)^2)^{3/2}} - \frac{2x}{(1-x^2)^{3/2}}, \quad g''(x) = 6x
+        $$
+        $$\lim_{x \to 0} \frac{f''(x)}{g''(x)} = \lim_{x \to 0} \frac{\frac{8x}{(1-(2x)^2)^{3/2}} - \frac{2x}{(1-x^2)^{3/2}}}{6x} = \lim_{x \to 0} \frac{8}{(1-0)^{3/2}} - \frac{2}{(1-0)^{3/2}} = \frac{8 - 2}{6} = 1$$
+        \\\textbf{Ответ: }$1$\\
+
+        \item[(b)]$\lim _{x \rightarrow 1} \frac{x^{x}-x}{1-x+\ln x}$\\
+        - $f(x) = x^x - x$ и $g(x) = 1 - x + \ln x$.\\
+        - При $x \to 1$, $f(1) = 1^1 - 1 = 0$ и $g(1) = 1 - 1 + \ln(1) = 0$.\\
+        Применим правило Лопиталя:
+        $$
+        f'(x) = x^x(\ln x + 1) - 1, \quad g'(x) = -1 + \frac{1}{x}
+        $$
+        $$
+        \lim_{x \to 1} \frac{f'(x)}{g'(x)} = \lim_{x \to 1} \frac{x^x(\ln x + 1) - 1}{-1 + \frac{1}{x}}
+        $$
+        Применяем правило Лопиталя снова:
+        $$
+        f''(x) = x^x \left( \frac{1}{x} + \ln x + 1 \right) + x^x(\ln x + 1)(\ln x + 1) = x^x \left( \frac{1}{x} + 2\ln x + 1 \right).
+        $$
+        $$
+        g''(x) = -\frac{1}{x^2}
+        $$
+        $$
+        \lim_{x \to 1} \frac{f''(x)}{g''(x)} = \lim_{x \to 1} \frac{x^x \left( \frac{1}{x} + 2\ln x + 1 \right)}{-\frac{1}{x^2}}=
+        $$
+        $$
+        = \frac{1 \left( 1 + 0 + 1 \right)}{-1} = \frac{2}{-1} = -2.
+        $$
+        \\\textbf{Ответ: }$-2$\\
+        
+        \item[(c)]$\lm{x \rightarrow+\infty} x \ln \left(\frac{2}{\pi} \operatorname{arctg} x\right)$\\
+        Преобразуем предел: 
+        $$
+        \lim_{x \rightarrow +\infty} x \ln \left(\frac{2}{\pi} \operatorname{arctg} x\right) = \lim_{x \rightarrow +\infty} \frac{\ln \left(\frac{2}{\pi} \operatorname{arctg} x\right)}{\frac{1}{x}}.
+        $$
+        Теперь, когда $x \rightarrow +\infty$, $\ln \left(\frac{2}{\pi} \operatorname{arctg} x\right) \rightarrow 0$ и $\frac{1}{x} \rightarrow 0$, мы имеем неопределенность вида $\frac{0}{0}$.
+        
+        Теперь применим правило Лопиталя:
+
+        $$
+        \lim_{x \rightarrow +\infty} \frac{\ln \left(\frac{2}{\pi} \operatorname{arctg} x\right)}{\frac{1}{x}} = \lim_{x \rightarrow +\infty} \frac{\left(\ln \left(\frac{2}{\pi} \operatorname{arctg} x\right)\right)'}{\left(\frac{1}{x}\right)'}.
+        $$
+        
+        Вычислим производные:
+
+        1. Для числителя:
+        $$
+        \left(\ln \left(\frac{2}{\pi} \operatorname{arctg} x\right)\right)' = \frac{1}{\frac{2}{\pi} \operatorname{arctg} x} \cdot \frac{2}{\pi} \cdot \frac{1}{1+x^2} = \frac{1}{\operatorname{arctg} x} \cdot \frac{1}{1+x^2}.
+        $$
+
+        2. Для знаменателя:
+
+        $$
+        \left(\frac{1}{x}\right)' = -\frac{1}{x^2}.
+        $$
+        
+        Теперь подставим производные в предел:
+
+        $$
+        \lim_{x \rightarrow +\infty} \frac{\frac{1}{\operatorname{arctg} (x)} \cdot \frac{1}{1+x^2}}{-\frac{1}{x^2}} = \lim_{x \rightarrow +\infty} -\frac{x^2}{\operatorname{arctg} x (1+x^2)}.
+        $$
+        
+        При $x \rightarrow +\infty$, $\operatorname{arctg} x \rightarrow \frac{\pi}{2}$:
+
+        $$
+        \lim_{x \rightarrow +\infty} -\frac{x^2}{\frac{\pi}{2} (1+x^2)} = \lim_{x \rightarrow +\infty} -\frac{2x^2}{\pi (1+x^2)}=\lim_{x \rightarrow +\infty} -\frac{2}{\pi (\f{1}{x^2}+1)} = -\frac{2}{\pi}.
+        $$
+        \\\textbf{Ответ: }$-\f{2}{\pi}$\\
+    
+    \end{enumerate}
+
+    \item[\textbf{№5}]
+    Рассмотрим предел 
+    $$
+    \lim_{x \rightarrow 0} \frac{x^{3} \sin \frac{1}{x}}{\sin^{2} x}.
+    $$
+    Проверка неопределенности
+
+    При $x \rightarrow 0$:
+
+    - $x^{3} \rightarrow 0$,\\
+    - $\sin \frac{1}{x}$ колеблется между -1 и 1, следовательно, $x^{3} \sin \frac{1}{x} \rightarrow 0$,\\
+    - $\sin^{2} x \rightarrow 0$.
+
+    Таким образом, мы имеем неопределенность вида $\frac{0}{0}$.
+
+    Правило Лопиталя можно применять только в тех случаях, когда функции в числителе и знаменателе являются дифференцируемыми в окрестности точки, к которой стремится $x$. В данном случае $\sin \frac{1}{x}$ не является дифференцируемой в точке $x = 0$, так как $\frac{1}{x}$ стремится к бесконечности, и $\sin$ не имеет предела в этой точке. Поэтому правило Лопиталя не применимо.
+
+    Найдём предел:
+    $$
+    \lim_{x \rightarrow 0} \frac{x^{3} \sin \frac{1}{x}}{\sin^{2} x}=\lim_{x \rightarrow 0} \frac{x^{3} (\sin \frac{1}{x})}{(x + \oo(x^2))^2} = \lim_{x \rightarrow 0} \frac{x^{3} (\sin \frac{1}{x})}{x^2 + \oo(x^4)} = \lim_{x \rightarrow 0} \frac{x (\sin \frac{1}{x})}{1 + \oo(x^2)} =
+    $$
+    $$
+    =\frac{\lm{x \rightarrow 0}x (\sin \frac{1}{x})}{1 + 0} = \lim_{x \rightarrow 0} x (\sin \frac{1}{x}) = 0
+    $$
+
+    \textbf{Ответ: } $0$
+\end{enumerate}
+\end{document}
