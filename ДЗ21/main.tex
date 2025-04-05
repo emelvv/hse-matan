@@ -50,6 +50,7 @@
 \newcommand{\vol}{\text{vol}}
 \newcommand{\Vol}{\text{Vol}}
 \renewcommand{\d}{\;\text{d}}
+\newcommand{\dx}{\;\text{dx}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} %
 \makeatletter                               % \abs{}
@@ -64,5 +65,26 @@
     \item[\textbf{№1}]Первое равенство неверно, так как:
     $$\int \f{1}{x} \d x - \int \f{1}{x} \d x= \ln(x) + C_1 - (\ln(x) + C_2) = C_1 - C_2$$
     Второе равенство верно. Третье равенство неверно - аналогично первому.
+
+    \item[\textbf{№2}]\begin{enumerate}
+        \item[(a)]Рассмотрим интеграл:
+        $$\int \f{1}{\sqrt{1-x^2}} \dx = \arcsin{x} + C_1 = -\arccos{x} + C_2 \implies$$
+        $$\implies \arcsin{x} + \arccos{x} = C_2 - C_1 = C$$
+        Значит, в любой точке сумма константа:
+        $$\arcsin{1} + \arccos{1} = \f{\pi}{2}$$
+        \textbf{Ответ:} $\f{\pi}{2}$
+
+        \item[(b)]Рассмотрим интеграл:
+        $$\int \f{1}{\sqrt{1+x^2}} \dx = \arctg{x} + C_1 = -\arctg{\f{1}{x}} + C_2 \implies$$
+        $$\implies \arctg{x} + \arctg{\f{1}{x}} = C_2 - C_1 = C$$
+        Значит, в любой точке сумма константа:
+        $$C_2(x) = \begin{cases} 
+            \frac{\pi}{2}, & x > 0, \\
+            -\frac{\pi}{2}, & x < 0.
+        \end{cases}$$
+    \end{enumerate}
+
+
+    \item[\textbf{№3}]
 \end{enumerate}
 \end{document}
