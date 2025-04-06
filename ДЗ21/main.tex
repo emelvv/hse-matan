@@ -112,12 +112,18 @@
         \textbf{Ответ: } $\frac{1}{4} \ln|x - 1| - \frac{1}{4} \ln|x + 1| - \frac{1}{2} \arctg x + C$\\
  
         \item[(b)]Найдём:
-        $$\int \frac{1}{\sqrt{-8 - 12x - 4x^2}} \, dx = \int \frac{1}{\sqrt{1 - t^2}} \, d\phi(t)
+        $$\int \frac{1}{\sqrt{-8 - 12x - 4x^2}} \, dx = \int \frac{1}{\sqrt{1 - t^2}} \cdot \f{1}{2} \, dt
          = \arcsin(2x+3) + C$$
-         \textbf{Ответ: } $\arcsin(2x+3) + C$
+         \textbf{Ответ: } $\f{1}{2} \arcsin(2x+3) + C$
 
         \item[(c)]Найдём:
-        $$\int \frac{1}{\sin x} \, \dx$$
+        $$\int \frac{1}{\sin x} \, \dx = \int \frac{\sin x}{1 - \cos^2 x} \, \dx$$
+        Замена \(t = \cos x\), тогда \(dt = -\sin x \, dx \implies -dt = \sin x \, dx\)
+        $$-\int \frac{dt}{1 - t^2} = -\frac{1}{2} \ln \left| \frac{1 + t}{1 - t} \right| + C$$
+        \[
+        -\frac{1}{2} \ln \left| \frac{1 + \cos x}{1 - \cos x} \right| + C = \ln \left| \tan \frac{x}{2} \right| + C.
+        \] 
+        \textbf{Ответ: } $\ln \left| \tan \frac{x}{2} \right| + C$
     \end{enumerate}
 \end{enumerate}
 \end{document}
