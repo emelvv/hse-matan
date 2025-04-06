@@ -86,5 +86,38 @@
 
 
     \item[\textbf{№3}]
+    \begin{enumerate}
+        \item[(a)]
+        Разложим:
+        \[
+        \frac{1}{x^4 - 1} = \frac{1}{(x^2 - 1)(x^2 + 1)} = \frac{A}{x - 1} + \frac{B}{x + 1} + \frac{C}{x^2 + 1}
+        \]
+        \[
+        =\frac{(A + B) x^3 + (A - B + C) x^2 + (A + B) x + (A - B - C)}{(x - 1)(x + 1)(x^2 + 1)}
+        \]
+        Решим систему:
+        $$\case{
+            A+B = 0\\
+            A-B+C = 0\\
+            A+B = 0\\
+            A-B-C = 1
+        } \implies A = \frac{1}{4}, \quad B = -\frac{1}{4}, \quad C = -\frac{1}{2}$$
+        Следовательно:
+        \[
+        \int \frac{1}{x^4 - 1}\, \dx = \int \l \frac{\frac{1}{4}}{x - 1} + \frac{-\frac{1}{4}}{x + 1} + \frac{-\frac{1}{2}}{x^2 + 1}\r \dx =
+        \]
+        \[
+        =\int \frac{1}{x^4 - 1} \, \dx = \frac{1}{4} \ln|x - 1| - \frac{1}{4} \ln|x + 1| - \frac{1}{2} \arctg x + C
+        \]
+        \textbf{Ответ: } $\frac{1}{4} \ln|x - 1| - \frac{1}{4} \ln|x + 1| - \frac{1}{2} \arctg x + C$\\
+ 
+        \item[(b)]Найдём:
+        $$\int \frac{1}{\sqrt{-8 - 12x - 4x^2}} \, dx = \int \frac{1}{\sqrt{1 - t^2}} \, d\phi(t)
+         = \arcsin(2x+3) + C$$
+         \textbf{Ответ: } $\arcsin(2x+3) + C$
+
+        \item[(c)]Найдём:
+        $$\int \frac{1}{\sin x} \, \dx$$
+    \end{enumerate}
 \end{enumerate}
 \end{document}
