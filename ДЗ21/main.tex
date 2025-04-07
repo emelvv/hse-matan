@@ -121,7 +121,7 @@
         Замена \(t = \cos x\), тогда \(dt = -\sin x \, dx \implies -dt = \sin x \, dx\)
         $$-\int \frac{dt}{1 - t^2} =\int \frac{dt}{t^2-1}= \frac{1}{2} \ln \left| \frac{t-1}{t+1} \right| + C$$
 
-        \textbf{Ответ: } $\frac{1}{2} \ln \left| \frac{t-1}{t+1} \right| + C$\\
+        \textbf{Ответ: } $\frac{1}{2} \ln \left| \frac{\cos x-1}{\cos x+1} \right| + C$\\
 
         \item[(d)]Найдём:
         $$\int \sqrt{a^2 + x^2} \, dx = x \sqrt{a^2 + x^2} - \int \frac{x^2}{\sqrt{a^2 + x^2}} \, dx =$$
@@ -196,6 +196,14 @@
         \textbf{Ответ: } $\frac{x}{2} \left( \sin(\ln x) - \cos(\ln x) \right) + C$\\
 
         \item[(h)]Найдём:
+        $$\int \frac{\ln(\cos x)}{1 - \cos x} \, dx = \int \f{1}{1-\cos{x}} \ln(\cos x) dx = $$
+        $$=-\ctg\l\f{x}{2}\r\ln(\cos{x}) - \int (-ctg\l\f{x}{2}\r)(-tg(x)) dx= $$
+        $$=-\ctg\l\f{x}{2}\r\ln(\cos{x}) - \int ctg\l\f{x}{2}\r tg(x) dx$$
+        Вычислим:
+        $$\int ctg\l\f{x}{2}\r tg(x) dx = x- \f{1}{2}\ln \l \f{\sin x - 1}{\sin x + 1} \r + C$$
+        Подставим:
+        $$\int \frac{\ln(\cos x)}{1 - \cos x} \, dx = -\ctg\l\f{x}{2}\r\ln(\cos{x}) - (x- \f{1}{2}\ln \l \f{\sin x - 1}{\sin x + 1} \r) + C = $$
+        $$=-\ctg\l\f{x}{2}\r\ln(\cos{x}) - x + \f{1}{2}\ln \l \f{\sin x - 1}{\sin x + 1} \r + C$$
     \end{enumerate}
 \end{enumerate}
 \end{document}
