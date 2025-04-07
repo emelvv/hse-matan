@@ -119,11 +119,12 @@
         \item[(c)]Найдём:
         $$\int \frac{1}{\sin x} \, \dx = \int \frac{\sin x}{1 - \cos^2 x} \, \dx$$
         Замена \(t = \cos x\), тогда \(dt = -\sin x \, dx \implies -dt = \sin x \, dx\)
-        $$-\int \frac{dt}{1 - t^2} = -\frac{1}{2} \ln \left| \frac{1 + t}{1 - t} \right| + C$$
-        \[
-        -\frac{1}{2} \ln \left| \frac{1 + \cos x}{1 - \cos x} \right| + C = \ln \left| \tan \frac{x}{2} \right| + C.
-        \] 
-        \textbf{Ответ: } $\ln \left| \tan \frac{x}{2} \right| + C$
+        $$-\int \frac{dt}{1 - t^2} =\int \frac{dt}{t^2-1}= \frac{1}{2} \ln \left| \frac{t-1}{t+1} \right| + C$$
+
+        \textbf{Ответ: } $\frac{1}{2} \ln \left| \frac{t-1}{t+1} \right| + C$\\
+
+        \item[(d)]
+
     \end{enumerate}
 \end{enumerate}
 \end{document}
