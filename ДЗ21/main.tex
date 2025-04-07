@@ -123,7 +123,48 @@
 
         \textbf{Ответ: } $\frac{1}{2} \ln \left| \frac{t-1}{t+1} \right| + C$\\
 
-        \item[(d)]
+        \item[(d)]Найдём:
+        $$\int \sqrt{a^2 + x^2} \, dx = x \sqrt{a^2 + x^2} - \int \frac{x^2}{\sqrt{a^2 + x^2}} \, dx =$$
+        $$=x \sqrt{a^2 + x^2} - \int \sqrt{a^2 + x^2} \, dx + a^2 \int \frac{1}{\sqrt{a^2 + x^2}} \, dx$$
+        Обозначим исходный интеграл за \(I\): 
+        \[
+        I = x \sqrt{a^2 + x^2} - I + a^2 \ln \left(x + \sqrt{a^2 + x^2}\right) + C
+        \]  
+        \[
+        2I = x \sqrt{a^2 + x^2} + a^2 \ln \left(x + \sqrt{a^2 + x^2}\right) + C
+        \]
+        \[
+        I = \frac{x}{2} \sqrt{a^2 + x^2} + \frac{a^2}{2} \ln \left(x + \sqrt{a^2 + x^2}\right) + C
+        \]  
+        \textbf{Ответ: } $\frac{x}{2} \sqrt{a^2 + x^2} + \frac{a^2}{2} \ln \left(x + \sqrt{a^2 + x^2}\right) + C$\\
+
+        \item[(e)]Найдём:
+        \[
+        \int \sin^5 x \, dx = \int \sin x \cdot \sin^4 x \, dx = -\sin^4 x \cos x + 4 \int \sin^3 x \cos^2 x \, dx=
+        \]
+        \[
+        =-\sin^4 x \cos x+4 \int \sin^3 x \, dx - 4 \int \sin^5 x \, dx.
+        \]
+        Обозначим исходный интеграл за \(I\):
+        \[
+        I = -\sin^4 x \cos x + 4 \int \sin^3 x \, dx - 4I.
+        \]
+        \[
+        5I = -\sin^4 x \cos x + 4 \int \sin^3 x \, dx.
+        \]
+        Вычислим:
+        \[
+        \int \sin^3 x \, dx = -\cos x + \frac{\cos^3 x}{3} + C.
+        \]
+        Получилось:
+        \[
+        I = -\frac{\sin^4 x \cos x}{5} - \frac{4\cos x}{5} + \frac{4\cos^3 x}{15} + C
+        \]
+        \textbf{Ответ: } $-\frac{\sin^4 x \cos x}{5} - \frac{4\cos x}{5} + \frac{4\cos^3 x}{15} + C$\\
+
+
+        \item[(f)]Найдём:
+
 
     \end{enumerate}
 \end{enumerate}
