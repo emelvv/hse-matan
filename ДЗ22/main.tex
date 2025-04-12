@@ -147,8 +147,50 @@
     \]
     Получаем:
     $$\int \frac{1}{x^4 + 1} \, dx = \frac{1}{2\sqrt{2}} \arctg(\sqrt{2}x + 1) + \frac{1}{2\sqrt{2}} \arctg(\sqrt{2}x - 1) + C$$
-    \textbf{Ответ:} $\frac{1}{2\sqrt{2}} \arctg(\sqrt{2}x + 1) + \frac{1}{2\sqrt{2}} \arctg(\sqrt{2}x - 1) + C$
-    \end{enumerate}
+    \textbf{Ответ:} $\frac{1}{2\sqrt{2}} \arctg(\sqrt{2}x + 1) + \frac{1}{2\sqrt{2}} \arctg(\sqrt{2}x - 1) + C$\\
+    
+    \item[(с)]Найдём:
+    $$\int \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} \, dx$$
+    Представим подынтегральную функцию в виде:  
+   \[
+   \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} = \frac{A}{x - 1} + \frac{B}{(x - 1)^2} + \frac{Cx + D}{x^2 + 1} + \frac{Ex + F}{(x^2 + 1)^2}
+   \]
+   Умножаем обе части на \((x-1)^2(x^2 + 1)^2\) и подставляем \(x = 1\):  
+   \[
+   4(1)^2 - 8(1) = B(1^2 + 1)^2 \implies -4 = 4B \implies B = -1.
+   \]  
+   Далее раскрываем скобки и приравниваем коэффициенты при степенях \(x\):  
+   \[
+   \begin{cases} 
+   A + C = 0, \\
+   -2A + B + D = 4, \\
+   A - 2C + E = -8, \\
+   -A - 2D + F = 0, \\
+   C - 2E = 0, \\
+   D - 2F = 0.
+   \end{cases}
+   \]  
+   Решение системы:  
+   \[
+   A = 1, \, B = -1, \, C = -1, \, D = 0, \, E = -1, \, F = 0.
+   \]
+   Разбиваем интеграл на части:  
+   \small{\[
+    \int \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} \, dx= \int \frac{1}{x - 1} \, dx - \int \frac{1}{(x - 1)^2} \, dx - \int \frac{x}{x^2 + 1} \, dx - \int \frac{x}{(x^2 + 1)^2} \, dx
+   \]}
+   Вычисляем каждую часть:  
+    \begin{itemize}
+    \item \(\int \frac{1}{x - 1} \, dx = \ln|x - 1|\) 
+    \item \(\int \frac{1}{(x - 1)^2} \, dx = -\frac{1}{x - 1}\)  
+    \item \(\int \frac{x}{x^2 + 1} \, dx = \frac{1}{2} \ln(x^2 + 1)\)  
+    \item \(\int \frac{x}{(x^2 + 1)^2} \, dx = -\frac{1}{2(x^2 + 1)}\) 
+   \end{itemize}
+
+   \[
+   \ln|x - 1| + \frac{1}{x - 1} - \frac{1}{2} \ln(x^2 + 1) + \frac{1}{2(x^2 + 1)} + C
+   \]  
+   \textbf{Ответ:} $\ln|x - 1| + \frac{1}{x - 1} - \frac{1}{2} \ln(x^2 + 1) + \frac{1}{2(x^2 + 1)} + C$
+\end{enumerate}
 
 
 \end{enumerate}
