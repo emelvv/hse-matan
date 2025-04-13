@@ -152,94 +152,152 @@
     \item[(с)]Найдём:
     $$\int \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} \, dx$$
     Представим подынтегральную функцию в виде:  
-   \[
-   \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} = \frac{A}{x - 1} + \frac{B}{(x - 1)^2} + \frac{Cx + D}{x^2 + 1} + \frac{Ex + F}{(x^2 + 1)^2}
-   \]
-   Умножаем обе части на \((x-1)^2(x^2 + 1)^2\) и подставляем \(x = 1\):  
-   \[
-   4(1)^2 - 8(1) = B(1^2 + 1)^2 \implies -4 = 4B \implies B = -1.
-   \]  
-   Далее раскрываем скобки и приравниваем коэффициенты при степенях \(x\):  
-   \[
-   \begin{cases} 
-   A + C = 0, \\
-   -2A + B + D = 4, \\
-   A - 2C + E = -8, \\
-   -A - 2D + F = 0, \\
-   C - 2E = 0, \\
-   D - 2F = 0.
-   \end{cases}
-   \]  
-   Решение системы:  
-   \[
-   A = 1, \, B = -1, \, C = -1, \, D = 0, \, E = -1, \, F = 0.
-   \]
-   Разбиваем интеграл на части:  
-   \small{\[
-    \int \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} \, dx= \int \frac{1}{x - 1} \, dx - \int \frac{1}{(x - 1)^2} \, dx - \int \frac{x}{x^2 + 1} \, dx - \int \frac{x}{(x^2 + 1)^2} \, dx
-   \]}
-   Вычисляем каждую часть:  
-    \begin{itemize}
-    \item \(\int \frac{1}{x - 1} \, dx = \ln|x - 1|\) 
-    \item \(\int \frac{1}{(x - 1)^2} \, dx = -\frac{1}{x - 1}\)  
-    \item \(\int \frac{x}{x^2 + 1} \, dx = \frac{1}{2} \ln(x^2 + 1)\)  
-    \item \(\int \frac{x}{(x^2 + 1)^2} \, dx = -\frac{1}{2(x^2 + 1)}\) 
-   \end{itemize}
+    \[
+    \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} = \frac{A}{x - 1} + \frac{B}{(x - 1)^2} + \frac{Cx + D}{x^2 + 1} + \frac{Ex + F}{(x^2 + 1)^2}
+    \]
+    Умножаем обе части на \((x-1)^2(x^2 + 1)^2\) и подставляем \(x = 1\):  
+    \[
+    4(1)^2 - 8(1) = B(1^2 + 1)^2 \implies -4 = 4B \implies B = -1.
+    \]  
+    Далее раскрываем скобки и приравниваем коэффициенты при степенях \(x\):  
+    \[
+    \begin{cases} 
+    A + C = 0, \\
+    -2A + B + D = 4, \\
+    A - 2C + E = -8, \\
+    -A - 2D + F = 0, \\
+    C - 2E = 0, \\
+    D - 2F = 0.
+    \end{cases}
+    \]  
+    Решение системы:  
+    \[
+    A = 1, \, B = -1, \, C = -1, \, D = 0, \, E = -1, \, F = 0.
+    \]
+    Разбиваем интеграл на части:  
+    \small{\[
+        \int \frac{4x^2 - 8x}{(x-1)^2(x^2 + 1)^2} \, dx= \int \frac{1}{x - 1} \, dx - \int \frac{1}{(x - 1)^2} \, dx - \int \frac{x}{x^2 + 1} \, dx - \int \frac{x}{(x^2 + 1)^2} \, dx
+    \]}
+    Вычисляем каждую часть:  
+        \begin{itemize}
+        \item \(\int \frac{1}{x - 1} \, dx = \ln|x - 1|\) 
+        \item \(\int \frac{1}{(x - 1)^2} \, dx = -\frac{1}{x - 1}\)  
+        \item \(\int \frac{x}{x^2 + 1} \, dx = \frac{1}{2} \ln(x^2 + 1)\)  
+        \item \(\int \frac{x}{(x^2 + 1)^2} \, dx = -\frac{1}{2(x^2 + 1)}\) 
+    \end{itemize}
 
-   \[
-   \ln|x - 1| + \frac{1}{x - 1} - \frac{1}{2} \ln(x^2 + 1) + \frac{1}{2(x^2 + 1)} + C
-   \]  
-   \textbf{Ответ:} $\ln|x - 1| + \frac{1}{x - 1} - \frac{1}{2} \ln(x^2 + 1) + \frac{1}{2(x^2 + 1)} + C$\\
+    \[
+    \ln|x - 1| + \frac{1}{x - 1} - \frac{1}{2} \ln(x^2 + 1) + \frac{1}{2(x^2 + 1)} + C
+    \]  
+    \textbf{Ответ:} $\ln|x - 1| + \frac{1}{x - 1} - \frac{1}{2} \ln(x^2 + 1) + \frac{1}{2(x^2 + 1)} + C$\\
 
-   \item[(d)]Найдём:
-   $$\int \frac{1}{3\sin x + 4\cos x + 10} \, dx$$
-   Положим \( t = \tg\frac{x}{2} \). Тогда:  
-   \[
-   \sin x = \frac{2t}{1 + t^2}, \quad \cos x = \frac{1 - t^2}{1 + t^2}, \quad dx = \frac{2}{1 + t^2} \, dt
-   \]
-   Подставим:
-   \[
-    \int \frac{1}{3\sin x + 4\cos x + 10} \, dx = \int \frac{1}{3 \cdot \frac{2t}{1 + t^2} + 4 \cdot \frac{1 - t^2}{1 + t^2} + 10} \cdot \frac{2}{1 + t^2} \, dt
-   \]
-   Приводим к общему знаменателю \( 1 + t^2 \):  
-   \[
-    3 \cdot \frac{2t}{1 + t^2} + 4 \cdot \frac{1 - t^2}{1 + t^2} + 10 = \frac{6t + 4(1 - t^2) + 10(1 + t^2)}{1 + t^2} =$$
-    $$= \frac{6t + 4 - 4t^2 + 10 + 10t^2}{1 + t^2} = \frac{6t^2 + 6t + 14}{1 + t^2}
-   \]
-   Подставим:
-   \[
-   \int \frac{1 + t^2}{6t^2 + 6t + 14} \cdot \frac{2}{1 + t^2} \, dt = \int \frac{2}{6t^2 + 6t + 14} \, dt = \frac{1}{3} \int \frac{1}{t^2 + t + \frac{14}{6}} \, dt
-   \]
-   Выделим полный квадрат:
-   \[
-   t^2 + t + \frac{7}{3} = \left(t + \frac{1}{2}\right)^2 + \left(\sqrt{\frac{7}{3} - \frac{1}{4}}\right) = \left(t + \frac{1}{2}\right)^2 + \frac{21}{12} = \left(t + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{21}}{2\sqrt{3}}\right)^2
-   \]
-   Следовательно:
-   \[
-    \frac{1}{3} \int \frac{1}{t^2 + t + \frac{14}{6}} \, dt = \frac{1}{3} \int \frac{1}{\left(t + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{21}}{2\sqrt{3}}\right)^2} \, dt = $$
-    $$=\frac{1}{3} \cdot \frac{2\sqrt{3}}{\sqrt{21}} \arctg\left( \frac{t + \frac{1}{2}}{\frac{\sqrt{21}}{2\sqrt{3}}} \right) + C = \frac{2}{\sqrt{21}} \arctg\left( \frac{2\sqrt{3}(t + \frac{1}{2})}{\sqrt{21}} \right) + C
-   \]
-   Подставляем \( t = \tg\frac{x}{2} \):  
-   \[
-   \frac{2}{\sqrt{21}} \arctg\left( \frac{2\tg\frac{x}{2} + 1}{\sqrt{21}} \right) + C
-   \]
-   \textbf{Ответ:} $\frac{2}{\sqrt{21}} \arctg\left( \frac{2\tg\frac{x}{2} + 1}{\sqrt{21}} \right) + C$\\
+    \item[(d)]Найдём:
+    $$\int \frac{1}{3\sin x + 4\cos x + 10} \, dx$$
+    Положим \( t = \tg\frac{x}{2} \). Тогда:  
+    \[
+    \sin x = \frac{2t}{1 + t^2}, \quad \cos x = \frac{1 - t^2}{1 + t^2}, \quad dx = \frac{2}{1 + t^2} \, dt
+    \]
+    Подставим:
+    \[
+        \int \frac{1}{3\sin x + 4\cos x + 10} \, dx = \int \frac{1}{3 \cdot \frac{2t}{1 + t^2} + 4 \cdot \frac{1 - t^2}{1 + t^2} + 10} \cdot \frac{2}{1 + t^2} \, dt
+    \]
+    Приводим к общему знаменателю \( 1 + t^2 \):  
+    \[
+        3 \cdot \frac{2t}{1 + t^2} + 4 \cdot \frac{1 - t^2}{1 + t^2} + 10 = \frac{6t + 4(1 - t^2) + 10(1 + t^2)}{1 + t^2} =$$
+        $$= \frac{6t + 4 - 4t^2 + 10 + 10t^2}{1 + t^2} = \frac{6t^2 + 6t + 14}{1 + t^2}
+    \]
+    Подставим:
+    \[
+    \int \frac{1 + t^2}{6t^2 + 6t + 14} \cdot \frac{2}{1 + t^2} \, dt = \int \frac{2}{6t^2 + 6t + 14} \, dt = \frac{1}{3} \int \frac{1}{t^2 + t + \frac{14}{6}} \, dt
+    \]
+    Выделим полный квадрат:
+    \[
+    t^2 + t + \frac{7}{3} = \left(t + \frac{1}{2}\right)^2 + \left(\sqrt{\frac{7}{3} - \frac{1}{4}}\right) = \left(t + \frac{1}{2}\right)^2 + \frac{21}{12} = \left(t + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{21}}{2\sqrt{3}}\right)^2
+    \]
+    Следовательно:
+    \[
+        \frac{1}{3} \int \frac{1}{t^2 + t + \frac{14}{6}} \, dt = \frac{1}{3} \int \frac{1}{\left(t + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{21}}{2\sqrt{3}}\right)^2} \, dt = $$
+        $$=\frac{1}{3} \cdot \frac{2\sqrt{3}}{\sqrt{21}} \arctg\left( \frac{t + \frac{1}{2}}{\frac{\sqrt{21}}{2\sqrt{3}}} \right) + C = \frac{2}{\sqrt{21}} \arctg\left( \frac{2\sqrt{3}(t + \frac{1}{2})}{\sqrt{21}} \right) + C
+    \]
+    Подставляем \( t = \tg\frac{x}{2} \):  
+    \[
+    \frac{2}{\sqrt{21}} \arctg\left( \frac{2\tg\frac{x}{2} + 1}{\sqrt{21}} \right) + C
+    \]
+    \textbf{Ответ:} $\frac{2}{\sqrt{21}} \arctg\left( \frac{2\tg\frac{x}{2} + 1}{\sqrt{21}} \right) + C$\\
 
-   \item[(e)]Найдём:
-   $$\int \frac{1}{\sqrt[3]{(x+1)^2(x-1)^7}} \, dx$$
-   Представим корень третьей степени в виде степеней:  
-   \[
-   \frac{1}{\sqrt[3]{(x+1)^2(x-1)^7}} = (x+1)^{-2/3} \cdot (x-1)^{-7/3}
-   \]
-   Введем замену \( t = \frac{x+1}{x-1} \). Тогда:  
-   \[
-   t^{1/3} = \left( \frac{x+1}{x-1} \right)^{1/3}, \quad x = \frac{t^{1/3} + 1}{t^{1/3} - 1}
-   \]  
-   Дифференцируем \( x \) по \( t \):  
-   \[
-   dx = \frac{-2t^{-2/3}}{(t^{1/3} - 1)^2} \, dt
-   \]
+    \item[(e)]Найдём:
+    $$\int \frac{1}{\sqrt[3]{(x+1)^2(x-1)^7}} \, dx = \int (x+1)^{-2/3} (x-1)^{-7/3} \, dx$$
+    Пусть
+    \[
+    t = \left(\frac{x+1}{x-1}\right)^{1/3} \Rightarrow t^3 = \frac{x+1}{x-1}
+    \]
+    Решая относительно \(x\):
+    \[
+    x = \frac{t^3 + 1}{t^3 - 1}, \quad dx = \frac{-6t^2}{(t^3 - 1)^2} dt
+    \]
+    Подставим:
+    \[
+    \int t^{-2} \cdot (x-1)^{-3} \cdot \frac{-6t^2}{(t^3 - 1)^2} dt
+    \]
+    Упрощаем \((x-1)^{-3}\):
+    \[
+    (x-1)^{-3} = \left(\frac{2}{t^3 - 1}\right)^{-3} = \frac{(t^3 - 1)^3}{8}
+    \]
+    После сокращений:
+    \[
+    \frac{-3}{4} \int (t^3 - 1) dt
+    \]
+    Найдём:
+    \[
+        \frac{-3}{4} \int (t^3 - 1) dt = \frac{-3}{4} \left( \frac{t^4}{4} - t \right) + C = \frac{-3(t^4 - 4t)}{16} + C
+    \]
+    Подставляем \(t = \left(\frac{x+1}{x-1}\right)^{1/3}\) и упрощаем:
+    \[
+    \frac{-3}{16} \left( \left(\frac{x+1}{x-1}\right)^{4/3} - 4\left(\frac{x+1}{x-1}\right)^{1/3} \right) + C
+    \]
+    Выносим общий множитель и преобразуем:
+    \[
+    \frac{3(1 + x)^{1/3}(-5 + 3x)}{16(x - 1)^{4/3}} + C
+    \]
+    \textbf{Ответ: } $\frac{3(1 + x)^{1/3}(-5 + 3x)}{16(x - 1)^{4/3}} + C$\\
 
+    \item[(f)]Найдём:
+    $$\int \frac{1 - \sqrt{x^2 + x + 1}}{x\sqrt{x^2 + x + 1}} \, dx$$
+    Положим \(\sqrt{x^2 + x + 1} = x t + 1\).  
+    Возведем в квадрат:  
+    \[
+    x^2 + x + 1 = x^2 t^2 + 2x t + 1 \implies x = \frac{2t - 1}{1 - t^2}
+    \]
+    \[
+    dx = \frac{2(t^2 - t + 1)}{(1 - t^2)^2} \, dt
+    \]
+    Разобьем интеграл на два слагаемых:  
+    \[
+    \int \frac{1}{x\sqrt{x^2 + x + 1}} \, dx - \int \frac{1}{x} \, dx
+    \]
+    Первый интеграл: 
+    \[
+    \int \frac{2}{2t - 1} \, dt = \ln|2t - 1| + C
+    \]
+    Второй интеграл:  
+    \[  
+    \int \frac{1}{x} \, dx = \ln|x| + C = \ln\left|\frac{2t - 1}{1 - t^2}\right| + C
+    \]
+    Вместе:
+    \[
+    \ln|2t - 1| - \ln\left|\frac{2t - 1}{1 - t^2}\right| + C = \ln|1 - t^2| + C
+    \]
+    Из замены \(t = \frac{\sqrt{x^2 + x + 1} - 1}{x}\):  
+    \[
+    1 - t^2 = \frac{2\sqrt{x^2 + x + 1} - x - 2}{x^2}
+    \]
+    Получаем:
+    \[
+    \int \frac{1 - \sqrt{x^2 + x + 1}}{x\sqrt{x^2 + x + 1}} \, dx = \ln|2\sqrt{x^2 + x + 1} - x - 2| - 2\ln|x| + C
+    \]
+
+    \textbf{Ответ: } $\ln|2\sqrt{x^2 + x + 1} - x - 2| - 2\ln|x| + C$\\
+ 
 \end{enumerate}
 
 

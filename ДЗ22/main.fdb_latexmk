@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744538583.39637 "c:/Users/User/Desktop/exam/Матемамтический анализ/ДЗ22/main.tex" "main.pdf" "main" 1744538584.54918 0
+["pdflatex"] 1744542032.61631 "c:/Users/User/Desktop/exam/Матемамтический анализ/ДЗ22/main.tex" "main.pdf" "main" 1744542033.83797 0
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/tcrm1095.tfm" 993062508 1460 8005ce585ff351dff78998923504da5e ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -155,9 +155,9 @@
   "C:/Users/User/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1725547064 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1728.tfm" 1725297362 3252 3140686608bdcae603a09a7973fb9e55 ""
   "C:/Users/User/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1725295917 24215268 d4b67dedada491ed68192e2dda405f64 ""
-  "c:/Users/User/Desktop/exam/Матемамтический анализ/ДЗ22/main.tex" 1744538582 10272 f99be7e47b2e1f5259757316d91d9624 ""
-  "main.aux" 1744538584 132 d59914f928483ceabf5405032219390a "pdflatex"
-  "main.tex" 1744538582 10272 f99be7e47b2e1f5259757316d91d9624 ""
+  "c:/Users/User/Desktop/exam/Матемамтический анализ/ДЗ22/main.tex" 1744542031 12370 24afaba53509529a0bc6ac38423c41ec ""
+  "main.aux" 1744542033 132 c2301647373dfb03b18672530c16246e "pdflatex"
+  "main.tex" 1744542031 12370 24afaba53509529a0bc6ac38423c41ec ""
   (generated)
   "main.aux"
   "main.log"
