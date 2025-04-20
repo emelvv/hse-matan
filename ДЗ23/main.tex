@@ -141,5 +141,175 @@
     \end{enumerate}
 
 
+    \item[\textbf{№3}]\begin{enumerate}
+        \item[(a)] Найдём
+        \[
+        \int\limits_1^e \frac{1}{x \sqrt{1 + \ln x}} \, dx
+        \]
+        Сделаем замену:
+        \[
+        t = \ln x \quad \Rightarrow \quad x = e^t, \quad dx = e^t dt
+        \]
+        Переписываем подынтегральное выражение:
+        \[
+        \frac{1}{x \sqrt{1 + \ln x}} \cdot dx = \frac{1}{e^t \cdot \sqrt{1 + t}} \cdot e^t dt = \frac{1}{\sqrt{1 + t}} dt
+        \]
+        Границы интегрирования:
+        \begin{itemize}
+            \item 
+            При \( x = 1 \), \( t = \ln 1 = 0 \);  
+            \item
+            При \( x = e \), \( t = \ln e = 1 \)
+        \end{itemize}
+
+        Получаем:
+        \[
+        \int\limits_0^1 \frac{1}{\sqrt{1 + t}} \, dt = 2(\sqrt{2} - 1) + C
+        \]
+        \textbf{Ответ: } $ 2(\sqrt{2} - 1) + C$\\
+
+        \item[(b)]Найдём:
+        \[
+        \int_0^{\sqrt{3}} x \cdot \arctan x \, dx
+        \]
+        Применим формулу интегрирования по частям:
+        \[
+        \int_0^{\sqrt{3}} x \cdot \arctan x \, dx = \left. \frac{x^2}{2} \cdot \arctan x \right|_0^{\sqrt{3}} - \int_0^{\sqrt{3}} \frac{x^2}{2} \cdot \frac{1}{1 + x^2} dx
+        \]
+        Упростим второй интеграл:
+        \[
+        \frac{1}{2} \int_0^{\sqrt{3}} \frac{x^2}{1 + x^2} dx
+        \]
+        Упростим подынтегральную функцию:
+        \[
+        \frac{x^2}{1 + x^2} = 1 - \frac{1}{1 + x^2}
+        \]
+        То есть:
+        \[
+        \int_0^{\sqrt{3}} x \cdot \arctan x \, dx = \left. \frac{x^2}{2} \cdot \arctan x \right|_0^{\sqrt{3}} - \frac{1}{2} \int_0^{\sqrt{3}} \left(1 - \frac{1}{1 + x^2}\right) dx
+        \]
+        Подставим границы:
+        \[
+        \frac{(\sqrt{3})^2}{2} \cdot \arctan(\sqrt{3}) - 0 = \frac{3}{2} \cdot \frac{\pi}{3} = \frac{\pi}{2}
+        \]
+        Теперь вычислим интеграл:
+        \[
+        \frac{1}{2} \int_0^{\sqrt{3}} \left(1 - \frac{1}{1 + x^2}\right) dx = \frac{1}{2} \left[ \int_0^{\sqrt{3}} 1 dx - \int_0^{\sqrt{3}} \frac{1}{1 + x^2} dx \right]=
+        \]
+
+        \[
+        =\frac{1}{2} \left( \sqrt{3} - \frac{\pi}{3} \right)
+        \]
+        Финальный результат
+        \[
+        \int_0^{\sqrt{3}} x \cdot \arctan x \, dx = \frac{\pi}{2} - \frac{1}{2} \left( \sqrt{3} - \frac{\pi}{3} \right)
+        \]
+        Упростим:
+        \[
+        = \frac{\pi}{2} - \frac{\sqrt{3}}{2} + \frac{\pi}{6} = \frac{2\pi}{3} - \frac{\sqrt{3}}{2}
+        \]
+        \textbf{Ответ: } $\frac{2\pi}{3} - \frac{\sqrt{3}}{2}$\\
+
+        \item[(c)]Найдём:
+        \[
+        \int_{-\pi/3}^{\pi/3} \frac{2x^7 - x^5 + 2x^3 - x + 1}{\cos^2 x} \, dx
+        \]
+        Запишем подынтегральную функцию:
+        \[
+        f(x) = \frac{2x^7 - x^5 + 2x^3 - x + 1}{\cos^2 x}
+        \]  
+        распишем:
+        \[
+        \int_{-\pi/3}^{\pi/3} f(x) \, dx = \int_{-\pi/3}^{\pi/3} \left( \frac{2x^7 - x^5 + 2x^3 - x}{\cos^2 x} + \frac{1}{\cos^2 x} \right) dx
+        \]
+        интеграл нечётной функции по симметричному отрезку обнуляется:
+        \[
+        \int_{-\pi/3}^{\pi/3} f(x) \, dx = \int_{-\pi/3}^{\pi/3} \left( \frac{1}{\cos^2 x} \right) dx
+        \]
+        результат:
+        \[
+        \int_{-\pi/3}^{\pi/3} \frac{1}{\cos^2 x} dx = 2\sqrt{3}
+        \]
+        \textbf{Ответ: } $2\sqrt{3}$\\
+
+        \item[(d)]Найдём:
+        \[
+        \int_{1/3}^{3} \frac{\arctan x}{x^2 - x + 1} \, dx
+        \]
+        Замена \( x = \frac{1}{t} \):
+        \begin{itemize}
+            \item  \( x = \frac{1}{t} \Rightarrow dx = -\frac{1}{t^2} dt \)
+            \item \( \arctan x = \arctan\left( \frac{1}{t} \right) \)
+            \item \( x^2 - x + 1 = \frac{1}{t^2} - \frac{1}{t} + 1 \)
+        \end{itemize}
+        Теперь соберём всё в заменённый интеграл:
+        \[
+        \int_{x=1/3}^{x=3} \frac{\arctan x}{x^2 - x + 1} \, dx = \int_{t=3}^{t=1/3} \frac{\arctan\left(\frac{1}{t}\right)}{1 + \frac{1}{t^2} - \frac{1}{t}} \cdot \left( -\frac{1}{t^2} \right) dt
+        \]
+        Сменим пределы, уберём минус:
+        \[
+        = \int_{1/3}^{3} \frac{\arctan\left(\frac{1}{t}\right)}{1 + \frac{1}{t^2} - \frac{1}{t}} \cdot \frac{1}{t^2} dt
+        \]
+        Упростим выражение:
+        \[
+        \frac{1}{t^2} \cdot \frac{1}{1 + \frac{1}{t^2} - \frac{1}{t}} = \frac{1}{t^2 + 1 - t}
+        \]
+        Получаем:
+        \[
+        \int_{1/3}^{3} \frac{\arctan\left(\frac{1}{t}\right)}{t^2 - t + 1} dt
+        \]
+        Обозначим:
+        \[
+        I = \int_{1/3}^{3} \frac{\arctan x}{x^2 - x + 1} \, dx
+        \]
+        После замены:
+        \[
+        I = \int_{1/3}^{3} \frac{\arctan\left( \frac{1}{x} \right)}{x^2 - x + 1} dx
+        \]
+        Сложим два выражения:
+        \[
+        2I = \int_{1/3}^{3} \frac{\arctan x + \arctan \left( \frac{1}{x} \right)}{x^2 - x + 1} dx
+        \]
+        Так как:
+        \[
+        \arctan x + \arctan \left( \frac{1}{x} \right) = \frac{\pi}{2}, \quad \text{для } x > 0
+        \]
+        Получаем
+        \[
+        2I = \int_{1/3}^{3} \frac{\pi/2}{x^2 - x + 1} dx = \frac{\pi}{2} \int_{1/3}^{3} \frac{1}{x^2 - x + 1} dx
+        \]
+        Подставляем обратно:
+        \[
+        2I = \frac{\pi}{2} \cdot \frac{2 \cdot \arctan(4\sqrt{3})}{\sqrt{3}} \implies I = \frac{\pi \cdot \arctan(4\sqrt{3})}{\sqrt{3}}
+        \]
+        \textbf{Ответ: } $\frac{\pi \cdot \arctan(4\sqrt{3})}{\sqrt{3}}$\\
+
+        \item[(e)]Найдём:
+        \[
+        \int_{1/e}^{1/(2e^2)} g(y) \, dy,\quad \text{где } g(y) \text{ — обратная функция к } f(x) = \frac{1}{x \ln x},\ x \in (1, +\infty)
+        \]
+        Найдём \( x_1, x_2 \) такие, что \( f(x_i) = y_i \)**
+
+        Нам даны:
+        \begin{itemize}
+            \item \( y_1 = \frac{1}{e} \Rightarrow \frac{1}{x_1 \ln x_1} = \frac{1}{e} \)
+            \item \( y_2 = \frac{1}{2e^2} \Rightarrow \frac{1}{x_2 \ln x_2} = \frac{1}{2e^2} \)
+        \end{itemize}
+        Решим уравнения:
+        $$ x_1 \ln x_1 = e \quad \text{и} \quad x_2 \ln x_2 = 2e^2 $$
+        Теперь:
+        \[
+        \int_{1/e}^{1/(2e^2)} g(y) \, dy = \int_{e}^{e^2} \frac{1}{x \ln x} \, dx
+        \]
+        
+        \[
+        \int_{1/e}^{1/(2e^2)} g(y) \, dy = \int_{e}^{e^2} \frac{1}{x \ln x} \, dx = \ln 2
+        \]
+        \textbf{Ответ: } $\ln 2$
+
+
+
+    \end{enumerate}
+
 \end{enumerate}
 \end{document}
