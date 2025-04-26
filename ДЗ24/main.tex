@@ -1,0 +1,81 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[T2A]{fontenc} %
+\usepackage[utf8]{inputenc} % подключение русского языка
+\usepackage[russian]{babel} %
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\matsq}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+\newcommand{\Ker}[1]{\operatorname{Ker}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\Vol}{\text{Vol}}
+\renewcommand{\d}{\;\text{d}}
+\newcommand{\dx}{\;\text{dx}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 04.05 (Математический анализ)}
+ {\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+    \item[\textbf{№1}]Найдём:
+    \[
+    \int \frac{x^8 + x^7 - 7x^6 + 26x^5 - 32x^4 + 34x^3 - 20x^2 + 48x - 33}{(x+1)(x-4)^2(x^2+1)^3} \, dx
+    \]
+    Разложим интеграл как:
+    \[
+    \int \frac{P(x)}{Q(x)} dx = \frac{P_1(x)}{Q_1(x)} + \int \frac{P_2(x)}{Q_2(x)} dx
+    \]
+    где \( Q(x) = Q_1(x) Q_2(x) \).
+    \[ Q(x) = (x+1)(x-4)^2(x^2+1)^3 \]
+    \[
+    Q'(x) = (x-4)(x^2+1)^2(9x^3 - 20x^2 - 21x - 2)
+    \]
+
+
+\end{enumerate}
+\end{document}
