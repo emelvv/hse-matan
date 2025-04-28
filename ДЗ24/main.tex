@@ -247,8 +247,76 @@
 
     \item[\textbf{№4}]Найдём:
     \[\frac{d}{dx} \left( \int_{\frac{x^3}{3}}^{\cos x} \ln(1 + t^2) \, dt \right)^3\]
+    Разобьем:
+    \[
+    \int_{x^3}^{\cos x} \ln(1+t^2) \, dt = \int_{0}^{\cos x} \ln(1+t^2) \, dt - \int_{0}^{x^3} \ln(1+t^2) \, dt
+    \]
+    Обозначим:
+    \[
+    F(x) = \int_{0}^{\cos x} \ln(1+t^2) \, dt - \int_{0}^{x^3} \ln(1+t^2) \, dt
+    \]
+    Производная первого интеграла:
+    \[
+    \frac{d}{dx} \int_{0}^{\cos x} \ln(1+t^2) \, dt = \ln(1+\cos^2 x) \cdot (-\sin x)
+    \]
+    Производная второго интеграла:
+    \[
+    \frac{d}{dx} \int_{0}^{x^3} \ln(1+t^2) \, dt = \ln(1+x^6) \cdot 3x^2
+    \]
+    Получаем:
+    \[
+    F'(x) = -\sin x \cdot \ln(1+\cos^2 x) - 3x^2 \cdot \ln(1+x^6)
+    \]
+    \[
+    \frac{d}{dx} \left(F(x)\right)^3 = 3 \left(F(x)\right)^2 \cdot F'(x)
+    \]
+    \textbf{Ответ:}
+    \[
+    3 \left( \int_{x^3}^{\cos x} \ln(1+t^2) \, dt \right)^2 \cdot \left( -\sin x \cdot \ln(1+\cos^2 x) - 3x^2 \cdot \ln(1+x^6) \right)
+    \]\\
 
+    \item[\textbf{№5}]Найдём:
+    \[
+    \lim_{x \to +\infty} \frac{\left( \int_0^x e^{t^2} \, dt \right)^2}{\int_0^x e^{2t^2} \, dt}
+    \]
+    Производная числителя:
+    \[
+    2 \left( \int_0^x e^{t^2} \, dt \right) \cdot e^{x^2}
+    \]
+    Производная знаменателя:
+    \[
+    e^{2x^2}
+    \]
+    Получаем:
+    \[
+    \lim_{x \to +\infty} \frac{2 \left( \int_0^x e^{t^2} \, dt \right) \cdot e^{x^2}}{e^{2x^2}} = \lim_{x \to +\infty} \frac{2 \int_0^x e^{t^2} \, dt}{e^{x^2}}
+    \]
+    Производная числителя:
+    \[
+    e^{x^2}
+    \]
+    Производная знаменателя:
+    \[
+    2x e^{x^2}
+    \]
+    Получаем:
+    \[
+    \lim_{x \to +\infty} \frac{e^{x^2}}{2x e^{x^2}} = \lim_{x \to +\infty} \frac{1}{2x} = 0
+    \]
+    \textbf{Ответ: } $0$\\
 
+    \item[\textbf{№6}]Рассмотрим функцию \( f(t) \), которая на каждом интервале \([n, n + 1/n^2]\)  равна 1, а в остальных точках равна 0. 
+    Интеграл от 0 до \( x \):  
+    \[
+    \int_0^x f(t) \, dt = \sum_{n=1}^{\lfloor x \rfloor} \frac{1}{n^2}.
+    \]
+    Так как ряд \[ \sum_{n=1}^{\infty} \frac{1}{n^2} \]
+    сходится, предел интеграла при \( x \to +\infty \) существует.
+
+    Однако \[ \lim_{t \to +\infty} f(t) \] не существует, так как функция периодически принимает значение 1.
+
+    Проверим:
+    \( f \in \mathcal{R}([0; a]) \): функция ограничена и имеет разрывы только в счетном числе точек, что допустимо для интегрируемости по Риману.
 
 \end{enumerate}
 \end{document}
