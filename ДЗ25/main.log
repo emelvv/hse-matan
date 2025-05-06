@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.2)  6 MAY 2025 18:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.2)  6 MAY 2025 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -620,7 +620,11 @@ File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count300
 \l__pdf_internal_box=\box65
-) (main.aux)
+) (main.aux
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 5.
+ (C:\Program Files\MiKTeX\tex/latex/cyrillic\t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
@@ -638,10 +642,6 @@ LaTeX Font Info:    ... okay on input line 56.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
 LaTeX Font Info:    ... okay on input line 56.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 56.
-LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 56.
- (C:\Program Files\MiKTeX\tex/latex/cyrillic\t2acmr.fd
-File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
 LaTeX Font Info:    ... okay on input line 56.
 LaTeX Info: Redefining \th on input line 56.
  (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
@@ -736,50 +736,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
 
-
-c:/Users/User/Desktop/exam/Матемамтический анализ/ДЗ25/main.tex:370: LaTeX Error: Unicode character − (U+2212)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.370      $[−
-                1,1] \leq (1−t^2)^n\leq 1$ и $|cos(\pi \f{t}{2})|\leq 1$
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-c:/Users/User/Desktop/exam/Матемамтический анализ/ДЗ25/main.tex:370: LaTeX Error: Unicode character − (U+2212)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.370      $[−1,1] \leq (1−
-                               t^2)^n\leq 1$ и $|cos(\pi \f{t}{2})|\leq 1$
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-[8] (main.aux)
+[8] [9] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15762 strings out of 474485
- 306768 string characters out of 5753553
+ 15766 strings out of 474485
+ 306808 string characters out of 5753553
  1938542 words of memory out of 5000000
- 37768 multiletter control sequences out of 15000+600000
- 568372 words of font info for 61 fonts, out of 8000000 for 9000
+ 37770 multiletter control sequences out of 15000+600000
+ 569017 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,93p,465b,234s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,93p,465b,248s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1200.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1440.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1728.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (8 pages, 174556 bytes).
+Output written on main.pdf (9 pages, 178421 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
+ 239 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
