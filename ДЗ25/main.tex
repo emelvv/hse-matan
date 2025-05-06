@@ -1,0 +1,376 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}}
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}}
+\newcommand{\Ker}[1]{\operatorname{Ker}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\Vol}{\text{Vol}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+
+\section*{Домашнее задание на 15.05 (Линейная алгебра)}
+{\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+  \item[\textbf{№1}]
+  Найдём площадь фигуры, ограниченной кривыми
+  $$
+  y^2 = 2\lambda x,
+  \qquad
+  x^2 = 2\lambda y,
+  $$
+  Ищем общие точки решений системы
+  $$
+  \begin{cases}
+  y^2 = 2\lambda x,\\
+  x^2 = 2\lambda y,
+  \end{cases}
+  \qquad x\ge0,\;y\ge0.
+  \quad \implies (x, y) = (0, 0), (2\lambda, 2\lambda)$$
+  
+  В первой четверти на отрезке $x\in[0,2\lambda]$ верхней ветвью фигуры является
+  $$
+  y=f(x)=\sqrt{2\lambda x},
+  $$
+  нижней:
+  $$
+  y=g(x)=\frac{x^2}{2\lambda}.
+  $$
+  По Факту 1 Формула (1) для площади $S$ зоны между графиками $y=f(x)$ и $y=g(x)$ на $[a,b]$ имеет вид
+  $$
+  S=\int_a^b\bigl(f(x)-g(x)\bigr)\,dx.
+  $$
+  Подставляем $a=0$, $b=2\lambda$:
+  $$
+  S=\int_0^{2\lambda}\!\Bigl(\sqrt{2\lambda x}-\frac{x^2}{2\lambda}\Bigr)\,dx
+  =\int_0^{2\lambda}(2\lambda x)^{1/2}\,dx\;-\;\frac1{2\lambda}\int_0^{2\lambda}x^2\,dx.
+  $$
+  Следовательно
+  $$
+  S=\frac{8}{3}\lambda^2-\frac{4}{3}\lambda^2
+  =\frac{4}{3}\,\lambda^2
+  $$
+  \textbf{Ответ: }$\frac{4}{3}\,\lambda^2$\\
+
+  \item[\textbf{№2}]
+  Найдём площадь фигуры, ограниченной:
+  $$
+  r^2 \;=\; 2\,\lambda^2\cos2\varphi.
+  $$
+  Лемниската задана уравнением 
+  $$r^2\ge0$$
+  то есть 
+  $$\cos2\varphi\ge0$$
+  Это выполняется при
+  $$
+  -\,\frac\pi4\;\le\;\varphi\;\le\;\frac\pi4
+  \quad\text{и}\quad
+  \frac{3\pi}4\;\le\;\varphi\;\le\;\frac{5\pi}4
+  $$
+  По факту 2 для кривой $r=f(\varphi)$, непер­ерывной на $[\alpha,\beta]$, площадь сектора
+
+  $$
+  S_{\rm sector}
+  =\frac12\int_{\alpha}^{\beta}f(\varphi)^2\,d\varphi
+  $$
+  Для одного лепестка \(r^2=2\lambda^2\cos2\varphi\), \(\varphi\in[-\pi/4,\pi/4]\):  
+  $$
+  S
+  =\frac12\int_{-\pi/4}^{\pi/4}2\lambda^2\cos2\varphi\,d\varphi
+  =\lambda^2\int_{-\pi/4}^{\pi/4}\cos2\varphi\,d\varphi
+  $$
+  Вычислим интеграл:
+  $$
+  \int_{-\pi/4}^{\pi/4}\cos2\varphi\,d\varphi
+  =\Bigl[\tfrac12\sin2\varphi\Bigr]_{-\pi/4}^{\pi/4}
+  =\tfrac12\bigl(\sin\tfrac\pi2-\sin(-\tfrac\pi2)\bigr)
+  =\tfrac12(1-(-1))=1
+  $$
+  Значит
+  $$
+  S=\lambda^2\cdot1=\lambda^2
+  $$
+  Лемниската состоит из двух равных лепестков, поэтому
+  $$
+  S_{\rm total}=2\,S=2\lambda^2
+  $$
+  \textbf{Ответ: } $2\lambda^2$\\
+
+  \item[\textbf{№3}]Найдём длину окружности
+  $$
+  x^2 + y^2 = \lambda^2.
+  $$
+  В полярных координатах окружность радиуса $\lambda$ задаётся просто:
+  $$
+  r( \phi)=\lambda,\qquad  \phi\in[0,2\pi].
+  $$
+  По Факту 4 длина кривой
+  $$
+  r=f( \phi),\; \phi\in[\alpha,\beta]
+  $$
+  в полярных координатах равна
+  $$
+  L=\int_{\alpha}^{\beta}\sqrt{\bigl(f'( \phi)\bigr)^2+\bigl(f( \phi)\bigr)^2}\;d \phi.
+  $$
+  Здесь \(f( \phi)=\lambda\) константа, поэтому \(f'( \phi)=0\). Подставляем в формулу с \(\alpha=0\), \(\beta=2\pi\):  
+  $$
+  L
+  =\int_{0}^{2\pi}\sqrt{0^2+\lambda^2}\;d \phi
+  =\int_{0}^{2\pi}\lambda\;d \phi
+  =\lambda\bigl[ \phi\bigr]_{0}^{2\pi}
+  =2\pi\lambda
+  $$
+  \textbf{Ответ: }$2\pi\lambda$\\
+
+  \item[\textbf{№4}]Найдём длину винтовой линии
+  \[
+  \begin{aligned}
+  x(t) &= \lambda \cos t, & y(t) &= \lambda \sin t, & z(t) &= 7\lambda t, 
+  \quad t\in[0,2\pi], \\[6pt]
+  x'(t) &= -\lambda \sin t, & y'(t) &= \lambda \cos t, & z'(t) &= 7\lambda.
+  \end{aligned}
+  \]
+  По формуле 3:
+  \[
+  \begin{aligned}
+  L &= \int_{0}^{2\pi} \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2}\,dt
+    = \int_{0}^{2\pi} \sqrt{\lambda^2\sin^2t + \lambda^2\cos^2t + (7\lambda)^2}\,dt \\[6pt]
+    &= \int_{0}^{2\pi} \sqrt{\lambda^2(\sin^2t + \cos^2t) + 49\lambda^2}\,dt
+    = \int_{0}^{2\pi} \sqrt{50\,\lambda^2}\,dt
+    = \int_{0}^{2\pi} 5\sqrt{2}\,\lambda \,dt \\[6pt]
+    &= 5\sqrt{2}\,\lambda \,\bigl[t\bigr]_{0}^{2\pi}
+    = 5\sqrt{2}\,\lambda \cdot 2\pi
+    = 10\pi\sqrt{2}\,\lambda
+  \end{aligned}
+  \]
+  \textbf{Ответ: } $10\pi\sqrt{2}\,\lambda$\\
+
+  \item[\textbf{№5}]Объём тела вращения по Формуле 6:
+    \[
+  \begin{aligned}
+  V &= \pi \int_{0}^{7} \bigl(\sqrt{x e^{-x}}\bigr)^2 \,dx 
+        = \pi \int_{0}^{7} x e^{-x} \,dx, \\[6pt]
+  \int_{0}^{7} x e^{-x}\,dx 
+    &= \Bigl[-(x+1)e^{-x}\Bigr]_{0}^{7}
+      = \bigl[-(7+1)e^{-7}\bigr] - \bigl[-(0+1)e^{0}\bigr] \\[4pt]
+    &= -8e^{-7} + 1
+  \end{aligned}
+  \]
+  \textbf{Ответ: } $-8e^{-7} + 1$\\
+
+  \item[\textbf{№6}]По общей формуле объёма через поперечные сечения:
+  \[
+  V \;=\;\int_{-a}^{a} S(x)\,dx,
+  \]
+  По Формуле 1 площадь эллипса:
+  \[
+  S(x) \;=\;\pi\,b\,c\;\bigl(1 - \tfrac{x^2}{a^2}\bigr).
+  \]
+  Интегрируем:
+  \[
+  \begin{aligned}
+  V &= \pi\,b\,c \int_{-a}^{a} \Bigl(1 - \frac{x^2}{a^2}\Bigr)\,dx
+      = \pi\,b\,c \Bigl[\,x - \frac{x^3}{3\,a^2}\Bigr]_{-a}^{a} \\[6pt]
+    &= \pi\,b\,c \Bigl(\bigl(a - \tfrac{a^3}{3a^2}\bigr) - \bigl(-a + \tfrac{(-a)^3}{3a^2}\bigr)\Bigr)
+      = \pi\,b\,c \Bigl(2a - \tfrac{2a}{3}\Bigr)
+      = \frac{4}{3}\,\pi\,a\,b\,c
+  \end{aligned}
+  \]
+  \textbf{Ответ: } $\frac{4}{3}\,\pi\,a\,b\,c$\\
+
+  \item[\textbf{№7}]Площадь поверхности вращения кривой
+  \[
+  S \;=\; 2\pi \int_{0}^{3} y\,\sqrt{1 + \bigl(y'\bigr)^2}\,dx
+  \]
+  Подставляем заданную функцию y и ее производную
+  \[
+  y = \sqrt{2\lambda x}, 
+  \quad
+  y' = \frac{d}{dx}\sqrt{2\lambda x}
+        = \frac{\lambda}{\sqrt{2\lambda x}}
+  \]
+  Преобразуем 
+  \[
+  \sqrt{1 + (y')^2}
+  = \sqrt{1 + \frac{\lambda^2}{2\lambda x}}
+  = \sqrt{\frac{2x + \lambda}{2x}}
+  \]
+  \[
+  y\,\sqrt{1+(y')^2}
+  = \sqrt{2\lambda x}\;\sqrt{\frac{2x + \lambda}{2x}}
+  = \sqrt{\lambda\,(2x + \lambda)}
+  \]
+  Выносим множитель
+  \[
+  S = 2\pi \int_{0}^{3} \sqrt{\lambda\,(2x + \lambda)}\,dx
+      = 2\pi\sqrt{\lambda}\,\int_{0}^{3} \sqrt{2x + \lambda}\,dx
+  \]
+  Выполняем замену
+  \[
+  \int_{0}^{3} \sqrt{2x + \lambda}\,dx
+  = \frac{1}{2}\int_{\lambda}^{\lambda+6} u^{1/2}\,du
+  = \frac{1}{3}\Bigl[(\lambda+6)^{3/2} - \lambda^{3/2}\Bigr]
+  \]
+  \textbf{Ответ: } $S = \frac{2\pi\sqrt{\lambda}}{3}\,\bigl[(\lambda + 6)^{3/2} - \lambda^{3/2}\bigr]$\\
+
+  \item[\textbf{№8}]Используем Формулу 7 для площади поверхности вращения в пространстве 
+  \[
+  S \;=\; 2\pi \int_{-\,\lambda}^{\lambda} y(x)\,\sqrt{1 + \bigl(y'(x)\bigr)^2}\,dx
+  \]
+  Здесь сечение сферой плоскостью $y-z$ при фиксированном 
+  x есть круг радиуса $y(x)=\sqrt{\lambda^2 - x^2}$, его производная:
+  \[
+  y(x) = \sqrt{\lambda^2 - x^2}, 
+  \quad
+  y'(x) = \frac{d}{dx}\sqrt{\lambda^2 - x^2} = -\,\frac{x}{\sqrt{\lambda^2 - x^2}}
+  \]
+  Поэтому  
+  \[
+  \sqrt{1 + \bigl(y'(x)\bigr)^2}
+  = \sqrt{1 + \frac{x^2}{\lambda^2 - x^2}}
+  = \sqrt{\frac{\lambda^2}{\lambda^2 - x^2}}
+  = \frac{\lambda}{\sqrt{\lambda^2 - x^2}}
+  \]
+  Подставляем в интеграл 
+  \[
+  y\,\sqrt{1 + (y')^2}
+  = \sqrt{\lambda^2 - x^2}\;\frac{\lambda}{\sqrt{\lambda^2 - x^2}}
+  = \lambda
+  \]
+  \[
+  S = 2\pi \int_{-\,\lambda}^{\lambda} \lambda \,dx
+      = 2\pi\lambda \bigl[x\bigr]_{-\,\lambda}^{\lambda}
+      = 2\pi\lambda\,(2\lambda)
+      = 4\pi\,\lambda^2
+  \]
+  \textbf{Ответ: } $S = 4\pi\,\lambda^2$\\
+
+  \item[\textbf{№9}]Формула 3 для длины дуги кривой $y = f(x)$ и формула 8 для координат центра масс кривой при плотности $\rho=const $
+  \[
+  \begin{aligned}
+  &y = \sqrt{\lambda^2 - x^2}, 
+  \quad y' = -\frac{x}{\sqrt{\lambda^2 - x^2}}, 
+  \\
+  &ds = \sqrt{1 + (y')^2}\,dx
+      = \sqrt{1 + \frac{x^2}{\lambda^2 - x^2}}\,dx
+      = \frac{\lambda}{\sqrt{\lambda^2 - x^2}}\,dx,
+  \\
+  &L = \int_{-\lambda}^{\;\lambda} ds
+      = \lambda \int_{-\lambda}^{\;\lambda} \frac{dx}{\sqrt{\lambda^2 - x^2}}
+      = \lambda \,\pi,
+  \\
+  &x_c = \frac{\displaystyle\int_{-\lambda}^{\;\lambda} x\,ds}{\displaystyle\int_{-\lambda}^{\;\lambda} ds}
+        = 0 \quad\text{(по симметрии)}, 
+  \\
+  &y_c = \frac{\displaystyle\int_{-\lambda}^{\;\lambda} y\,ds}{\displaystyle\int_{-\lambda}^{\;\lambda} ds}
+        = \frac{\displaystyle\int_{-\lambda}^{\;\lambda} \sqrt{\lambda^2 - x^2}\,\frac{\lambda\,dx}{\sqrt{\lambda^2 - x^2}}}
+              {\lambda\,\pi}
+        = \frac{\displaystyle\lambda\int_{-\lambda}^{\;\lambda} dx}{\lambda\,\pi}
+        = \frac{2\lambda^2}{\lambda\,\pi}
+        = \frac{2\lambda}{\pi}
+  \end{aligned}
+  \]
+  \textbf{Ответ: } $(x_c, y_c) = \Bigl(0,\;\frac{2\lambda}{\pi}\Bigr)$\\
+
+  \item[\textbf{№10}]По Формуле 9 для центра масс плоской фигуры при однородной плотности:
+  $$x_c = \frac{\iint_D x\,dA}{\iint_D dA},   y_c = \frac{\iint_D y\,dA}{\iint_D dA}$$
+  \[
+  \text{Область }D: 0 \le x \le \lambda,\quad -\sqrt{\lambda x}\,\le y \le \sqrt{\lambda x}.
+  \]
+  Площадь D:
+  \[
+  A = \int_{x=0}^{\lambda}\bigl(2\sqrt{\lambda x}\bigr)\,dx
+      = 2\sqrt{\lambda}\int_{0}^{\lambda} x^{1/2}\,dx
+      = 2\sqrt{\lambda}\,\frac{2}{3}\,\lambda^{3/2}
+      = \frac{4}{3}\,\lambda^2.
+  \]
+  Координата $x_c$:
+  \[
+  \iint_D x\,dA
+  = \int_{0}^{\lambda} x\bigl(2\sqrt{\lambda x}\bigr)\,dx
+  = 2\sqrt{\lambda}\int_{0}^{\lambda} x^{3/2}\,dx
+  = 2\sqrt{\lambda}\,\frac{2}{5}\,\lambda^{5/2}
+  = \frac{4}{5}\,\lambda^3,
+  \]
+  \[
+  x_c
+  = \frac{\displaystyle\iint_D x\,dA}{\displaystyle A}
+  = \frac{\tfrac{4}{5}\,\lambda^3}{\tfrac{4}{3}\,\lambda^2}
+  = \frac{3}{5}\,\lambda.
+  \]
+  По симметрии
+  \[
+  y_c = 0.
+  \]
+  \textbf{Ответ: } $(x_c, y_c) = \Bigl(\tfrac{3}{5}\,\lambda,\;0\Bigr)$\\
+
+  \item[\textbf{№11}]
+  \begin{enumerate}
+    \item[(a)]Определяем $I_n(x)$ по Формуле 10:
+    \[
+    I_n(x) \;=\;\int_{-1}^{1}(1 - t^2)^n\cos(xt)\,dt 
+    \]
+    \item[(b)]По результату Пуянкара и методу полной мат. индукции имеем
+    \[
+    x^{2n+1}I_n(x) \;=\; n!\,\bigl(P_n(x)\sin x + Q_n(x)\cos x\bigr)
+    \]
+    \item[(c)]Предположим, что \(\displaystyle\frac\pi2=\frac ab\), \(a,b\in\mathbb N\). 
+    Подставляя $x=\pi/2$ в предыдущее равенство, получаем Формулу 11:
+    \[
+    \frac{a^{2n+1}}{n!}\,I_n\Bigl(\frac\pi2\Bigr)
+    \;=\;b^{2n+1}P_n\Bigl(\frac\pi2\Bigr)
+    \]
+    \item[(d)]Покажем, что $0< I_n(\pi/2)<2$. Заметим, что на
+     $[−1,1] \leq (1−t^2)^n\leq 1$ и $|cos(\pi \f{t}{2})|\leq 1$
+    \item[(e)]
+    \item[(f)]
+  \end{enumerate}
+
+\end{enumerate}
+\end{document}
