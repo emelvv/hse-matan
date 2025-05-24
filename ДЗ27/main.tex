@@ -96,8 +96,253 @@
      интеграл \(\int_{0}^{+\infty} \dfrac{x}{(x^2 + 1)^{4/3}} dx\) сходится абсолютно. 
      Следовательно, исходный интеграл также сходится абсолютно
     
-     \textbf{Ответ: } сходится
+     \textbf{Ответ: } сходится\\
+
+     \item[(b)]Рассмотрим интеграл как сумму двух интегралов:  
+    \[
+    \int_{0}^{+\infty} \frac{1}{\sqrt{e^x - 1}} \, dx = \int_{0}^{1} \frac{1}{\sqrt{e^x - 1}} \, dx + \int_{1}^{+\infty} \frac{1}{\sqrt{e^x - 1}} \, dx.
+    \]
+    Исследуем интеграл на \([1, +\infty)\):
+    \begin{itemize}
+      \item При \(x \to +\infty\):  
+     \[
+     \sqrt{e^x - 1} \sim \sqrt{e^x} = 
+     e^{x/2} \implies \frac{1}{\sqrt{e^x - 1}} \sim e^{-x/2}
+     \]  
+     \item Сравним с \(g(x) = e^{-x/2}\):  
+     \[
+     \lim_{x \to +\infty} \frac{\frac{1}{\sqrt{e^x - 1}}}{e^{-x/2}} = 1
+     \]  
+     Так как \(\int_{1}^{+\infty} e^{-x/2} dx\) 
+     сходится, по признаку сравнения (Факт 3) интеграл \(\int_{1}^{+\infty}
+      \frac{1}{\sqrt{e^x - 1}} \, dx\) сходится.
+    \end{itemize}
+
+    Исследуем интеграл на \((0, 1]\):
+    \begin{itemize}
+      \item При \(x \to 0^+\):  
+     \[
+     e^x - 1 \approx x \implies \sqrt{e^x - 1} \approx 
+     \sqrt{x} \implies \frac{1}{\sqrt{e^x - 1}} \approx \frac{1}{\sqrt{x}}
+     \]  
+     \item Сравним с \(g(x) = x^{-1/2}\):  
+     \[
+     \lim_{x \to 0^+} \frac{\frac{1}{\sqrt{e^x - 1}}}{x^{-1/2}} = 1
+     \]  
+     Так как \(\int_{0}^{1} x^{-1/2} dx\) сходится (степень \(x\) в знаменателе: 
+     \(1/2 < 1\)), по признаку сравнения (Факт 3) интеграл 
+     \(\int_{0}^{1} \frac{1}{\sqrt{e^x - 1}} \, dx\) сходится.
+    \end{itemize}
+    Оба интеграла сходятся, следовательно, исходный интеграл \(\int_{0}^{+\infty} \frac{1}{\sqrt{e^x - 1}} \, dx\) сходится.
+    
+    \textbf{Ответ: } сходится\\
+
+    \item[(c)]При больших \(x\) величина \(\frac{1}{x}\) мала. Используем приближения:  
+    \[
+    \sin\left(\frac{1}{x}\right) \approx \frac{1}{x} - \frac{1}{6x^3} + \cdots
+    \]  
+    Тогда:  
+    \[
+    \ln\left(1 + \sin\left(\frac{1}{x}\right)\right) \approx
+      \sin\left(\frac{1}{x}\right) - \frac{\sin^2\left(\frac{1}{x}\right)}{2} + 
+      \cdots \approx \frac{1}{x} - \frac{1}{2x^2} + \cdots
+    \]  
+    Главный член разложения: \(\frac{1}{x}\).
+
+    Выберем \(g(x) = \frac{1}{x}\) (n = 1). Находим предел:  
+    \[
+    \lim_{x \to +\infty} \frac{\ln\left(1 + \sin\left(\frac{1}{x}\right)\right)}{\frac{1}{x}} = \lim_{t \to 0^+} \frac{\ln(1 + t)}{t} = 1,
+    \]  
+    где \(t = \frac{1}{x}\). 
+    Поскольку предел конечен и положителен, интегралы 
+    \(\int_{1}^{+\infty} \ln\left(1 + \sin\left(\frac{1}{x}\right) \right)dx\) и 
+    \(\int_{1}^{+\infty} \frac{1}{x} dx\) ведут себя одинаково.
+
+    Так как \(\int_{1}^{+\infty} \frac{1}{x} dx\) 
+    расходится, исходный интеграл \(\int_{1}^{+\infty}
+    \ln\left(1 + \sin\left(\frac{1}{x}\right) \right) dx\) также расходится.
+
+    \textbf{Ответ: } расходится\\
+
+    \item[(d)]Исследование интеграла на \((0, 1]\):
+    \begin{itemize}
+      \item При \(x \to 0^+\):  
+      \[
+      \ln(1+x) \approx x \implies \frac{\ln(1+x)}{x^a} \approx \frac{x}{x^a} = x^{1 - a}
+      \]  
+      \item Сравним с \(g(x) = x^{1 - a}\):  
+     \[
+     \lim_{x \to 0^+} \frac{\ln(1+x)/x^a}{x^{1 - a}} = 1
+     \]  
+     Интеграл \(\int_{0}^{1} x^{1 - a} dx\) сходится при \(1 - a > -1 \implies a < 2\).
+
+    \end{itemize}
+    Исследование интеграла на \([1, +\infty)\):
+    \begin{itemize}
+      \item  При \(x \to +\infty\):  
+      \[
+      \ln(1+x) \approx \ln x \implies \frac{\ln(1+x)}{x^a} \approx \frac{\ln x}{x^a}.
+      \]  
+      \item  Рассмотрим два случая:
+      \begin{itemize}
+        \item Случай \(a > 1\):
+        
+         Выберем \(g(x) =
+         \frac{1}{x^{a - \epsilon}}\) (\(\epsilon > 0\)).
+         Так как \(\ln x = o(x^\epsilon)\), интеграл \(\int_{1}^{+\infty}
+          \frac{\ln x}{x^a} dx\) сходится.  
+
+        \item Случай \(a \leq 1\):
+        
+         Интеграл \(\int_{1}^{+\infty} \frac{\ln x}{x^a} dx\) расходится.
+      \end{itemize}
+    \end{itemize}
+
+     Интеграл \(\int_{0}^{+\infty} \frac{\ln(1+x)}{x^a} dx\) сходится
+      тогда и только тогда, когда:  
+    \begin{itemize}
+      \item 
+      На \((0, 1]\): \(a < 2\),  
+      \item 
+      На \([1, +\infty)\): \(a > 1\).  
+    \end{itemize}
+
+    \textbf{Ответ: } сходится при \(1 < a < 2\)\\
+
+    \item[(e)]Исследование интеграла на \((0, 1]\):
+    \begin{itemize}
+      \item При \(x \to 0^+\):  
+     \[
+     \arctg(ax) - \arctg(bx) \approx (a - b)x
+     \]  
+     Подынтегральная функция:  
+     \[
+     \frac{\arctg(ax) - \arctg(bx)}{x} \approx a - b
+     \]  
+
+     \item При \(a \neq b\):  
+     \[
+     \lim_{x \to 0^+} \frac{\arctg(ax) - \arctg(bx)}{x} = a - b \neq 0
+     \]  
+     Сравним с \(g(x) = 1\):  
+     \[
+     \int_{0}^{1} \frac{C}{x} dx \quad \text{расходится}
+     \]  
+    \end{itemize}
+    Исследование интеграла на \([1, +\infty)\):
+
+    При \(x \to +\infty\):  
+      
+    Используем тождество:  
+    \[
+    \arctg(ax) = \frac{\pi}{2} - \arctg\left(\frac{1}{ax}\right)
+    \]  
+    Разность:  
+    $$
+    \arctg(ax) - \arctg(bx) = \left(\frac{\pi}{2} -
+     \arctg\left(\frac{1}{ax}\right)\right) - 
+     \left(\frac{\pi}{2} - \arctg\left(\frac{1}{bx}\right)\right) =$$
+     $$=
+      \arctg\left(\frac{1}{bx}\right) - \arctg\left(\frac{1}{ax}\right)
+    $$
+    При \(x \to +\infty\):  
+    \[
+    \arctg\left(\frac{1}{ax}\right) \approx \frac{1}{ax},
+     \quad \arctg\left(\frac{1}{bx}\right) \approx \frac{1}{bx}
+    \]  
+    Подынтегральная функция:  
+    \[
+    \frac{\arctg(ax) - \arctg(bx)}{x} \approx \frac{1}{x} \left(\frac{1}{bx}
+     - \frac{1}{ax}\right) = \frac{a - b}{ab x^2}
+    \]  
+    Интеграл \(\int_{1}^{+\infty} \frac{C}{x^2} dx\) сходится.
+
+    Получаем:
+    \begin{itemize}
+      \item На интервале \((0, 1]\) интеграл расходится при \(a \neq b\).  
+      \item На интервале \([1, +\infty)\) интеграл сходится.  
+    \end{itemize}
+    \textbf{Ответ: } интеграл расходится при \(a \neq b\).\\
+
+    \item[(f)]\begin{itemize}
+      \item \(a = b\):
+      
+      Интеграл сводится к \(\int_{0}^{+\infty} \frac{1}{2x^a} dx\)
+      \begin{itemize}
+        \item 
+        Сходится при \(a > 1\)
+        \item
+        Расходится при \(a \leq 1\)
+      \end{itemize}  
+
+      \item \(a < b\):
+      \begin{itemize}
+        \item Интервал \((0, 1]:\)
+        Преобразуем знаменатель:  
+        \[
+        x^a + x^b = x^a(1 + x^{b-a}) \implies \frac{1}{x^a + x^b} 
+        \approx \frac{1}{x^a} \quad \text{при } x \to 0^+
+        \]  
+        Интеграл \(\int_{0}^{1} \frac{1}{x^a} dx\) сходится при \(a < 1\).
+
+        \item Интервал \([1, +\infty)\):
+         Преобразуем знаменатель:  
+        \[
+        x^a + x^b = x^b(1 + x^{a-b}) \implies \frac{1}{x^a + x^b} 
+        \approx \frac{1}{x^b} \quad \text{при } x \to +\infty
+        \]  
+        Интеграл \(\int_{1}^{+\infty} \frac{1}{x^b} dx\) сходится при \(b > 1\).
+      \end{itemize}
+    \end{itemize}
+
+    Интеграл \(\int_{0}^{+\infty} \frac{1}{x^a + x^b} dx\) сходится
+    тогда и только тогда, когда:
+    \begin{itemize}
+    \item 
+    \(a < 1\) (для сходимости на \((0, 1]\)),
+    \item
+    \(b > 1\) (для сходимости на \([1, +\infty)\)).
+    \end{itemize}
+
+    \textbf{Ответ: } Интеграл сходится при  \(a < 1\)  и  \(b>1\) \\
+
+    \item[(g)]\begin{itemize}
+      \item Случай \(a = 0\):
+      \[
+      \int_{0}^{1} |\ln x|^0 \, dx = \int_{0}^{1} 1 \, dx = 1 \quad \text{(сходится)}
+      \]
+      \item Случай \(a > 0\):
+      
+       Особенность в точке \(x = 0\). Выполним замену \(x = e^{-t}\),
+        тогда \(t = -\ln x\), \(dx = -e^{-t} dt\):  
+      \[
+      \int_{0}^{1} |\ln x|^a \, dx = \int_{0}^{+\infty} t^a e^{-t} \, dt
+      \]  
+      Это функция  сходится при
+       \(a + 1 > 0 \implies a > -1\).  
+      
+       Значит, интеграл сходится при \(a > -1\).
+
+      \item Случай \(a < 0\):
+      
+      Особенность в точке \(x = 1\). При \(x \to 1^-\):  
+      \[
+      |\ln x|^a \approx (1 - x)^a
+      \]  
+      Сравним с \(g(x) = (1 - x)^7\) (по Факту 3):  
+      \[
+      \lim_{x \to 1^-} \frac{(1 - x)^a}{(1 - x)^7} = \lim_{x \to 1^-} (1 - x)^{a - 7}
+      \]  
+      Интеграл \(\int_{0}^{1} (1 - x)^{a - 7} dx\) сходится при 
+      \(a - 7 > -1 \implies a > 6\), что невозможно для \(a < 0\).  
+      
+      Значит, интеграл расходится при \(a < 0\). 
+    \end{itemize}
+    \textbf{Ответ: } сходится при всех $a > -1$\\
+
+    \item[(h)]
   \end{enumerate}
+  
   
 \end{enumerate}
 \end{document}
