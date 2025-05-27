@@ -341,8 +341,101 @@
     \textbf{Ответ: } сходится при всех $a > -1$\\ 
 
     \item[(h)]
+    \begin{itemize}
+      \item интеграл на $(0, 1]$
+      
+      При \(x \to 0^+\):  
+     \[
+     \arctg x \approx x \implies \frac{\cos(3x)}{\sqrt{x}} \arctg x
+      \approx \frac{\cos(3x)}{\sqrt{x}} \cdot x = \cos(3x) \cdot x^{1/2}
+     \]  
+     Сравним с \(g(x) = x^{1/2}\):  
+     \[
+     \int_{0}^{1} x^{1/2} dx \quad \text{сходится}
+     \]  
+     По признаку сравнения (Факт 3), интеграл на \((0, 1]\) сходится.
+
+     \item интеграл на $[1, +\infty)$
+     При \(x \to +\infty\):  
+     \[
+     \arctg x \to \frac{\pi}{2}, \quad \frac{\arctg x}{\sqrt{x}}
+      \approx \frac{\pi}{2} \cdot \frac{1}{\sqrt{x}}
+     \]  
+     Применяем признак Дирихле (Факт 4): 
+      \begin{itemize}
+        \item \(f(x) = \cos(3x)\) имеет ограниченную первообразную. 
+        \item \(g(x) = \frac{\arctg x}{\sqrt{x}}\) монотонно убывает к 0.  
+      \end{itemize}
+      Следовательно, \(\int_{1}^{+\infty} \frac{\cos(3x)}{\sqrt{x}} 
+      \arctg x \, dx\) сходится.
+    \end{itemize}
+    \textbf{Ответ: } сходится\\
   \end{enumerate}
   
+  \item[\textbf{№2}]\begin{enumerate}
+    \item[(a)]\(\int_{0}^{+\infty} \frac{\sin x}{\ln x} \, dx\)
+    \begin{itemize}
+      \item Абсолютная сходимость:
+      
+      Рассмотрим интеграл от модуля:  
+     \[
+     \int_{0}^{+\infty} \left|\frac{\sin x}{\ln x}\right| dx \geq \int_{2}^{+\infty} \frac{|\sin x|}{\ln x} dx.
+     \]  
+     Так как \(|\sin x| \geq \sin^2 x = \frac{1 - \cos(2x)}{2}\),  
+     \[
+     \int_{2}^{+\infty} \frac{1}{\ln x} \cdot \frac{1 - \cos(2x)}{2} dx = \frac{1}{2} \int_{2}^{+\infty} \frac{1}{\ln x} dx - \frac{1}{2} \int_{2}^{+\infty} \frac{\cos(2x)}{\ln x} dx.
+     \]  
+     Первый интеграл расходится (\(\frac{1}{\ln x} \sim \frac{1}{x}\) при \(x \to +\infty\)), второй сходится по признаку Дирихле.  
+     
+     Следовательно, интеграл расходится абсолютно.
+
+     \item Условная сходимость:
+     
+     Применим признак Дирихле: 
+     \begin{itemize}
+      \item \(f(x) = \sin x\) имеет ограниченную первообразную.  
+      \item \(g(x) = \frac{1}{\ln x}\) монотонно стремится к 0 при \(x \to +\infty\)
+    \end{itemize}
+    Следовательно, интеграл сходится условно.
+    \end{itemize}
+    \textbf{Ответ: } сходится условно\\
+
+    \item[(b)]\(\int_{0}^{1} \frac{x^{\lambda}}{1+x^2} \sin \frac{1}{x} \, dx\)
+    Замена переменной \(x = \frac{1}{t}\):
+    \[
+    \int_{0}^{1} \frac{x^{\lambda}}{1+x^2} \sin \frac{1}{x} dx =
+     \int_{1}^{+\infty} \frac{(1/t)^{\lambda}}{1 + (1/t^2)} \sin t 
+     \cdot \frac{1}{t^2} dt
+     \]
+    \[ = \int_{1}^{+\infty} \frac{\sin t}{t^{2 - \lambda}} \cdot \frac{1}{1 + t^{-2}} dt
+     = \int_{1}^{+\infty} \frac{\sin t}{t^{2 - \lambda}(1 + t^{-2})} dt
+    \]  
+    Упрощаем:  
+    \[
+    \int_{1}^{+\infty} \frac{\sin t}{t^{2 - \lambda}} dt
+    \]
+    Рассмотрим интеграл от модуля:  
+    \[
+    \int_{1}^{+\infty} \frac{|\sin t|}{t^{2 - \lambda}} 
+    dt \geq \int_{1}^{+\infty} \frac{\sin^2 t}{t^{2 - \lambda}} dt 
+    = \frac{1}{2} \int_{1}^{+\infty} \frac{1}{t^{2 - \lambda}} dt 
+    - \frac{1}{2} \int_{1}^{+\infty} \frac{\cos(2t)}{t^{2 - \lambda}} dt
+    \]  
+    Первый интеграл сходится при \(2 - \lambda > 1 \implies \lambda < 1\), второй сходится всегда.  
+    
+    Следовательно, абсолютная сходимость при \(\lambda < 1\).
+
+    Применим признак Дирихле:
+    \begin{itemize}
+      \item \(f(t) = \sin t\) имеет ограниченную первообразную.
+      \item \(g(t) = \frac{1}{t^{2 - \lambda}}\) 
+      монотонно стремится к 0 при \(t \to +\infty\)
+       (если \(2 - \lambda > 0 \implies \lambda < 2\)).  
+    \end{itemize}
+
+    Следовательно, интеграл сходится условно при \(1 \leq \lambda < 2\).
+  \end{enumerate}
+  \textbf{Ответ: }абсолютная сходимость при \(\lambda < 1\), условно при \(1 \leq \lambda < 2\)
   
 \end{enumerate}
 \end{document}
