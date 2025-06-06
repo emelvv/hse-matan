@@ -1,0 +1,202 @@
+\documentclass[a4paper]{article}
+\usepackage{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[12pt]{extsizes}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\setstretch{1.3}
+
+\newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\vmat}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\f}[2]{\frac{#1}{#2}} 
+\newcommand{\dspace}{\space\space}
+\newcommand{\s}[2]{\sum\limits_{#1}^{#2}}
+\newcommand{\mul}[2]{\prod_{#1}^{#2}}
+\newcommand{\sq}[1]{\left[ {#1} \right]}
+\newcommand{\gath}[1]{\left[ \begin{array}{@{}l@{}} #1 \end{array} \right.}
+\newcommand{\case}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\ts}{\text{\space}}
+\newcommand{\lm}[1]{\underset{#1}{\lim}}
+\newcommand{\suplm}[1]{\underset{#1}{\overline{\lim}}}
+\newcommand{\inflm}[1]{\underset{#1}{\underline{\lim}}} 
+\newcommand{\Ker}[1]{\operatorname{Ker}}
+
+\renewcommand{\phi}{\varphi}
+\newcommand{\lr}{\Leftrightarrow}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\rr}{\rightarrow}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\underline{O}}
+\newcommand{\oo}{\overline{o}}
+\renewcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\vol}{\text{vol}}
+\newcommand{\Vol}{\text{Vol}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter                               % \abs{}
+\let\oldabs\abs                             %
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}       %
+
+\begin{document}
+\section*{
+\scalebox{0.9}{Домашнее задание на 08.06 (Математический анализ)}
+}
+{\large Емельянов Владимир, ПМИ гр №247}\\\\
+\begin{enumerate}
+  \item[\textbf{(a)}]Дано
+  $$
+  \sum_{k=2}^{\infty} \frac{\sin\bigl(\sqrt{k!}\bigr)}{\,k\,\ln^2 k\,}.
+  $$
+  Пусть
+  $$
+  a_k \;=\;\frac{\sin\bigl(\sqrt{k!}\bigr)}{\,k\,\ln^2 k\,}\,,\quad k\ge2.
+  $$
+  проверим, сходится ли
+  $$
+  \sum_{k=2}^\infty |a_k| \;=\;\sum_{k=2}^\infty \frac{\bigl|\sin(\sqrt{k!})\bigr|}{\,k\ln^2 k\,}.
+  $$
+  для любого $x$: $\bigl|\sin x\bigr|\le 1$, имеем
+  $$
+  |a_k| \;=\;\frac{\bigl|\sin(\sqrt{k!})\bigr|}{\,k\,\ln^2 k\,}\;\le\;\frac{1}{\,k\,\ln^2 k\,}.
+  $$
+  Известно, что ряд
+  $$
+  \sum_{k=2}^\infty \frac{1}{\,k\,\ln^2 k\,}
+  $$
+  сходится. Это следует, например, из интегрального признака:
+  $$\displaystyle\int_2^\infty\frac{dx}{\,x\,\ln^2 x\,}<\infty$$
+  Следовательно,
+  $$
+  \sum_{k=2}^\infty |a_k|
+  \;\le\;
+  \sum_{k=2}^\infty \frac{1}{\,k\,\ln^2 k\,}
+  \;<\;+\infty.
+  $$ 
+  \textbf{Ответ: } сходится абсолютно\\
+
+  \item[\textbf{(b)}]Дано
+  $$\sum_{k=1}^{\infty} \int_1^\f{1}{k^2} \frac{(-1)^{k(k+1)/2}}{1 + x + x^{27}} \, dx$$
+  Пусть
+  $$
+  a_k \;=\;\int_{1}^{\frac{1}{k^2}}\;\frac{(-1)^{\frac{k(k+1)}{2}}}{\,1 + x + x^{27}\,}\;dx.
+  $$
+  По определению
+  $$
+  |a_k|
+  =
+  \left|\int_{1}^{\frac{1}{k^2}} \frac{(-1)^{\frac{k(k+1)}{2}}}{1 + x + x^{27}}\;dx \right|
+  \;=\;
+  \int_{1}^{\frac{1}{k^2}}\; \frac{1}{\,1 + x + x^{27}\,}\;dx
+  $$
+  Заметим, что для любого $x\in[0,1]$ имеет место неравенство
+  $$
+  1 + x + x^{27} \;\le\; 1 + 1 + 1 \;=\; 3,
+  $$
+  поэтому
+  $$
+  \frac{1}{\,1 + x + x^{27}\,}\;\ge\;\frac{1}{3}
+  \quad\text{для всех }x\in[0,1].
+  $$
+  Поскольку при больших $k$ число $\tfrac{1}{k^2}$ лежит в отрезке $\bigl[0,1\bigr]$, то на всём интегрируемом отрезке $\bigl[\tfrac{1}{k^2},\,1\bigr]$ справедливо
+  $$
+  \frac{1}{\,1 + x + x^{27}\,}\;\ge\;\frac{1}{3}.
+  $$
+  Однако в выражении $|a_k|$ мы интегрируем в обратном порядке (из $1$ в $1/k^2$), поэтому
+  $$
+  |a_k|
+  =
+  \int_{1}^{\frac{1}{k^2}} \frac{1}{\,1 + x + x^{27}\,}\;dx
+  \;=\;
+  \int_{\frac{1}{k^2}}^{1} \frac{1}{\,1 + x + x^{27}\,}\;dx
+  $$
+  Следовательно, для всех $k\ge1$
+  $$
+  |a_k|
+  \;=\;
+  \int_{\frac{1}{k^2}}^{1} \frac{1}{\,1 + x + x^{27}\,}\;dx
+  \;\ge\;
+  \int_{\frac{1}{k^2}}^{1} \frac{1}{3}\;dx
+  \;=\;
+  \frac{1}{3}\,\Bigl(1 - \tfrac{1}{k^2}\Bigr).
+  $$
+  Из этого сразу видно, что при $k \to \infty$
+  $$
+  |a_k| \;\ge\; \frac{1}{3}\Bigl(1 - \tfrac{1}{k^2}\Bigr)\;\longrightarrow\;\frac{1}{3} \;>\;0.
+  $$
+  В частности, $\displaystyle\lim_{k\to\infty} |a_k|\neq 0$. 
+  Но для сходимости любого числового ряда необходимо условие $\lim_{k\to\infty} 
+  |a_k| = 0$. Значит, искомый ряд не сходится
+
+  \textbf{Ответ: } расходится\\
+
+
+
+  \item[\textbf{(c)}]Дано
+  $$\sum_{k=2}^{\infty} \frac{(-1)^k}{k \cdot \ln k \cdot \ln \ln k} $$
+  Рассмотрим ряд
+  \[
+  \sum_{k=2}^{\infty} \left| \frac{(-1)^k}{k \cdot \ln k \cdot \ln \ln k} \right| 
+  = \sum_{k=2}^{\infty} \frac{1}{k \cdot \ln k \cdot \ln \ln k}
+  \]
+  Для исследования его сходимости применим интегральный признак. Проверим, является ли функция
+  \[
+  f(x) = \frac{1}{x \cdot \ln x \cdot \ln \ln x}
+  \]
+  монотонно убывающей на $[2; +\infty)$. Вычислим производную:
+  \[
+  f'(x) = -\frac{1 + \ln(\ln x)}{x^2 \cdot (\ln x)^2 \cdot (\ln \ln x)^2}
+  \]
+  Знаменатель положителен, а числитель $1 + \ln(\ln x)$:
+  \begin{itemize}
+    \item Для $x \geq e^e \approx 15.15$, $\ln(\ln x) \geq 1$, следовательно, числитель положителен, и $f'(x) < 0$.
+    \item Для $x \in [e; e^e)$, $\ln(\ln x) \in [0; 1)$, числитель положителен, и $f'(x) < 0$.
+    \item Для $x \in [2; e)$, функция $f(x)$ не определена 
+  \end{itemize}
+  Таким образом, $f(x)$ убывает на $[e; +\infty)$. Применим интегральный признак с 
+  начальной точкой $x = e$:
+  \[
+  \int_{e}^{\infty} \frac{1}{x \cdot \ln x \cdot \ln \ln x} \, dx
+  \]
+  Сделаем замену $t = \ln \ln x$, $dt = \frac{1}{x \ln x} dx$. Интеграл преобразуется:
+  \[
+  \int_{t(e)}^{\infty} \frac{1}{t} \, dt = \int_{0}^{\infty} \frac{1}{t} \, dt,
+  \]
+  который расходится. Следовательно, ряд
+   $\sum_{k=2}^{\infty} \frac{1}{k \cdot \ln k \cdot \ln \ln k}$ расходится.
+    Значит, исходный ряд не сходится абсолютно.
+
+  Ряд имеет вид:
+  \[
+  \sum_{k=2}^{\infty} (-1)^k a_k, \quad \text{где } a_k = 
+  \frac{1}{k \cdot \ln k \cdot \ln \ln k}
+  \]
+  Применим признак Лейбница (Факт 3):
+  \begin{enumerate}
+    \item[1)] Убывание $a_k$: Для $k \geq 2$, $a_{k+1} = \frac{1}{(k+1) 
+    \cdot \ln(k+1) \cdot \ln \ln(k+1)} < a_k$, так как все
+    множители в знаменателе увеличиваются.
+    \item[2)] Предел $a_k$: $\lim_{k \to \infty} a_k = 0$.
+  \end{enumerate}
+
+  Оба условия выполнены. Следовательно, ряд сходится условно.
+  
+  \textbf{Ответ: } сходится условно, но не абсолютно\\
+
+\end{enumerate}
+\end{document}
