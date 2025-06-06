@@ -59,144 +59,342 @@
 }
 {\large Емельянов Владимир, ПМИ гр №247}\\\\
 \begin{enumerate}
-  \item[\textbf{(a)}]Дано
-  $$
-  \sum_{k=2}^{\infty} \frac{\sin\bigl(\sqrt{k!}\bigr)}{\,k\,\ln^2 k\,}.
-  $$
-  Пусть
-  $$
-  a_k \;=\;\frac{\sin\bigl(\sqrt{k!}\bigr)}{\,k\,\ln^2 k\,}\,,\quad k\ge2.
-  $$
-  проверим, сходится ли
-  $$
-  \sum_{k=2}^\infty |a_k| \;=\;\sum_{k=2}^\infty \frac{\bigl|\sin(\sqrt{k!})\bigr|}{\,k\ln^2 k\,}.
-  $$
-  для любого $x$: $\bigl|\sin x\bigr|\le 1$, имеем
-  $$
-  |a_k| \;=\;\frac{\bigl|\sin(\sqrt{k!})\bigr|}{\,k\,\ln^2 k\,}\;\le\;\frac{1}{\,k\,\ln^2 k\,}.
-  $$
-  Известно, что ряд
-  $$
-  \sum_{k=2}^\infty \frac{1}{\,k\,\ln^2 k\,}
-  $$
-  сходится. Это следует, например, из интегрального признака:
-  $$\displaystyle\int_2^\infty\frac{dx}{\,x\,\ln^2 x\,}<\infty$$
-  Следовательно,
-  $$
-  \sum_{k=2}^\infty |a_k|
-  \;\le\;
-  \sum_{k=2}^\infty \frac{1}{\,k\,\ln^2 k\,}
-  \;<\;+\infty.
-  $$ 
-  \textbf{Ответ: } сходится абсолютно\\
+\item[\textbf{(a)}]Дано
+$$
+\sum_{k=2}^{\infty} \frac{\sin\bigl(\sqrt{k!}\bigr)}{\,k\,\ln^2 k\,}.
+$$
+Пусть
+$$
+a_k \;=\;\frac{\sin\bigl(\sqrt{k!}\bigr)}{\,k\,\ln^2 k\,}\,,\quad k\ge2.
+$$
+проверим, сходится ли
+$$
+\sum_{k=2}^\infty |a_k| \;=\;\sum_{k=2}^\infty \frac{\bigl|\sin(\sqrt{k!})\bigr|}{\,k\ln^2 k\,}.
+$$
+для любого $x$: $\bigl|\sin x\bigr|\le 1$, имеем
+$$
+|a_k| \;=\;\frac{\bigl|\sin(\sqrt{k!})\bigr|}{\,k\,\ln^2 k\,}\;\le\;\frac{1}{\,k\,\ln^2 k\,}.
+$$
+Известно, что ряд
+$$
+\sum_{k=2}^\infty \frac{1}{\,k\,\ln^2 k\,}
+$$
+сходится. Это следует, например, из интегрального признака:
+$$\displaystyle\int_2^\infty\frac{dx}{\,x\,\ln^2 x\,}<\infty$$
+Следовательно,
+$$
+\sum_{k=2}^\infty |a_k|
+\;\le\;
+\sum_{k=2}^\infty \frac{1}{\,k\,\ln^2 k\,}
+\;<\;+\infty.
+$$ 
+\textbf{Ответ: } сходится абсолютно\\
 
-  \item[\textbf{(b)}]Дано
-  $$\sum_{k=1}^{\infty} \int_1^\f{1}{k^2} \frac{(-1)^{k(k+1)/2}}{1 + x + x^{27}} \, dx$$
-  Пусть
-  $$
-  a_k \;=\;\int_{1}^{\frac{1}{k^2}}\;\frac{(-1)^{\frac{k(k+1)}{2}}}{\,1 + x + x^{27}\,}\;dx.
-  $$
-  По определению
-  $$
-  |a_k|
-  =
-  \left|\int_{1}^{\frac{1}{k^2}} \frac{(-1)^{\frac{k(k+1)}{2}}}{1 + x + x^{27}}\;dx \right|
-  \;=\;
-  \int_{1}^{\frac{1}{k^2}}\; \frac{1}{\,1 + x + x^{27}\,}\;dx
-  $$
-  Заметим, что для любого $x\in[0,1]$ имеет место неравенство
-  $$
-  1 + x + x^{27} \;\le\; 1 + 1 + 1 \;=\; 3,
-  $$
-  поэтому
-  $$
-  \frac{1}{\,1 + x + x^{27}\,}\;\ge\;\frac{1}{3}
-  \quad\text{для всех }x\in[0,1].
-  $$
-  Поскольку при больших $k$ число $\tfrac{1}{k^2}$ лежит в отрезке $\bigl[0,1\bigr]$, то на всём интегрируемом отрезке $\bigl[\tfrac{1}{k^2},\,1\bigr]$ справедливо
-  $$
-  \frac{1}{\,1 + x + x^{27}\,}\;\ge\;\frac{1}{3}.
-  $$
-  Однако в выражении $|a_k|$ мы интегрируем в обратном порядке (из $1$ в $1/k^2$), поэтому
-  $$
-  |a_k|
-  =
-  \int_{1}^{\frac{1}{k^2}} \frac{1}{\,1 + x + x^{27}\,}\;dx
-  \;=\;
-  \int_{\frac{1}{k^2}}^{1} \frac{1}{\,1 + x + x^{27}\,}\;dx
-  $$
-  Следовательно, для всех $k\ge1$
-  $$
-  |a_k|
-  \;=\;
-  \int_{\frac{1}{k^2}}^{1} \frac{1}{\,1 + x + x^{27}\,}\;dx
-  \;\ge\;
-  \int_{\frac{1}{k^2}}^{1} \frac{1}{3}\;dx
-  \;=\;
-  \frac{1}{3}\,\Bigl(1 - \tfrac{1}{k^2}\Bigr).
-  $$
-  Из этого сразу видно, что при $k \to \infty$
-  $$
-  |a_k| \;\ge\; \frac{1}{3}\Bigl(1 - \tfrac{1}{k^2}\Bigr)\;\longrightarrow\;\frac{1}{3} \;>\;0.
-  $$
-  В частности, $\displaystyle\lim_{k\to\infty} |a_k|\neq 0$. 
-  Но для сходимости любого числового ряда необходимо условие $\lim_{k\to\infty} 
-  |a_k| = 0$. Значит, искомый ряд не сходится
+\item[\textbf{(b)}]Дано
+$$\sum_{k=1}^{\infty} \int_1^\f{1}{k^2} \frac{(-1)^{k(k+1)/2}}{1 + x + x^{27}} \, dx$$
+Пусть
+$$
+a_k \;=\;\int_{1}^{\frac{1}{k^2}}\;\frac{(-1)^{\frac{k(k+1)}{2}}}{\,1 + x + x^{27}\,}\;dx.
+$$
+По определению
+$$
+|a_k|
+=
+\left|\int_{1}^{\frac{1}{k^2}} \frac{(-1)^{\frac{k(k+1)}{2}}}{1 + x + x^{27}}\;dx \right|
+\;=\;
+\int_{1}^{\frac{1}{k^2}}\; \frac{1}{\,1 + x + x^{27}\,}\;dx
+$$
+Заметим, что для любого $x\in[0,1]$ имеет место неравенство
+$$
+1 + x + x^{27} \;\le\; 1 + 1 + 1 \;=\; 3,
+$$
+поэтому
+$$
+\frac{1}{\,1 + x + x^{27}\,}\;\ge\;\frac{1}{3}
+\quad\text{для всех }x\in[0,1].
+$$
+Поскольку при больших $k$ число $\tfrac{1}{k^2}$ лежит в отрезке $\bigl[0,1\bigr]$, то на всём интегрируемом отрезке $\bigl[\tfrac{1}{k^2},\,1\bigr]$ справедливо
+$$
+\frac{1}{\,1 + x + x^{27}\,}\;\ge\;\frac{1}{3}.
+$$
+Однако в выражении $|a_k|$ мы интегрируем в обратном порядке (из $1$ в $1/k^2$), поэтому
+$$
+|a_k|
+=
+\int_{1}^{\frac{1}{k^2}} \frac{1}{\,1 + x + x^{27}\,}\;dx
+\;=\;
+\int_{\frac{1}{k^2}}^{1} \frac{1}{\,1 + x + x^{27}\,}\;dx
+$$
+Следовательно, для всех $k\ge1$
+$$
+|a_k|
+\;=\;
+\int_{\frac{1}{k^2}}^{1} \frac{1}{\,1 + x + x^{27}\,}\;dx
+\;\ge\;
+\int_{\frac{1}{k^2}}^{1} \frac{1}{3}\;dx
+\;=\;
+\frac{1}{3}\,\Bigl(1 - \tfrac{1}{k^2}\Bigr).
+$$
+Из этого сразу видно, что при $k \to \infty$
+$$
+|a_k| \;\ge\; \frac{1}{3}\Bigl(1 - \tfrac{1}{k^2}\Bigr)\;\longrightarrow\;\frac{1}{3} \;>\;0.
+$$
+В частности, $\displaystyle\lim_{k\to\infty} |a_k|\neq 0$. 
+Но для сходимости любого числового ряда необходимо условие $\lim_{k\to\infty} 
+|a_k| = 0$. Значит, искомый ряд не сходится
 
-  \textbf{Ответ: } расходится\\
+\textbf{Ответ: } расходится\\
 
 
 
-  \item[\textbf{(c)}]Дано
-  $$\sum_{k=2}^{\infty} \frac{(-1)^k}{k \cdot \ln k \cdot \ln \ln k} $$
-  Рассмотрим ряд
-  \[
-  \sum_{k=2}^{\infty} \left| \frac{(-1)^k}{k \cdot \ln k \cdot \ln \ln k} \right| 
-  = \sum_{k=2}^{\infty} \frac{1}{k \cdot \ln k \cdot \ln \ln k}
-  \]
-  Для исследования его сходимости применим интегральный признак. Проверим, является ли функция
-  \[
-  f(x) = \frac{1}{x \cdot \ln x \cdot \ln \ln x}
-  \]
-  монотонно убывающей на $[2; +\infty)$. Вычислим производную:
-  \[
-  f'(x) = -\frac{1 + \ln(\ln x)}{x^2 \cdot (\ln x)^2 \cdot (\ln \ln x)^2}
-  \]
-  Знаменатель положителен, а числитель $1 + \ln(\ln x)$:
+\item[\textbf{(c)}]Дано
+$$\sum_{k=2}^{\infty} \frac{(-1)^k}{k \cdot \ln k \cdot \ln \ln k} $$
+Рассмотрим ряд
+\[
+\sum_{k=2}^{\infty} \left| \frac{(-1)^k}{k \cdot \ln k \cdot \ln \ln k} \right| 
+= \sum_{k=2}^{\infty} \frac{1}{k \cdot \ln k \cdot \ln \ln k}
+\]
+Для исследования его сходимости применим интегральный признак. Проверим, является ли функция
+\[
+f(x) = \frac{1}{x \cdot \ln x \cdot \ln \ln x}
+\]
+монотонно убывающей на $[2; +\infty)$. Вычислим производную:
+\[
+f'(x) = -\frac{1 + \ln(\ln x)}{x^2 \cdot (\ln x)^2 \cdot (\ln \ln x)^2}
+\]
+Знаменатель положителен, а числитель $1 + \ln(\ln x)$:
+\begin{itemize}
+  \item Для $x \geq e^e \approx 15.15$, $\ln(\ln x) \geq 1$, следовательно, числитель положителен, и $f'(x) < 0$.
+  \item Для $x \in [e; e^e)$, $\ln(\ln x) \in [0; 1)$, числитель положителен, и $f'(x) < 0$.
+  \item Для $x \in [2; e)$, функция $f(x)$ не определена 
+\end{itemize}
+Таким образом, $f(x)$ убывает на $[e; +\infty)$. Применим интегральный признак с 
+начальной точкой $x = e$:
+\[
+\int_{e}^{\infty} \frac{1}{x \cdot \ln x \cdot \ln \ln x} \, dx
+\]
+Сделаем замену $t = \ln \ln x$, $dt = \frac{1}{x \ln x} dx$. Интеграл преобразуется:
+\[
+\int_{t(e)}^{\infty} \frac{1}{t} \, dt = \int_{0}^{\infty} \frac{1}{t} \, dt,
+\]
+который расходится. Следовательно, ряд
+  $\sum_{k=2}^{\infty} \frac{1}{k \cdot \ln k \cdot \ln \ln k}$ расходится.
+  Значит, исходный ряд не сходится абсолютно.
+
+Ряд имеет вид:
+\[
+\sum_{k=2}^{\infty} (-1)^k a_k, \quad \text{где } a_k = 
+\frac{1}{k \cdot \ln k \cdot \ln \ln k}
+\]
+Применим признак Лейбница (Факт 3):
+\begin{enumerate}
+  \item[1)] Убывание $a_k$: Для $k \geq 2$, $a_{k+1} = \frac{1}{(k+1) 
+  \cdot \ln(k+1) \cdot \ln \ln(k+1)} < a_k$, так как все
+  множители в знаменателе увеличиваются.
+  \item[2)] Предел $a_k$: $\lim_{k \to \infty} a_k = 0$.
+\end{enumerate}
+
+Оба условия выполнены. Следовательно, ряд сходится условно.
+
+\textbf{Ответ: } сходится условно, но не абсолютно\\
+
+
+\item[\textbf{(d)}]Дано
+\[\frac{(-1)^k}{k^\lambda} \arctg k\]
+Рассмотрим
+\[
+\sum_{k=1}^{\infty} \left| \frac{(-1)^k}{k^\lambda} \arctg k \right| = \sum_{k=1}^{\infty} \frac{\arctg k}{k^\lambda}.
+\]
+Для исследования его сходимости используем сравнение с рядом 
+\( \sum \frac{1}{k^\lambda} \). Поскольку \( \arctg k \sim \frac{\pi}{2} \) 
+при \( k \to \infty \), член ряда ведет себя как \( \frac{\pi}{2k^\lambda} \).
+Таким образом, ряд сходится абсолютно, если \( \lambda > 1 \)
+(по признаку сравнения с \( p \)-рядом). Для \( \lambda \leq 1 \) ряд расходится.
+
+Ряд имеет вид:
+\[
+\sum_{k=1}^{\infty} (-1)^k \frac{\arctg k}{k^\lambda}
+\]
+Применим признак Дирихле (Факт 1):
+\begin{itemize}
+  \item Ограниченность частичных сумм: Ряд \( \sum_{k=1}^n (-1)^k \)
+    имеет частичные суммы, ограниченные между -1 и 1.
+  \item Монотонность и предел: Последовательность \( \frac{\arctg k}{k^\lambda} \)
+    монотонно убывает и стремится к нулю при \( \lambda > 0 \).
+\end{itemize}
+
+Условия признака Дирихле выполнены для \( 0 < \lambda \leq 1 \). Следовательно, ряд сходится условно.
+
+\textbf{Ответ: } 
+\begin{itemize}
+  \item Абсолютная сходимость: \( \lambda > 1 \).
+  \item Условная сходимость: \( 0 < \lambda \leq 1 \).
+  \item Расходится: \( \lambda \leq 0 \).
+\end{itemize}$\;$
+
+\item[\textbf{(e)}]Дано
+\[
+\sum_{k=2}^{\infty} \frac{(-1)^k}{k (\ln k)^\lambda}, \quad \lambda \in \mathbb{R}
+\]
+Рассмотрим ряд:
+\[
+\sum_{k=2}^{\infty} \left| \frac{(-1)^k}{k (\ln k)^\lambda} \right| = \sum_{k=2}^{\infty} \frac{1}{k (\ln k)^\lambda}.
+\]
+Для исследования его сходимости применим интегральный признак.
+  Проверим монотонность функции:
+\[
+f(x) = \frac{1}{x (\ln x)^\lambda}
+\]
+Вычислим производную:
+\[
+f'(x) = -\frac{1 + \lambda \ln(\ln x)}{x^2 (\ln x)^{\lambda + 1}}.
+\]
+\begin{itemize}
+  \item  Для \( \lambda > 0 \): При \( x \geq e^{e^{1/\lambda}} \), \( \ln(\ln x) \geq 1/\lambda \), числитель \( 1 + \lambda \ln(\ln x) > 0 \), следовательно, \( f'(x) < 0 \).
+  \item  Для \( \lambda \leq 0 \): Производная \( f'(x) < 0 \) для всех \( x \geq 2 \).
+\end{itemize}
+
+Таким образом, \( f(x) \) убывает на \( [2; +\infty) \). Применим интегральный признак:
+\[
+\int_{2}^{\infty} \frac{1}{x (\ln x)^\lambda} dx
+\]
+Сделаем замену \( t = \ln x \), \( dt = \frac{1}{x} dx \):
+\[
+\int_{\ln 2}^{\infty} \frac{1}{t^\lambda} dt
+\]
+Интеграл сходится только при \( \lambda > 1 \). Следовательно, ряд 
+\( \sum_{k=2}^{\infty} \frac{1}{k (\ln k)^\lambda} \) 
+расходится при \( \lambda \leq 1 \). Значит, исходный ряд не сходится абсолютно при 
+\( \lambda \leq 1 \).
+
+Ряд имеет вид:
+\[
+\sum_{k=2}^{\infty} (-1)^k \frac{1}{k (\ln k)^\lambda}
+\]
+Применим признак Лейбница (Факт 3):
+\begin{itemize}
+\item Монотонность: Последовательность \( a_k = \frac{1}{k (\ln k)^\lambda} \)
+убывает для \( \lambda > 0 \) (проверено выше).
+\item Предел: \( \lim_{k \to \infty} a_k = 0 \).
+\end{itemize}
+
+Условия выполнены при \( \lambda > 0 \). Для \( \lambda \leq 0 \), 
+последовательность \( a_k \) может не убывать (например, при \( \lambda = -1 \),
+\( a_k = \frac{k}{\ln k} \), которая возрастает). Следовательно, ряд 
+сходится условно при \( 0 < \lambda \leq 1 \).
+
+\textbf{Ответ:}
+\begin{itemize}
+\item Абсолютная сходимость: \( \lambda > 1 \)
+\item Условная сходимость: \( 0 < \lambda \leq 1 \)
+\item Расходится: \( \lambda \leq 0 \)
+\end{itemize}$\;$
+
+\item[\textbf{(f)}]Дано
+\[
+\sum_{k=1}^{\infty} \left( \frac{(-1)^k}{k^{\lambda + 1/4}} + 
+\frac{1}{k^{2\lambda + 1/3}} \right), \quad \lambda \in \mathbb{R}
+\]
+Рассмотрим ряд:
+\[
+\sum_{k=1}^{\infty} \left| \frac{(-1)^k}{k^{\lambda + 1/4}} + 
+\frac{1}{k^{2\lambda + 1/3}} \right|
+\]
+Так как все члены ряда положительны, абсолютная сходимость равносильна сходимости ряда:
+\[
+\sum_{k=1}^{\infty} \left( \frac{1}{k^{\lambda + 1/4}} + 
+\frac{1}{k^{2\lambda + 1/3}} \right)
+\]
+Разобьем его на два ряда:
+\begin{itemize}
+\item Первый ряд: \(\sum_{k=1}^{\infty} \frac{1}{k^{\lambda + 1/4}}\). 
+Сходится, если \(\lambda + \frac{1}{4} > 1 \implies \lambda > \frac{3}{4}\).
+\item Второй ряд: \(\sum_{k=1}^{\infty} \frac{1}{k^{2\lambda + 1/3}}\). 
+Сходится, если \(2\lambda + \frac{1}{3} > 1 \implies \lambda > \frac{1}{3}\).
+\end{itemize}
+
+Оба ряда сходятся одновременно только при \(\lambda > \frac{3}{4}\).
+ Следовательно, исходный ряд абсолютно сходится при \(\lambda > \frac{3}{4}\).
+
+Ряд имеет вид:
+\[
+\sum_{k=1}^{\infty} \left( \frac{(-1)^k}{k^{\lambda + 1/4}} + 
+\frac{1}{k^{2\lambda + 1/3}} \right)
+\]
+Разложим его на два ряда:
+\begin{enumerate}
+\item Знакопеременный ряд: \(\sum_{k=1}^{\infty} \frac{(-1)^k}{k^{\lambda + 1/4}}\).
+ Сходится условно по признаку Лейбница (Факт 3), если \(\lambda + \frac{1}{4} > 0
+  \implies \lambda > -\frac{1}{4}\).
+\item Положительный ряд: \(\sum_{k=1}^{\infty} \frac{1}{k^{2\lambda + 1/3}}\). 
+Рассматривается ранее.
+\end{enumerate}
+
+Сумма сходящегося и расходящегося рядов расходится. Таким образом:
+\begin{itemize}
+\item При \(\lambda \leq \frac{1}{3}\): положительный ряд расходится, а знакопеременный ряд сходится условно. Их сумма расходится.
+\item При \(\frac{1}{3} < \lambda \leq \frac{3}{4}\): положительный ряд сходится, а знакопеременный ряд сходится условно. Их сумма сходится условно.
+\end{itemize}
+\textbf{Ответ: }
+\begin{itemize}
+  \item Абсолютная сходимость: \(\lambda > \frac{3}{4}\).
+  \item Условная сходимость: \(\frac{1}{3} < \lambda \leq \frac{3}{4}\).
+  \item Расходится: \(\lambda \leq \frac{1}{3}\).
+\end{itemize}$\;$
+
+\item[\textbf{(g)}]Дано
+\[
+\sum_{k=3}^{\infty} \frac{\cos k}{\ln k - \ln \ln k}.
+\]
+
+Применим признак Дирихле (Факт 1) с \( a_k = \cos k \) и \( b_k = \frac{1}{\ln k - \ln \ln k} \).
+
+\begin{enumerate}
+\item Ограниченность частичных сумм \( \sum a_k \):
   \begin{itemize}
-    \item Для $x \geq e^e \approx 15.15$, $\ln(\ln x) \geq 1$, следовательно, числитель положителен, и $f'(x) < 0$.
-    \item Для $x \in [e; e^e)$, $\ln(\ln x) \in [0; 1)$, числитель положителен, и $f'(x) < 0$.
-    \item Для $x \in [2; e)$, функция $f(x)$ не определена 
+  \item Поскольку \( \cos k \) — периодическая функция с нулевым средним, частичные суммы \( \sum_{k=3}^n \cos k \) ограничены (по аналогии с суммой \( \sum \cos k \theta \) для \( \theta \neq 2\pi m \)).
   \end{itemize}
-  Таким образом, $f(x)$ убывает на $[e; +\infty)$. Применим интегральный признак с 
-  начальной точкой $x = e$:
-  \[
-  \int_{e}^{\infty} \frac{1}{x \cdot \ln x \cdot \ln \ln x} \, dx
-  \]
-  Сделаем замену $t = \ln \ln x$, $dt = \frac{1}{x \ln x} dx$. Интеграл преобразуется:
-  \[
-  \int_{t(e)}^{\infty} \frac{1}{t} \, dt = \int_{0}^{\infty} \frac{1}{t} \, dt,
-  \]
-  который расходится. Следовательно, ряд
-   $\sum_{k=2}^{\infty} \frac{1}{k \cdot \ln k \cdot \ln \ln k}$ расходится.
-    Значит, исходный ряд не сходится абсолютно.
 
-  Ряд имеет вид:
-  \[
-  \sum_{k=2}^{\infty} (-1)^k a_k, \quad \text{где } a_k = 
-  \frac{1}{k \cdot \ln k \cdot \ln \ln k}
-  \]
-  Применим признак Лейбница (Факт 3):
-  \begin{enumerate}
-    \item[1)] Убывание $a_k$: Для $k \geq 2$, $a_{k+1} = \frac{1}{(k+1) 
-    \cdot \ln(k+1) \cdot \ln \ln(k+1)} < a_k$, так как все
-    множители в знаменателе увеличиваются.
-    \item[2)] Предел $a_k$: $\lim_{k \to \infty} a_k = 0$.
-  \end{enumerate}
+\item Монотонность \( b_k \):
+  \begin{itemize}
+  \item Рассмотрим функцию \( f(x) = \frac{1}{\ln x - \ln \ln x} \) на \( [3; +\infty) \).
+  \item Производная:
+    \[
+    f'(x) = -\frac{\frac{1}{x} - \frac{1}{x \ln x}}{(\ln x - \ln \ln x)^2} = -\frac{\ln x - 1}{x \ln x (\ln x - \ln \ln x)^2}.
+    \]
+  \item Для \( x \geq 3 \), \( \ln x \geq \ln 3 \approx 1.098 > 1 \), следовательно, \( f'(x) < 0 \). Таким образом, \( b_k \) финально убывает.
+  \end{itemize}
 
-  Оба условия выполнены. Следовательно, ряд сходится условно.
-  
-  \textbf{Ответ: } сходится условно, но не абсолютно\\
+\item Предел \( b_k \):
+  \begin{itemize}
+  \item \( \lim_{k \to \infty} b_k = \lim_{k \to \infty} \frac{1}{\ln k - \ln \ln k} = 0 \).
+  \end{itemize}
+\end{enumerate}
+
+Все условия признака Дирихле выполнены. Следовательно, ряд сходится условно.
+
+Рассмотрим ряд:
+\[
+\sum_{k=3}^{\infty} \left| \frac{\cos k}{\ln k - \ln \ln k} \right| = \sum_{k=3}^{\infty} \frac{|\cos k|}{\ln k - \ln \ln k}.
+\]
+Используем интегральный признак для функции \( f(x) = \frac{1}{\ln x - \ln \ln x} \):
+\begin{itemize}
+\item Производная \( f'(x) < 0 \) на \( [3; +\infty) \).
+\item Интеграл:
+  \[
+  \int_{3}^{\infty} \frac{1}{\ln x - \ln \ln x} \, dx.
+  \]
+\end{itemize}
+Сделаем замену \( t = \ln x \), \( dt = \frac{1}{x} dx \):
+\[
+\int_{\ln 3}^{\infty} \frac{1}{t - \ln t} \, dt.
+\]
+Этот интеграл расходится (аналогично интегралу \( \int \frac{1}{\ln x} dx \)), так как \( t - \ln t \sim t \) при \( t \to \infty \). Следовательно, ряд \( \sum \frac{1}{\ln k - \ln \ln k} \) расходится. Поскольку \( |\cos k| \geq \frac{1}{2} \) для бесконечного числа \( k \), ряд \( \sum \frac{|\cos k|}{\ln k - \ln \ln k} \) также расходится.
+
+\textbf{Ответ: } сходится условно, но не абсолютно\\
+
+\item[\textbf{(h)}]Дано
+
 
 \end{enumerate}
 \end{document}
